@@ -1,10 +1,9 @@
 import React from 'react'
 import { View, Text } from 'react-native'
 
+import { StoryList } from '../../components'
+import { stories } from './_data'
+
 export default function MainScreen() {
-    return (
-        <View>
-            <Text style={{ color: '#000' }}>Main Screen d 2312312</Text>
-        </View>
-    )
+    return <StoryList stories={stories} />
 }

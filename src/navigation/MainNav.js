@@ -8,7 +8,7 @@ const Stack = createStackNavigator()
 
 export default function MainNav() {
     return (
-        <Stack.Navigator>
+        <Stack.Navigator initialRouteName={routes.MAIN} headerMode="none">
             <Stack.Screen name={routes.MAIN} component={MainScreen} />
         </Stack.Navigator>
     )

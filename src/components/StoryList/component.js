@@ -11,7 +11,9 @@ export default function StoryList({ stories }) {
                     <Story image={{ uri: story.image }} onPress={() => {}} />
                 </StoryWrapper>
             ))}
-            <Story onPress={() => {}} />
+            <StoryWrapper>
+                <Story onPress={() => {}} />
+            </StoryWrapper>
         </HorizontalScroll>
     )
 }

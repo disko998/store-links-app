@@ -1,9 +1,18 @@
 import React from 'react'
-import { View, Text } from 'react-native'
+import { View, Text, ScrollView } from 'react-native'
 
-import { StoryList } from '../../components'
+import { StoryList, Category, CategoryList } from '../../components'
 import { stories } from './_data'
+import { MainWrapper } from './styles'
 
 export default function MainScreen() {
-    return <StoryList stories={stories} />
+    return (
+        <MainWrapper>
+            <StoryList stories={stories} />
+            <CategoryList
+                categories={[{ title: 'test', active: true, favorite: false }]}
+            />
+            <ScrollView style={{ flex: 1 }} />
+        </MainWrapper>
+    )
 }

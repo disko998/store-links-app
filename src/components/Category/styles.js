@@ -12,7 +12,7 @@ export const CategoryButton = styled.TouchableOpacity`
     align-items: center
     flex-direction: row
     max-width: 150px
-    min-width: 120px
+    min-width: 100px
     overflow: hidden
 `
 export const CategoryIcon = styled(Icon)`
@@ -22,7 +22,7 @@ export const CategoryIcon = styled(Icon)`
 
 export const Title = styled.Text`
     color: ${props => (props.isActive ? Colors.white : Colors.darkBlue)};
-    font-size: 19px;
+    font-size: 16px;
     font-weight: bold;
     text-align: center;
     text-transform: capitalize;

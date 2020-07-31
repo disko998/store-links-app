@@ -1,5 +1,4 @@
 import styled from 'styled-components/native'
-import { FlatList } from 'react-native'
 
 import { Colors } from '../../styles/colors'
 
@@ -11,4 +10,6 @@ export const HorizontalScroll = styled.View`
     flex-wrap: nowrap
 `
 
-export const Wrapper = styled.View``
+export const CategoryWrapper = styled.View`
+    margin: 5px;
+`

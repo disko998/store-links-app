@@ -30,3 +30,9 @@ export const stories = [
     //         'https://senat.me/wp-content/uploads/espana-global-spain-logo-brend-nation-marca-pais-espana.jpg',
     // },
 ]
+
+export const categories = [
+    { title: 'my list', active: true, favorite: false },
+    { title: 'restaurants', active: false, favorite: false },
+    { title: 'cafes', active: false, favorite: false },
+]

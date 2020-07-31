@@ -1,5 +1,4 @@
 import styled from 'styled-components/native'
-import Icon from 'react-native-vector-icons/MaterialIcons'
 
 import { Colors } from '../../styles/colors'
 
@@ -9,7 +8,7 @@ export const TouchableBanner = styled.TouchableOpacity`
     width: 100%
     height: 150px
     
-    marginVertical: 15px
+    marginVertical: 20px
 `
 
 export const BannerImage = styled.Image`

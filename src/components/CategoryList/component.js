@@ -5,7 +5,7 @@ import { HorizontalScroll, CategoryWrapper } from './styles'
 
 export default function CategoryList({ categories }) {
     return (
-        <HorizontalScroll horizontal>
+        <HorizontalScroll horizontal showsHorizontalScrollIndicator={false}>
             {categories.map(({ title, favorite, active }) => (
                 <CategoryWrapper key={title}>
                     <Category

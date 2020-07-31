@@ -35,4 +35,6 @@ export const categories = [
     { title: 'my list', active: true, favorite: false },
     { title: 'restaurants', active: false, favorite: false },
     { title: 'cafes', active: false, favorite: false },
+    { title: 'pet shop', active: false, favorite: false },
+    { title: 'shop', active: false, favorite: false },
 ]

@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { stories, categories } from './_data'
-import { StoryList, CategoryList, AdsBanner } from '../../components'
+import { StoryList, CategoryList, AdsBanner, SearchBar } from '../../components'
 import { MainWrapper } from './styles'
 
 const adsImage = {
@@ -11,6 +11,7 @@ const adsImage = {
 export default function MainScreen() {
     return (
         <MainWrapper>
+            <SearchBar />
             <AdsBanner src={adsImage} onPress={() => {}} />
             <StoryList stories={stories} />
             <CategoryList categories={categories} />

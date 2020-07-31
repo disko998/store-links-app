@@ -1,7 +1,13 @@
 import React from 'react'
 
-import { stories, categories } from './_data'
-import { StoryList, CategoryList, AdsBanner, SearchBar } from '../../components'
+import { stories, categories, stores } from './_data'
+import {
+    StoryList,
+    CategoryList,
+    AdsBanner,
+    SearchBar,
+    StoreList,
+} from '../../components'
 import { MainWrapper } from './styles'
 
 const adsImage = {
@@ -10,11 +16,14 @@ const adsImage = {
 
 export default function MainScreen() {
     return (
-        <MainWrapper>
-            <SearchBar />
-            <AdsBanner src={adsImage} onPress={() => {}} />
-            <StoryList stories={stories} />
-            <CategoryList categories={categories} />
-        </MainWrapper>
+        <>
+            <MainWrapper>
+                <SearchBar />
+                <AdsBanner src={adsImage} onPress={() => {}} />
+                <StoryList stories={stories} />
+                <CategoryList categories={categories} />
+                <StoreList stores={stores} />
+            </MainWrapper>
+        </>
     )
 }

@@ -3,7 +3,7 @@ import React from 'react'
 import { Story } from '../Story'
 import { HorizontalScroll, StoryWrapper } from './styles'
 
-export default function StoryList({ stories }) {
+export default function StoryList({ stories, addStore }) {
     return (
         <HorizontalScroll>
             {stories.map(story => (
@@ -12,7 +12,7 @@ export default function StoryList({ stories }) {
                 </StoryWrapper>
             ))}
             <StoryWrapper>
-                <Story onPress={() => {}} />
+                <Story onPress={addStore} />
             </StoryWrapper>
         </HorizontalScroll>
     )

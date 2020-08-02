@@ -3,9 +3,25 @@ import styled from 'styled-components/native'
 import { Colors } from '../../styles/colors'
 import { windowHeight } from '../../styles/dimensions'
 
-export const StoreWrapper = styled.ScrollView`
+export const Wrapper = styled.ScrollView`
     flex: 1
     background: ${Colors.white}
+`
+
+export const Container = styled.ScrollView`
+    padding: 20px;
+`
+
+export const GrayText = styled.Text`
+    color: ${Colors.gray}
+    font-size: 20px
+    text-align: left
+    font-weight: bold
+`
+
+export const DarkText = styled(GrayText)`
+    color: ${Colors.black}
+    font-size: 24px
 `
 
 export const StoreBanner = styled.ImageBackground`

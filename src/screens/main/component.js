@@ -17,17 +17,18 @@ const adsImage = {
 
 export default function MainScreen({ navigation }) {
     return (
-        <>
-            <MainWrapper>
-                <SearchBar onSettings={navigation.openDrawer} />
-                <AdsBanner src={adsImage} onPress={() => {}} />
-                <StoryList stories={stories} />
-                <CategoryList categories={categories} />
-                <StoreList
-                    stores={stores}
-                    onItemPress={() => navigation.navigate(routes.STORE)}
-                />
-            </MainWrapper>
-        </>
+        <MainWrapper>
+            <SearchBar onSettings={navigation.openDrawer} />
+            <AdsBanner src={adsImage} onPress={() => {}} />
+            <StoryList
+                stories={stories}
+                addStore={() => navigation.navigate(routes.ADD_STORE)}
+            />
+            <CategoryList categories={categories} />
+            <StoreList
+                stores={stores}
+                onItemPress={() => navigation.navigate(routes.STORE)}
+            />
+        </MainWrapper>
     )
 }

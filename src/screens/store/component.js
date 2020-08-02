@@ -15,17 +15,22 @@ const avatar = {
     uri: 'https://www.rubber-siliconehoses.com/images/brend/scania-logo.jpg',
 }
 
+const banner = {
+    uri:
+        'https://scontent.fbeg4-1.fna.fbcdn.net/v/t1.0-9/54518493_2246086942386173_2424004418589425664_o.jpg?_nc_cat=102&_nc_sid=dd9801&_nc_ohc=6bwWA1gdF48AX-SoTGy&_nc_ht=scontent.fbeg4-1.fna&oh=b47f853766c535d16fc928009e676d80&oe=5F4BD79A',
+}
+
 export default function StoreScreen({ navigation }) {
     return (
         <StoreWrapper>
-            <StoreBanner>
+            <StoreBanner source={banner}>
                 <Header
                     onBack={navigation.goBack}
                     onFavorite={() => alert('added to favorite')}
                 />
-                <StoreAvatar source={avatar} />
             </StoreBanner>
             <InfoWrapper>
+                <StoreAvatar source={avatar} />
                 <StoreTitle>H&S</StoreTitle>
                 <StoreDetails>Some details about the store </StoreDetails>
                 <ActionBar>

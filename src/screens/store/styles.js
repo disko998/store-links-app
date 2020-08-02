@@ -1,4 +1,5 @@
 import styled from 'styled-components/native'
+import { ImageBackground } from 'react-native'
 
 import { Colors } from '../../styles/colors'
 import { windowHeight } from '../../styles/dimensions'
@@ -8,20 +9,21 @@ export const StoreWrapper = styled.ScrollView`
     background: ${Colors.white}
 `
 
-export const StoreBanner = styled.View`
+export const StoreBanner = styled.ImageBackground`
     height: ${windowHeight * 0.5}px
     flex: 1
     background: ${Colors.gray}
     border-bottom-left-radius: 40px
     border-bottom-right-radius: 40px
     align-items: center
-    overflow: visible
+    overflow: hidden
     margin-bottom: 50px;
+    resizeMode: cover
 `
 
 export const StoreAvatar = styled.Image`
     position: absolute
-    bottom: -50px
+    top: -100px
     height: 100px
     width: 100px
     border-radius: 50px

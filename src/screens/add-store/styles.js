@@ -1,7 +1,7 @@
 import styled from 'styled-components/native'
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 
 import { Colors } from '../../styles/colors'
-import { windowHeight } from '../../styles/dimensions'
 
 export const Wrapper = styled.ScrollView`
     flex: 1
@@ -9,7 +9,7 @@ export const Wrapper = styled.ScrollView`
 `
 
 export const Container = styled.ScrollView`
-    padding: 20px;
+    padding: 30px;
 `
 
 export const GrayText = styled.Text`
@@ -19,58 +19,48 @@ export const GrayText = styled.Text`
     font-weight: bold
 `
 
+export const LogoText = styled.Text`
+    color: ${Colors.black}
+    font-size: 14px
+    text-align: center
+    font-weight: bold
+`
+
 export const DarkText = styled(GrayText)`
     color: ${Colors.black}
     font-size: 24px
 `
 
-export const StoreBanner = styled.ImageBackground`
-    height: ${windowHeight * 0.5}px
-    flex: 1
-    background: ${Colors.gray}
-    border-bottom-left-radius: 40px
-    border-bottom-right-radius: 40px
-    align-items: center
-    overflow: hidden
-    margin-bottom: 50px;
-    resizeMode: cover
-`
-
 export const StoreAvatar = styled.Image`
-    position: absolute
-    top: -100px
-    height: 100px
-    width: 100px
+    height: 100%
+    width: 100%
     border-radius: 50px
-    border: 1px ${Colors.lightGray}
 `
 
-export const InfoWrapper = styled.View`
+export const ImageIcon = styled(Icon)`
+    color: ${Colors.darkGray};
+`
+
+export const AvatarInput = styled.TouchableOpacity`
+    width: 100px
+    height: 100px
+    background: ${Colors.light}
+    border: 2px solid ${Colors.lightGray}
+    border-radius: 50px
+    padding: 10px
+
+    justify-content: center
+    align-items: center
+`
+
+export const Row = styled.View`
+    flex: 1
+    flex-direction: row;
+`
+
+export const Column = styled.View`
     flex: 1
     flex-direction: column
     justify-content: center
     align-items: center
-    padding: 10px
-`
-
-export const StoreTitle = styled.Text`
-    color: ${Colors.black}
-    font-size: 24px
-    text-align: center
-    font-weight: bold
-`
-
-export const StoreDetails = styled.Text`
-    margin-vertical: 10px;
-    color: ${Colors.darkGray}
-    font-size: 20px
-    text-align: center
-    font-weight: bold
-`
-export const ActionBar = styled.View`
-    width: 100%
-    flex-direction: row
-    justify-content: space-around
-    align-items: center
-    padding: 20px
 `

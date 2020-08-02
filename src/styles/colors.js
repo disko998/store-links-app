@@ -7,7 +7,8 @@ export const Colors = {
     //monochrome
     black: '#000',
     white: '#fff',
+    light: '#F4F5F8',
     lightGray: '#EDF1F7',
-    gray: '#ACB1C0',
+    gray: '#C1CAD4',
     darkGray: '#9AA1B7',
 }

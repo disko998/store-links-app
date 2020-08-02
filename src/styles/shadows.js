@@ -3,7 +3,7 @@ import { Platform } from 'react-native'
 
 export const lightShadow =
     Platform.OS === 'android'
-        ? { elevation: 2 }
+        ? { elevation: 1 }
         : {
               shadowColor: Colors.black,
               shadowOffset: {

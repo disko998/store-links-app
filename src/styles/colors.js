@@ -9,4 +9,5 @@ export const Colors = {
     white: '#fff',
     lightGray: '#EDF1F7',
     gray: '#ACB1C0',
+    darkGray: '#9AA1B7',
 }

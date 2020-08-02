@@ -10,7 +10,3 @@ export const ListWrapper = styled.View`
     flex-wrap: wrap
     justify-content: space-around
 `
-
-export const StoryWrapper = styled.View`
-    flex: 1;
-`

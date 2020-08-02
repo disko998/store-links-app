@@ -1,15 +1,16 @@
 import styled from 'styled-components/native'
-import Icon from 'react-native-vector-icons/MaterialIcons'
 
 import { Colors } from '../../styles/colors'
 
 export const StyledTouchable = styled.TouchableOpacity`
     border-radius: 16px
+    border: 1px solid ${Colors.lightGray}
     overflow: hidden
-    width: 80px
-    height: 80px
+    width: 90px
+    height: 90px
+    background: ${Colors.white}
 
-    margin: 10px
+    margin: 10px 5px
 `
 
 export const StoreLogo = styled.Image`

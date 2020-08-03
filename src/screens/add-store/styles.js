@@ -1,7 +1,13 @@
 import styled from 'styled-components/native'
+import { StyleSheet } from 'react-native'
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 
 import { Colors } from '../../styles/colors'
+
+export const styles = StyleSheet.create({
+    radioBox: { marginVertical: 10 },
+    radioLabel: { fontSize: 20, color: Colors.black, fontWeight: 'bold' },
+})
 
 export const Wrapper = styled.ScrollView`
     flex: 1

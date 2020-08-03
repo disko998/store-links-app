@@ -5,25 +5,32 @@ import { styles } from '../screens/settings/styles'
 import routes from './routes'
 import MainNav from './MainNav'
 import { SettingsScreen } from '../screens'
-import { Colors } from '../styles'
 
 const Drawer = createDrawerNavigator()
+export const DrawerContext = React.createContext()
 
-export default function DrawerNav(prop) {
-    console.log(prop)
+export default function DrawerNav() {
+    const [isOpen, setIsOpen] = React.useState(false)
+
+    const onOpen = () => {
+        setIsOpen(true)
+    }
+
+    const onClose = () => {
+        setIsOpen(false)
+    }
+
     return (
-        <Drawer.Navigator
-            initialRouteName={routes.MAIN}
-            drawerContent={props => <SettingsScreen {...props} />}
-            drawerType="back"
-            overlayColor="rgba(51, 102, 255, 0.1)"
-            // sceneContainerStyle={{
-            //     paddingVertical: 50,
-            //     marginLeft: -20,
-            //     backgroundColor: Colors.mainBlue,
-            // }}
-            drawerStyle={styles.drawerStyle}>
-            <Drawer.Screen name={routes.MAIN} component={MainNav} />
-        </Drawer.Navigator>
+        <DrawerContext.Provider value={{ onOpen, onClose }}>
+            <Drawer.Navigator
+                initialRouteName={routes.MAIN}
+                drawerContent={props => <SettingsScreen {...props} />}
+                drawerType="back"
+                overlayColor="rgba(51, 102, 255, 0.1)"
+                sceneContainerStyle={isOpen ? styles.sceneStyle : null}
+                drawerStyle={styles.drawerStyle}>
+                <Drawer.Screen name={routes.MAIN} component={MainNav} />
+            </Drawer.Navigator>
+        </DrawerContext.Provider>
     )
 }

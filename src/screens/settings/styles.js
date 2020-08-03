@@ -17,6 +17,11 @@ export const styles = StyleSheet.create({
         // width: windowWidth,
         padding: 20,
     },
+    sceneStyle: {
+        paddingVertical: 50,
+        marginLeft: -20,
+        backgroundColor: Colors.mainBlue,
+    },
 })
 
 export const StyledItem = styled(DrawerItem)``

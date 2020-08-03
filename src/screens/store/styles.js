@@ -21,12 +21,12 @@ export const StoreBanner = styled.ImageBackground`
 `
 
 export const StoreAvatar = styled.Image`
-    position: absolute
-    top: -100px
-    height: 100px
-    width: 100px
-    border-radius: 50px
-    border: 1px ${Colors.lightGray}
+    position: absolute;
+    top: -100px;
+    height: 100px;
+    width: 100px;
+    border: 1px solid ${Colors.lightGray};
+    border-radius: 50px;
 `
 
 export const InfoWrapper = styled.View`

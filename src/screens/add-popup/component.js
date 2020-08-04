@@ -5,20 +5,19 @@ import { Colors } from '../../styles/colors'
 import {
     Card,
     Gradient,
-    Illustration,
     Title,
     Divider,
     BlackTitle,
     SkipButton,
 } from './styles'
 import routes from '../../navigation/routes'
-import { cook } from '../../assets/images'
+import { CookSvg } from '../../assets/images'
 
 export default function AddPopupScreen({ navigation }) {
     return (
         <Gradient colors={Colors.addStorePopupBackground}>
             <Card>
-                <Illustration source={cook} />
+                <CookSvg />
                 <Title>Contact Us for Ads Here!</Title>
                 <GradientButton
                     colors={[Colors.purple, Colors.mainBlue]}

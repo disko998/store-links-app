@@ -1,6 +1,7 @@
 import React from 'react'
 
-import { BookmarkIcon, UniqueIcon } from './styles'
+import { BookmarkIcon, UniqueWrapper } from './styles'
+import { UniqueMark as UniqueIcon } from '../../assets/images'
 
 export const FavoriteMark = ({ show, size = 30, children }) => {
     return (
@@ -15,7 +16,11 @@ export const UniqueMark = ({ show, size = 30, children }) => {
     return (
         <>
             {children}
-            {show && <UniqueIcon size={size} name="star" />}
+            {show && (
+                <UniqueWrapper>
+                    <UniqueIcon />
+                </UniqueWrapper>
+            )}
         </>
     )
 }

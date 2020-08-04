@@ -10,9 +10,8 @@ export const BookmarkIcon = styled(Foundation)`
     left: 10px
     color: ${Colors.mainBlue};
 `
-export const UniqueIcon = styled(AntDesign)`
+export const UniqueWrapper = styled.View`
     position: absolute
     top: -10px
     right: -10px
-    color: ${Colors.yellow};
 `

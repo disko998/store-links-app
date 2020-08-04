@@ -1,16 +1,18 @@
 import React from 'react'
 
-import { ListWrapper, StoryWrapper } from './styles'
+import { ListWrapper } from './styles'
 import { StoreButton } from '../StoreButton'
 
 export default function StoreList({ stores, onItemPress }) {
     return (
         <ListWrapper>
-            {stores.map(({ image }) => (
+            {stores.map(store => (
                 <StoreButton
-                    key={image}
-                    image={{ uri: image }}
-                    onPress={onItemPress}
+                    key={store.id}
+                    image={{ uri: store.logo }}
+                    unique={store.unique}
+                    favorite={store.favorite}
+                    onPress={() => onItemPress(store)}
                 />
             ))}
         </ListWrapper>

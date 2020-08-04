@@ -28,6 +28,7 @@ export const StoreAvatar = styled.Image`
     border-width: 1px
     border-color: ${Colors.lightGray};
     border-radius: 50px
+    background: ${Colors.white}
 `
 
 export const InfoWrapper = styled.View`

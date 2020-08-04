@@ -16,6 +16,10 @@ const adsImage = {
 }
 
 export default function MainScreen({ navigation }) {
+    const onStoreClick = store => {
+        navigation.navigate(routes.STORE, store)
+    }
+
     return (
         <MainWrapper>
             <SearchBar onSettings={navigation.openDrawer} />
@@ -25,10 +29,7 @@ export default function MainScreen({ navigation }) {
                 addStore={() => navigation.navigate(routes.ADD_POPUP)}
             />
             <CategoryList categories={categories} />
-            <StoreList
-                stores={stores}
-                onItemPress={() => navigation.navigate(routes.STORE)}
-            />
+            <StoreList stores={stores} onItemPress={onStoreClick} />
         </MainWrapper>
     )
 }

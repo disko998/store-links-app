@@ -16,8 +16,9 @@ export default function SearchBar({ onSettings, ...props }) {
             <SearchInput placeholder="Search" />
             <SettingsButton
                 onPress={onSettings}
-                onLongPress={visitCard}
-                delayLongPress={5000}>
+                // onLongPress={visitCard}
+                // delayLongPress={5000}
+            >
                 <SettingsIcon name="settings" size={35} />
             </SettingsButton>
         </BarWrapper>

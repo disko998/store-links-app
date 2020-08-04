@@ -4,7 +4,7 @@ import { Colors } from '../../styles/colors'
 
 export const StyledTouchable = styled.TouchableOpacity`
     border-radius: 16px
-    border: 1px solid ${Colors.gray}
+    border: 1px solid ${Colors.lightGray}
     overflow: visible
     width: 90px
     height: 90px

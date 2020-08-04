@@ -1,4 +1,5 @@
 import React from 'react'
+import { Linking } from 'react-native'
 
 import {
     StoreWrapper,
@@ -21,8 +22,24 @@ const banner = {
 }
 
 export default function StoreScreen({ navigation, route }) {
-    const { name, details, logo, image } = route.params
-    console.log(route.params)
+    const { name, details, logo, image, website, phone } = route.params
+
+    const redirectToWebsite = React.useCallback(async () => {
+        // Checking if the link is supported for links with custom URL scheme.
+        const supported = await Linking.canOpenURL(website)
+
+        if (supported) {
+            // Opening the link with some app, if the URL scheme is "http" the web link should be opened
+            // by some browser in the mobile
+            await Linking.openURL(website)
+        } else {
+            alert(`Can't open this URL: ${website}`)
+        }
+    }, [website])
+
+    const onCall = React.useCallback(async () => {
+        await Linking.openURL(`tel:+${phone}`)
+    }, [phone])
 
     return (
         <StoreWrapper>
@@ -47,13 +64,13 @@ export default function StoreScreen({ navigation, route }) {
                         title="Location"
                         onPress={() => {}}
                     />
-                    <ActionButton
-                        logo="phone"
-                        title="Call"
-                        onPress={() => {}}
-                    />
+                    <ActionButton logo="phone" title="Call" onPress={onCall} />
                 </ActionBar>
-                <PrimaryButton title="Ordern Now" />
+                <PrimaryButton
+                    title={website ? 'Ordern Now' : 'No link for this store'}
+                    disabled={!Boolean(website)}
+                    onPress={redirectToWebsite}
+                />
             </InfoWrapper>
         </StoreWrapper>
     )

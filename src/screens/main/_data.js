@@ -36,7 +36,7 @@ export const stores = [
         details: 'Lorem Ipsum is simply dummy text',
         website:
             'https://hsstore.com/Default.aspx?currency=kwd&device=web&lan=en',
-        number: 123456789,
+        phone: 123456789,
         favorite: false,
         unique: false,
         image:
@@ -49,7 +49,7 @@ export const stores = [
         name: 'Euphoria',
         details: 'Lorem Ipsum is simply dummy text',
         website: 'https://euphoria.cafe',
-        number: 123456789,
+        phone: 123456789,
         favorite: true,
         unique: true,
         image:
@@ -62,7 +62,7 @@ export const stores = [
         name: 'X-cite',
         details: 'Lorem Ipsum is simply dummy text',
         website: 'https://www.xcite.com/',
-        number: 123456789,
+        phone: 123456789,
         favorite: true,
         unique: false,
         image:
@@ -74,9 +74,8 @@ export const stores = [
         id: '4',
         name: 'Mr Baker',
         details: 'Lorem Ipsum is simply dummy text',
-        website:
-            'https://www.talabat.com/kuwait/restaurant/36890/mr-baker-siddiq?aid=72',
-        number: 123456789,
+        website: '',
+        phone: 123456789,
         favorite: false,
         unique: true,
         image:
@@ -89,7 +88,7 @@ export const stores = [
         name: 'Pick',
         details: 'Lorem Ipsum is simply dummy text',
         website: 'http://pick.com.kw/',
-        number: 123456789,
+        phone: 123456789,
         favorite: true,
         unique: true,
         image:
@@ -100,9 +99,8 @@ export const stores = [
         id: '6',
         name: 'Nabta',
         details: 'Lorem Ipsum is simply dummy text',
-        website:
-            'https://www.facebook.com/NablaCosmetics/photos/-saldi-gi%C3%A0-sapete-la-fantastica-notizia-c%C3%A8-una-vasta-selezione-di-prodotti-scont/1864456103586088/',
-        number: 123456789,
+        website: '',
+        phone: 123456789,
         favorite: false,
         unique: false,
         image:

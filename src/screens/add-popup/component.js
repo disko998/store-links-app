@@ -12,17 +12,13 @@ import {
     SkipButton,
 } from './styles'
 import routes from '../../navigation/routes'
-
-const image = {
-    uri:
-        'https://img.favpng.com/4/1/25/feature-phone-smartphone-chinese-illustration-cartoon-mobile-phone-png-favpng-iHBp12w9yRckMiWLFCtzFPngL.jpg',
-}
+import { cook } from '../../assets/images'
 
 export default function AddPopupScreen({ navigation }) {
     return (
         <Gradient colors={Colors.addStorePopupBackground}>
             <Card>
-                <Illustration source={image} />
+                <Illustration source={cook} />
                 <Title>Contact Us for Ads Here!</Title>
                 <GradientButton
                     colors={[Colors.purple, Colors.mainBlue]}

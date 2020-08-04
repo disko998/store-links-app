@@ -17,7 +17,7 @@ export const Gradient = styled(LinearGradient)`
 export const Card = styled.TouchableOpacity`
     min-height: 60%
     width: 90%
-    border-radius: 30px
+    border-radius: 47px
     padding: 30px 
     background: ${Colors.white}
     justify-content: center

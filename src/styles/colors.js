@@ -1,9 +1,10 @@
 export const Colors = {
     mainBlue: '#3366FF',
+    lightBlue: '#50BCFF',
     darkBlue: '#222B45',
     orange: '#FF8900',
     yellow: '#F0B400',
-    purple: '#7e33ff',
+    purple: '#7550FF',
 
     //monochrome
     black: '#000',
@@ -15,7 +16,7 @@ export const Colors = {
 
     // specific
     addStorePopupBackground: [
-        'rgba(51, 102, 255,0.7)',
-        'rgba(58, 189, 232,0.7)',
+        'rgba(51, 102, 255,0.8)',
+        'rgba(80, 188, 255,0.8)',
     ],
 }

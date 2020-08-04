@@ -22,7 +22,7 @@ export default function MainScreen({ navigation }) {
             <AdsBanner src={adsImage} onPress={() => {}} />
             <StoryList
                 stories={stories}
-                addStore={() => navigation.navigate(routes.ADD_STORE)}
+                addStore={() => navigation.navigate(routes.ADD_POPUP)}
             />
             <CategoryList categories={categories} />
             <StoreList

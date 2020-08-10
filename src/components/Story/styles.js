@@ -29,6 +29,7 @@ export const AddText = styled.Text`
     color: ${Colors.orange};
     font-size: 15px;
     font-weight: bold;
+    font-family: SFProDisplay-Regular;
 `
 
 export const StoryWrapper = styled.View`

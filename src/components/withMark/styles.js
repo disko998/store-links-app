@@ -1,6 +1,5 @@
 import styled from 'styled-components/native'
 import Foundation from 'react-native-vector-icons/Foundation'
-import AntDesign from 'react-native-vector-icons/AntDesign'
 
 import { Colors } from '../../styles/colors'
 

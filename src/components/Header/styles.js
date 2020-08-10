@@ -34,6 +34,7 @@ export const Title = styled.Text`
     align-self: center;
     color: ${Colors.white}
     font-size: 18px
+    font-family: SFProDisplay-Regular
 `
 
 export const BookmarkIcon = styled(Foundation)`

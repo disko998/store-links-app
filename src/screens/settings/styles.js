@@ -2,7 +2,7 @@ import styled from 'styled-components/native'
 import { StyleSheet } from 'react-native'
 import { DrawerItem } from '@react-navigation/drawer'
 
-import { Colors } from '../../styles/colors'
+import { Colors, font } from '../../styles'
 import { windowWidth } from '../../styles/dimensions'
 
 export const styles = StyleSheet.create({
@@ -10,6 +10,7 @@ export const styles = StyleSheet.create({
         color: Colors.white,
         fontSize: 18,
         fontWeight: 'bold',
+        fontFamily: font.regular,
         marginLeft: -20,
     },
     drawerStyle: {
@@ -33,6 +34,7 @@ export const DrawerHeader = styled.View`
 export const AppName = styled.Text`
     fontSize: 43px
     font-weight: bold
+    font-family: SFProDisplay-Regular
     color: ${Colors.white}
     text-align: center
 `

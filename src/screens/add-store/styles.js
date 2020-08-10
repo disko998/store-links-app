@@ -2,11 +2,16 @@ import styled from 'styled-components/native'
 import { StyleSheet } from 'react-native'
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 
-import { Colors } from '../../styles/colors'
+import { Colors, font } from '../../styles'
 
 export const styles = StyleSheet.create({
     radioBox: { marginVertical: 10 },
-    radioLabel: { fontSize: 20, color: Colors.black, fontWeight: 'bold' },
+    radioLabel: {
+        fontSize: 20,
+        color: Colors.black,
+        fontWeight: 'bold',
+        fontFamily: 'SFProDisplay-Regular',
+    },
 })
 
 export const Wrapper = styled.ScrollView`
@@ -23,6 +28,7 @@ export const GrayText = styled.Text`
     font-size: 20px
     text-align: left
     font-weight: bold
+    font-family: ${font.regular}
 `
 
 export const LogoText = styled.Text`
@@ -30,6 +36,7 @@ export const LogoText = styled.Text`
     font-size: 14px
     text-align: center
     font-weight: bold
+    font-family: ${font.regular}
 `
 
 export const DarkText = styled(GrayText)`

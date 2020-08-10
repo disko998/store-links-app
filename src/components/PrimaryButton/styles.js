@@ -20,4 +20,5 @@ export const Title = styled.Text`
     font-size: 24px;
     text-align: center;
     font-weight: bold;
+    font-family: SFProDisplay-Regular
 `

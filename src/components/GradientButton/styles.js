@@ -16,6 +16,7 @@ export const Title = styled.Text`
     color: ${props => (props.disabled ? Colors.gray : Colors.white)}
     font-size: 16px;
     text-align: center;
+    font-family: SFProDisplay-Regular
     font-weight: bold;
 `
 

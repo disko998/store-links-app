@@ -24,6 +24,7 @@ export const Title = styled.Text`
     color: ${props => (props.isActive ? Colors.white : Colors.darkBlue)};
     font-size: 16px;
     font-weight: bold;
+    font-family: SFProDisplay-Regular
     text-align: center;
     text-transform: capitalize;
 `

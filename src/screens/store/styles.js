@@ -44,6 +44,7 @@ export const StoreTitle = styled.Text`
     font-size: 24px
     text-align: center
     font-weight: bold
+    font-family: SFProDisplay-Regular
 `
 
 export const StoreDetails = styled.Text`
@@ -52,6 +53,7 @@ export const StoreDetails = styled.Text`
     font-size: 20px
     text-align: center
     font-weight: bold
+    font-family: SFProDisplay-Regular
 `
 export const ActionBar = styled.View`
     width: 100%

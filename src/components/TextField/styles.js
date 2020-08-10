@@ -18,6 +18,7 @@ export const StyledTextInput = styled.TextInput`
     color: ${Colors.orange}
     font-size: 16px
     font-weight: bold
+    font-family: SFProDisplay-Regular
     background: ${Colors.white}
     padding: 10px
 `

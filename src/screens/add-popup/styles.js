@@ -34,6 +34,7 @@ export const Title = styled.Text`
     color: ${Colors.mainBlue}
     font-weight: bold
     text-align: center
+    font-family: SFProDisplay-Regular
     
     margin-top: 15px
 `
@@ -54,6 +55,7 @@ export const SkipButton = styled.Text`
     color: ${Colors.white}
     text-decoration: underline
     font-weight: bold
+    font-family: SFProDisplay-Regular
 
     position: absolute
     bottom: 50px

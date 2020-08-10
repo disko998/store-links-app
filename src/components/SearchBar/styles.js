@@ -15,6 +15,7 @@ export const SearchInput = styled.TextInput`
     height: 50px
     padding: 10px
     font-size: 24px
+    font-family: SFProDisplay-Regular
 `
 
 export const SettingsButton = styled.TouchableOpacity`

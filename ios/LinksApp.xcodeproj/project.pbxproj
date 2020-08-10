@@ -18,6 +18,8 @@
 		2DCD954D1E0B4F2C00145EB5 /* LinksAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* LinksAppTests.m */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		84D379F424E0A3A60075868F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84D379F324E0A3A60075868F /* GoogleService-Info.plist */; };
+		84D37A7C24E0C8610075868F /* SFProDisplay-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84D37A7A24E0C8610075868F /* SFProDisplay-Bold.ttf */; };
+		84D37A7D24E0C8610075868F /* SFProDisplay-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84D37A7B24E0C8610075868F /* SFProDisplay-Regular.ttf */; };
 		B0109CDCB76778EE329B95CE /* libPods-LinksApp-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D4420752399E9316412BCB1 /* libPods-LinksApp-tvOS.a */; };
 		B8C0C3F6F4666953B0135E26 /* libPods-LinksApp-LinksAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B8BF25EE66AA0B891B0D4BB0 /* libPods-LinksApp-LinksAppTests.a */; };
 		E95180DEBAE4425C7BDE1176 /* libPods-LinksApp-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F6FC201BB527483FAFB686F /* libPods-LinksApp-tvOSTests.a */; };
@@ -62,6 +64,8 @@
 		7F6FC201BB527483FAFB686F /* libPods-LinksApp-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LinksApp-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = LinksApp/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		84D379F324E0A3A60075868F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		84D37A7A24E0C8610075868F /* SFProDisplay-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Bold.ttf"; sourceTree = "<group>"; };
+		84D37A7B24E0C8610075868F /* SFProDisplay-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Regular.ttf"; sourceTree = "<group>"; };
 		A7BDA212A831F1A66529A27D /* Pods-LinksApp-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LinksApp-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-LinksApp-tvOS/Pods-LinksApp-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		B8BF25EE66AA0B891B0D4BB0 /* libPods-LinksApp-LinksAppTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LinksApp-LinksAppTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7F224CC8B2E8DB7EE91048F /* Pods-LinksApp-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LinksApp-tvOS.release.xcconfig"; path = "Target Support Files/Pods-LinksApp-tvOS/Pods-LinksApp-tvOS.release.xcconfig"; sourceTree = "<group>"; };
@@ -161,6 +165,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				84D37A7924E0C7FB0075868F /* fonts */,
 				84D379F324E0A3A60075868F /* GoogleService-Info.plist */,
 				13B07FAE1A68108700A75B9A /* LinksApp */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
@@ -183,6 +188,15 @@
 				2D02E4901E0B4A5D006451C7 /* LinksApp-tvOSTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		84D37A7924E0C7FB0075868F /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				84D37A7A24E0C8610075868F /* SFProDisplay-Bold.ttf */,
+				84D37A7B24E0C8610075868F /* SFProDisplay-Regular.ttf */,
+			);
+			path = fonts;
 			sourceTree = "<group>";
 		};
 		FE8616461C9EDC63FFE54A2E /* Pods */ = {
@@ -346,6 +360,8 @@
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				84D379F424E0A3A60075868F /* GoogleService-Info.plist in Resources */,
+				84D37A7D24E0C8610075868F /* SFProDisplay-Regular.ttf in Resources */,
+				84D37A7C24E0C8610075868F /* SFProDisplay-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

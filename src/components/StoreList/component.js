@@ -1,9 +1,29 @@
 import React from 'react'
+import { useNavigation } from '@react-navigation/native'
 
 import { ListWrapper } from './styles'
 import { StoreButton } from '../StoreButton'
+import { AppContext } from '../../context/AppContext'
+import routes from '../../navigation/routes'
 
-export default function StoreList({ stores, onItemPress }) {
+export default function StoreList() {
+    // hooks
+    const navigation = useNavigation()
+    const {
+        state: { stores },
+        actions: { fetchStores },
+    } = React.useContext(AppContext)
+
+    React.useEffect(() => {
+        fetchStores()
+    }, [fetchStores])
+
+    // handlers
+    const onStorePress = React.useCallback(
+        store => navigation.navigate(routes.STORE, JSON.stringify(store)),
+        [navigation],
+    )
+
     return (
         <ListWrapper>
             {stores.map(store => (
@@ -12,7 +32,7 @@ export default function StoreList({ stores, onItemPress }) {
                     image={{ uri: store.logo }}
                     unique={store.unique}
                     favorite={store.favorite}
-                    onPress={() => onItemPress(store)}
+                    onPress={() => onStorePress(store)}
                 />
             ))}
         </ListWrapper>

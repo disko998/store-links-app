@@ -22,7 +22,9 @@ const banner = {
 }
 
 export default function StoreScreen({ navigation, route }) {
-    const { name, details, logo, image, website, phone } = route.params
+    const { name, details, logo, image, website, phone } = JSON.parse(
+        route.params,
+    )
 
     const redirectToWebsite = React.useCallback(async () => {
         // Checking if the link is supported for links with custom URL scheme.

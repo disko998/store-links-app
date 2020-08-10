@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { stories, categories, stores } from './_data'
+import { stories, categories } from './_data'
 import {
     StoryList,
     CategoryList,
@@ -16,10 +16,6 @@ const adsImage = {
 }
 
 export default function MainScreen({ navigation }) {
-    const onStoreClick = store => {
-        navigation.navigate(routes.STORE, store)
-    }
-
     return (
         <MainWrapper>
             <SearchBar onSettings={navigation.openDrawer} />
@@ -29,7 +25,7 @@ export default function MainScreen({ navigation }) {
                 addStore={() => navigation.navigate(routes.ADD_POPUP)}
             />
             <CategoryList categories={categories} />
-            <StoreList stores={stores} onItemPress={onStoreClick} />
+            <StoreList />
         </MainWrapper>
     )
 }

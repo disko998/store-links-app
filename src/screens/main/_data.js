@@ -112,8 +112,8 @@ export const stores = [
 
 export const seed = [
     {
-        name: 'John Doe',
-        title: 'H&S',
+        title: 'John Doe',
+        name: 'H&S',
         order_link:
             'https://hsstore.com/Default.aspx?currency=kwd&device=web&lan=en',
         call_number: '123456789',
@@ -127,8 +127,8 @@ export const seed = [
             'https://is2-ssl.mzstatic.com/image/thumb/Purple118/v4/21/90/af/2190af8a-f8af-bf2a-513c-a017aacd9875/source/512x512bb.jpg',
     },
     {
-        name: 'John Doe',
-        title: 'Euphoria',
+        title: 'John Doe',
+        name: 'Euphoria',
         order_link: 'https://euphoria.cafe',
         call_number: '123456789',
         whatsApp_number: '123456789',
@@ -155,8 +155,8 @@ export const seed = [
             'https://scontent.fbeg4-1.fna.fbcdn.net/v/t1.0-9/78416290_3122419527788022_273422411246862336_n.jpg?_nc_cat=1&_nc_sid=09cbfe&_nc_ohc=7coZXQdjv4oAX-ET2Hx&_nc_ht=scontent.fbeg4-1.fna&oh=60b1855ff0d226be79dc715ad0519a4d&oe=5F4D2C91',
     },
     {
-        name: 'John Doe',
-        title: 'Mr Baker',
+        title: 'John Doe',
+        name: 'Mr Baker',
         order_link: '',
         call_number: '123456789',
         whatsApp_number: '123456789',
@@ -167,8 +167,8 @@ export const seed = [
             'https://media-exp1.licdn.com/dms/image/C560BAQGwCcUmtb3InQ/company-logo_200_200/0?e=2159024400&v=beta&t=abCn1Fv1yqLzCEIriQa3Ji73tCDOaaEWEILRi9OhfEI',
     },
     {
-        name: 'John Doe',
-        title: 'Pick',
+        title: 'John Doe',
+        name: 'Pick',
         order_link: 'http://pick.com.kw/',
         call_number: '123456789',
         whatsApp_number: '123456789',
@@ -180,8 +180,8 @@ export const seed = [
         logo: 'http://pick.com.kw/wp-content/uploads/2015/11/homebglogo.png',
     },
     {
-        name: 'John Doe',
-        title: 'Nabta',
+        title: 'John Doe',
+        name: 'Nabta',
         order_link: '',
         call_number: '123456789',
         whatsApp_number: '123456789',

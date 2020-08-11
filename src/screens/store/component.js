@@ -44,8 +44,8 @@ export default function StoreScreen({ navigation, route }) {
             </StoreBanner>
             <InfoWrapper>
                 <StoreAvatar source={{ uri: logo }} />
-                <StoreTitle>{title}</StoreTitle>
-                <StoreDetails>Authorized {name}</StoreDetails>
+                <StoreTitle>{name}</StoreTitle>
+                <StoreDetails>{title}</StoreDetails>
                 <ActionBar>
                     <ActionButton
                         logo="whatsapp"

@@ -12,36 +12,27 @@ import {
 } from './styles'
 import { ActionButton, PrimaryButton, Header } from '../../components'
 
-const avatar = {
-    uri: 'https://www.rubber-siliconehoses.com/images/brend/scania-logo.jpg',
-}
-
-const banner = {
-    uri:
-        'https://scontent.fbeg4-1.fna.fbcdn.net/v/t1.0-9/54518493_2246086942386173_2424004418589425664_o.jpg?_nc_cat=102&_nc_sid=dd9801&_nc_ohc=6bwWA1gdF48AX-SoTGy&_nc_ht=scontent.fbeg4-1.fna&oh=b47f853766c535d16fc928009e676d80&oe=5F4BD79A',
-}
-
 export default function StoreScreen({ navigation, route }) {
-    const { name, details, logo, image, website, phone } = JSON.parse(
+    const { name, title, logo, image, order_link, call_number } = JSON.parse(
         route.params,
     )
 
     const redirectToWebsite = React.useCallback(async () => {
         // Checking if the link is supported for links with custom URL scheme.
-        const supported = await Linking.canOpenURL(website)
+        const supported = await Linking.canOpenURL(order_link)
 
         if (supported) {
             // Opening the link with some app, if the URL scheme is "http" the web link should be opened
             // by some browser in the mobile
-            await Linking.openURL(website)
+            await Linking.openURL(order_link)
         } else {
-            alert(`Can't open this URL: ${website}`)
+            alert(`Can't open this URL: ${order_link}`)
         }
-    }, [website])
+    }, [order_link])
 
     const onCall = React.useCallback(async () => {
-        await Linking.openURL(`tel:+${phone}`)
-    }, [phone])
+        await Linking.openURL(`tel:+${call_number}`)
+    }, [call_number])
 
     return (
         <StoreWrapper>
@@ -53,8 +44,8 @@ export default function StoreScreen({ navigation, route }) {
             </StoreBanner>
             <InfoWrapper>
                 <StoreAvatar source={{ uri: logo }} />
-                <StoreTitle>{name}</StoreTitle>
-                <StoreDetails>{details}</StoreDetails>
+                <StoreTitle>{title}</StoreTitle>
+                <StoreDetails>Authorized {name}</StoreDetails>
                 <ActionBar>
                     <ActionButton
                         logo="whatsapp"
@@ -69,8 +60,8 @@ export default function StoreScreen({ navigation, route }) {
                     <ActionButton logo="phone" title="Call" onPress={onCall} />
                 </ActionBar>
                 <PrimaryButton
-                    title={website ? 'Ordern Now' : 'No link for this store'}
-                    disabled={!Boolean(website)}
+                    title={order_link ? 'Ordern Now' : 'No link for this store'}
+                    disabled={!Boolean(order_link)}
                     onPress={redirectToWebsite}
                 />
             </InfoWrapper>

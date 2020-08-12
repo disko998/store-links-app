@@ -1,18 +1,22 @@
 import React from 'react'
 import { SafeAreaView, StatusBar, StyleSheet } from 'react-native'
+import { Provider } from 'react-redux'
 
 import RootNavigation from './navigation'
 import { Colors } from './styles/colors'
-import AppProvider from './context/AppContext'
+import store from './redux'
 
 const App = () => {
     return (
-        <AppProvider>
+        <>
             <StatusBar barStyle="dark-content" backgroundColor={Colors.white} />
-            <SafeAreaView style={styles.app}>
-                <RootNavigation />
-            </SafeAreaView>
-        </AppProvider>
+
+            <Provider store={store}>
+                <SafeAreaView style={styles.app}>
+                    <RootNavigation />
+                </SafeAreaView>
+            </Provider>
+        </>
     )
 }
 

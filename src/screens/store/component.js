@@ -11,28 +11,30 @@ import {
     InfoWrapper,
 } from './styles'
 import { ActionButton, PrimaryButton, Header } from '../../components'
+import { redirectToWebsite, openWhatsApp } from '../../utils/helper'
 
 export default function StoreScreen({ navigation, route }) {
-    const { name, title, logo, image, order_link, call_number } = JSON.parse(
-        route.params,
-    )
+    const {
+        name,
+        title,
+        logo,
+        image,
+        order_link,
+        call_number,
+        whatsApp_number,
+    } = JSON.parse(route.params)
 
-    const redirectToWebsite = React.useCallback(async () => {
-        // Checking if the link is supported for links with custom URL scheme.
-        const supported = await Linking.canOpenURL(order_link)
-
-        if (supported) {
-            // Opening the link with some app, if the URL scheme is "http" the web link should be opened
-            // by some browser in the mobile
-            await Linking.openURL(order_link)
-        } else {
-            alert(`Can't open this URL: ${order_link}`)
-        }
+    const onOrder = React.useCallback(async () => {
+        redirectToWebsite(order_link)
     }, [order_link])
 
     const onCall = React.useCallback(async () => {
         await Linking.openURL(`tel:+${call_number}`)
     }, [call_number])
+
+    const onWhatsApp = React.useCallback(async () => {
+        openWhatsApp(whatsApp_number)
+    }, [whatsApp_number])
 
     return (
         <StoreWrapper>
@@ -50,7 +52,7 @@ export default function StoreScreen({ navigation, route }) {
                     <ActionButton
                         logo="whatsapp"
                         title="Whatsapp"
-                        onPress={() => {}}
+                        onPress={onWhatsApp}
                     />
                     <ActionButton
                         logo="compass-outline"
@@ -62,7 +64,7 @@ export default function StoreScreen({ navigation, route }) {
                 <PrimaryButton
                     title={order_link ? 'Ordern Now' : 'No link for this store'}
                     disabled={!Boolean(order_link)}
-                    onPress={redirectToWebsite}
+                    onPress={onOrder}
                 />
             </InfoWrapper>
         </StoreWrapper>

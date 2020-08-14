@@ -1,12 +1,16 @@
 import React from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
 
-import { MainScreen, StoreScreen, AddStoreScreen } from '../screens'
+import {
+    MainScreen,
+    StoreScreen,
+    AddStoreScreen,
+    StoryScreen,
+} from '../screens'
 import routes from './routes'
 import { DrawerContext } from './DrawerNav'
 import { StatusBar } from 'react-native'
 import { Colors } from '../styles'
-import { CardOverlay } from '../components'
 
 const Stack = createStackNavigator()
 
@@ -57,6 +61,7 @@ export default function MainNav({ navigation }) {
                     name={routes.ADD_STORE}
                     component={AddStoreScreen}
                 />
+                <Stack.Screen name={routes.STORY} component={StoryScreen} />
             </Stack.Navigator>
         </>
     )

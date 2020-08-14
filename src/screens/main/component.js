@@ -20,10 +20,7 @@ export default function MainScreen({ navigation }) {
         <MainWrapper>
             <SearchBar onSettings={navigation.openDrawer} />
             <AdsBanner src={adsImage} onPress={() => {}} />
-            <StoryList
-                stories={stories}
-                addStore={() => navigation.navigate(routes.ADD_POPUP)}
-            />
+            <StoryList />
             <CategoryList categories={categories} />
             <StoreList />
         </MainWrapper>

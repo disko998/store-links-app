@@ -1,5 +1,4 @@
 import React from 'react'
-import { Linking } from 'react-native'
 
 import { startStoryAsync, selectStoryIndex } from '../../redux/story'
 import {
@@ -8,6 +7,9 @@ import {
     StoryName,
     Avatar,
     InfoWrapper,
+    HeaderWrapper,
+    PageIndicatorsWrapper,
+    PageIndicator,
 } from './styles'
 import { PrimaryButton } from '../PrimaryButton'
 import { useDispatch, useSelector } from 'react-redux'
@@ -37,10 +39,17 @@ export default function StoryView({
     return (
         <StoryWrapper source={{ uri: images[index] }}>
             <ContentWrapper disabled={true}>
-                <InfoWrapper>
-                    <Avatar source={{ uri: logo }} />
-                    <StoryName>{name}</StoryName>
-                </InfoWrapper>
+                <HeaderWrapper>
+                    <PageIndicatorsWrapper>
+                        {images.map((image, i) => (
+                            <PageIndicator active={index >= i} />
+                        ))}
+                    </PageIndicatorsWrapper>
+                    <InfoWrapper>
+                        <Avatar source={{ uri: logo }} />
+                        <StoryName>{name}</StoryName>
+                    </InfoWrapper>
+                </HeaderWrapper>
 
                 <PrimaryButton
                     disabled={!Boolean(order_link)}

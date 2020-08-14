@@ -7,9 +7,11 @@ import {
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 
 import { StyledItem, styles, DrawerHeader, AppName, Dot } from './styles'
-import { Colors } from '../../styles'
+import { Colors, CONTACT_NUMBER } from '../../styles'
+import { openWhatsApp } from '../../utils/helper'
 
 export default function SettingsScreen(props) {
+    const onContact = React.useCallback(() => openWhatsApp(CONTACT_NUMBER), [])
     return (
         <DrawerContentScrollView {...props}>
             <DrawerHeader>
@@ -37,6 +39,7 @@ export default function SettingsScreen(props) {
                 )}
                 label="Contact us"
                 labelStyle={styles.labelStyle}
+                onPress={onContact}
             />
         </DrawerContentScrollView>
     )

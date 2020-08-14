@@ -34,3 +34,20 @@ export const Avatar = styled.Image`
     width: 40px
     margin-right: 10px
 `
+
+export const HeaderWrapper = styled.View`
+    flex-direction: column;
+`
+
+export const PageIndicatorsWrapper = styled.View`
+    flex-direction: row;
+    width: 100%;
+`
+
+export const PageIndicator = styled.View`
+    flex: 1
+    border-radius: 5px
+    height: 5px
+    margin: 10px
+    background: ${props => (props.active ? Colors.white : Colors.darkGray)}
+`

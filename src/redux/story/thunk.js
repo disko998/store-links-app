@@ -1,5 +1,5 @@
 import { startStoryTime, nextStory, resetStoryTime } from './actions'
-import { STORY_INTERVAL_TIME } from './const'
+import { STORY_INTERVAL_TIME } from '../../styles'
 
 let interval = null
 export const startStoryAsync = stories => {

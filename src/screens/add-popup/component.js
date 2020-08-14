@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { GradientButton } from '../../components'
-import { Colors } from '../../styles/colors'
+import { Colors, CONTACT_NUMBER } from '../../styles'
 import {
     Card,
     Gradient,
@@ -12,8 +12,10 @@ import {
 } from './styles'
 import routes from '../../navigation/routes'
 import { CookSvg } from '../../assets/images'
+import { openWhatsApp } from '../../utils/helper'
 
 export default function AddPopupScreen({ navigation }) {
+    const onChat = React.useCallback(() => openWhatsApp(CONTACT_NUMBER), [])
     return (
         <Gradient colors={Colors.addStorePopupBackground}>
             <Card>
@@ -22,7 +24,7 @@ export default function AddPopupScreen({ navigation }) {
                 <GradientButton
                     colors={[Colors.purple, Colors.mainBlue]}
                     title="Let's Chat"
-                    onPress={() => {}}
+                    onPress={onChat}
                 />
                 <Divider />
                 <BlackTitle>Missing any Store?!</BlackTitle>

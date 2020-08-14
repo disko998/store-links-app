@@ -1,5 +1,6 @@
 import React from 'react'
 
+import { Colors } from '../../styles/colors'
 import {
     HeaderWrapper,
     Title,
@@ -8,7 +9,14 @@ import {
     HeaderButton,
 } from './styles'
 
-export default function Header({ title, onBack, onFavorite, bg, ...props }) {
+export default function Header({
+    title,
+    onBack,
+    onFavorite,
+    bg,
+    isFavorite,
+    ...props
+}) {
     return (
         <HeaderWrapper bg={bg} {...props}>
             {onBack && (
@@ -19,7 +27,11 @@ export default function Header({ title, onBack, onFavorite, bg, ...props }) {
             {title && <Title>{title}</Title>}
             {onFavorite && (
                 <HeaderButton onPress={onFavorite}>
-                    <BookmarkIcon size={20} name="bookmark" />
+                    <BookmarkIcon
+                        size={20}
+                        name="bookmark"
+                        color={isFavorite ? Colors.orange : Colors.white}
+                    />
                 </HeaderButton>
             )}
         </HeaderWrapper>

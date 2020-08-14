@@ -42,7 +42,7 @@ export default function StoryView({
                 <HeaderWrapper>
                     <PageIndicatorsWrapper>
                         {images.map((image, i) => (
-                            <PageIndicator active={index >= i} />
+                            <PageIndicator key={image} active={index >= i} />
                         ))}
                     </PageIndicatorsWrapper>
                     <InfoWrapper>

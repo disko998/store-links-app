@@ -37,9 +37,7 @@ export const Title = styled.Text`
     font-family: SFProDisplay-Regular
 `
 
-export const BookmarkIcon = styled(Foundation)`
-    color: ${Colors.white};
-`
+export const BookmarkIcon = styled(Foundation)``
 
 export const BackIcon = styled(AntDesign)`
     color: ${Colors.white};

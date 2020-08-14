@@ -1,5 +1,6 @@
 import React from 'react'
 import { Linking } from 'react-native'
+import { useDispatch, useSelector } from 'react-redux'
 
 import {
     StoreWrapper,
@@ -12,6 +13,7 @@ import {
 } from './styles'
 import { ActionButton, PrimaryButton, Header } from '../../components'
 import { redirectToWebsite, openWhatsApp } from '../../utils/helper'
+import { toggleFavoriteStoreAsync, selectFavorites } from '../../redux/stores'
 
 export default function StoreScreen({ navigation, route }) {
     const {
@@ -22,8 +24,14 @@ export default function StoreScreen({ navigation, route }) {
         order_link,
         call_number,
         whatsApp_number,
+        id,
     } = JSON.parse(route.params)
 
+    // hooks
+    const dispatch = useDispatch()
+    const favorites = useSelector(selectFavorites)
+
+    // handlers
     const onOrder = React.useCallback(async () => {
         redirectToWebsite(order_link)
     }, [order_link])
@@ -36,12 +44,17 @@ export default function StoreScreen({ navigation, route }) {
         openWhatsApp(whatsApp_number)
     }, [whatsApp_number])
 
+    const toggleFavorite = React.useCallback(() => {
+        dispatch(toggleFavoriteStoreAsync(JSON.parse(route.params)))
+    }, [dispatch, route])
+
     return (
         <StoreWrapper>
             <StoreBanner source={{ uri: image }}>
                 <Header
                     onBack={navigation.goBack}
-                    onFavorite={() => alert('added to favorite')}
+                    onFavorite={toggleFavorite}
+                    isFavorite={favorites.includes(id)}
                 />
             </StoreBanner>
             <InfoWrapper>

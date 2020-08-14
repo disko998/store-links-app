@@ -5,11 +5,16 @@ import { useSelector, useDispatch } from 'react-redux'
 import { ListWrapper } from './styles'
 import { StoreButton } from '../StoreButton'
 import routes from '../../navigation/routes'
-import { fetchStoresAsync, selectStores } from '../../redux/stores'
+import {
+    fetchStoresAsync,
+    selectStores,
+    selectFavorites,
+} from '../../redux/stores'
 
 export default function StoreList() {
     // hooks
     const stores = useSelector(selectStores)
+    const favorites = useSelector(selectFavorites)
     const dispatch = useDispatch()
     const navigation = useNavigation()
 
@@ -30,7 +35,7 @@ export default function StoreList() {
                     key={store.id}
                     image={{ uri: store.logo }}
                     unique={store.unique}
-                    favorite={store.favorite}
+                    favorite={favorites.includes(store.id)}
                     onPress={() => onStorePress(store)}
                 />
             ))}

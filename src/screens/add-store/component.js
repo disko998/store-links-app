@@ -27,8 +27,18 @@ const data = [
 
 export default function AddStoreScreen({ navigation }) {
     const [isOwner, setIsOwner] = React.useState(false)
+    const [formData, setFormData] = React.useState({
+        store_link: '',
+        instagram: '',
+        whatsApp: '',
+        store_number: '',
+        owner_number: '',
+        email: '',
+    })
 
     const onSelectChange = e => setIsOwner(e.label === data[1].label)
+
+    console.log(formData)
 
     return (
         <Wrapper>
@@ -36,7 +46,13 @@ export default function AddStoreScreen({ navigation }) {
             <Container>
                 <GrayText>Add</GrayText>
                 <DarkText>New Store</DarkText>
-                <TextField placeholder="Store Link" />
+                <TextField
+                    placeholder="Store Link"
+                    onChangeText={value =>
+                        setFormData(state => ({ ...state, store_link: value }))
+                    }
+                    value={formData.store_link}
+                />
                 <RadioButtonRN
                     initial={1}
                     box={false}
@@ -57,13 +73,58 @@ export default function AddStoreScreen({ navigation }) {
                                 </AvatarInput>
                             </Column>
                             <Column>
-                                <TextField placeholder="Instagram" />
-                                <TextField placeholder="Whatsapp" />
+                                <TextField
+                                    placeholder="Instagram"
+                                    onChangeText={value =>
+                                        setFormData(state => ({
+                                            ...state,
+                                            instagram: value,
+                                        }))
+                                    }
+                                    value={formData.instagram}
+                                />
+                                <TextField
+                                    placeholder="Whatsapp"
+                                    onChangeText={value =>
+                                        setFormData(state => ({
+                                            ...state,
+                                            whatsApp: value,
+                                        }))
+                                    }
+                                    value={formData.whatsApp}
+                                />
                             </Column>
                         </Row>
-                        <TextField placeholder="Store Number" />
-                        <TextField placeholder="Owner Number" />
-                        <TextField placeholder="Contact Email" />
+                        <TextField
+                            placeholder="Store Phone Number"
+                            onChangeText={value =>
+                                setFormData(state => ({
+                                    ...state,
+                                    store_number: value,
+                                }))
+                            }
+                            value={formData.store_number}
+                        />
+                        <TextField
+                            placeholder="Owner Phone Number"
+                            onChangeText={value =>
+                                setFormData(state => ({
+                                    ...state,
+                                    owner_number: value,
+                                }))
+                            }
+                            value={formData.owner_number}
+                        />
+                        <TextField
+                            placeholder="Contact Email"
+                            onChangeText={value =>
+                                setFormData(state => ({
+                                    ...state,
+                                    email: value,
+                                }))
+                            }
+                            value={formData.email}
+                        />
                     </Wrapper>
                 )}
                 <PrimaryButton title="Send Request" onPress={() => {}} />

@@ -7,8 +7,8 @@ export const TouchableBanner = styled.TouchableOpacity`
     overflow: hidden
     width: 100%
     height: 150px
-    
-    marginVertical: 20px
+
+    margin-top: 15px;
 `
 
 export const BannerImage = styled.Image`

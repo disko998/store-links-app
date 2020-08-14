@@ -18,6 +18,7 @@
     "@react-navigation/drawer": "^5.8.7",
     "@react-navigation/native": "^5.7.2",
     "@react-navigation/stack": "^5.8.0",
+    "formik": "^2.1.5",
     "immer": "^7.0.7",
     "radio-buttons-react-native": "^1.0.4",
     "react": "16.13.1",

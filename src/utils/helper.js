@@ -29,7 +29,7 @@ export const openWhatsApp = async number => {
     }
 }
 
-export const pickImage = () => {
+export const pickImage = callback => {
     const options = {
         title: 'Select Image',
         storageOptions: {
@@ -45,7 +45,13 @@ export const pickImage = () => {
             __DEV__ && console.log('ImagePicker Error: ', response.error)
             return undefined
         } else {
-            return response.uri
+            callback({
+                fileName: response.fileName,
+                fileSize: response.fileSize,
+                imageType: response.type,
+                path: response.path,
+                uri: response.uri,
+            })
         }
     })
 }

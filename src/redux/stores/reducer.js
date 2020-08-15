@@ -7,7 +7,7 @@ const INITIAL_STATE = {
     loading: false,
     error: null,
     favorites: [],
-    submitted: false,
+    submitted: true,
 }
 
 export function storeReducer(state = INITIAL_STATE, action) {
@@ -29,8 +29,8 @@ export function storeReducer(state = INITIAL_STATE, action) {
         case StoreActionsType.SET_FAVORITE_STORES:
             return { ...state, favorites: action.payload }
 
-        case StoreActionsType.SUBMIT_STORE_SUCCESS:
-            return { ...state, submitted: true }
+        case StoreActionsType.TOGGLE_MODAL:
+            return { ...state, submitted: !state.submitted }
 
         default:
             return state

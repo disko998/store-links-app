@@ -9,8 +9,7 @@ export const styles = StyleSheet.create({
     radioLabel: {
         fontSize: 20,
         color: Colors.black,
-        fontWeight: 'bold',
-        fontFamily: 'SFProDisplay-Regular',
+        fontFamily: font.bold,
     },
 })
 
@@ -32,11 +31,10 @@ export const GrayText = styled.Text`
 `
 
 export const LogoText = styled.Text`
-    color: ${Colors.black}
+    color: ${props => (props.error ? Colors.error : Colors.black)}
     font-size: 14px
     text-align: center
-    font-weight: bold
-    font-family: ${font.regular}
+    font-family: ${font.bold}
 `
 
 export const DarkText = styled(GrayText)`
@@ -60,10 +58,14 @@ export const AvatarInput = styled.TouchableOpacity`
     background: ${Colors.light}
     border: 2px solid ${Colors.lightGray}
     border-radius: 50px
-    padding: 10px
 
     justify-content: center
     align-items: center
+`
+export const LogoImage = styled.Image`
+    width: 100%
+    height: 100%
+    border-radius: 50px
 `
 
 export const Row = styled.View`

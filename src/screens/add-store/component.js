@@ -1,8 +1,23 @@
 import React from 'react'
 import RadioButtonRN from 'radio-buttons-react-native'
 import { Formik } from 'formik'
+import { useDispatch, useSelector } from 'react-redux'
 
-import { PrimaryButton, Header, TextField } from '../../components'
+import { pickImage } from '../../utils/helper'
+import { Colors } from '../../styles'
+import {
+    submitNewStoreAsync,
+    AddStoreSchema,
+    AddStoreOwnerSchema,
+    INITIAL_FORM_VALUE,
+    toggleModal,
+} from '../../redux/stores'
+import {
+    PrimaryButton,
+    Header,
+    TextField,
+    MessageModal,
+} from '../../components'
 import {
     Wrapper,
     GrayText,
@@ -13,17 +28,9 @@ import {
     AvatarInput,
     ImageIcon,
     LogoText,
+    LogoImage,
     styles,
 } from './styles'
-import { Colors } from '../../styles'
-import {
-    submitNewStoreAsync,
-    AddStoreSchema,
-    AddStoreOwnerSchema,
-    INITIAL_FORM_VALUE,
-} from '../../redux/stores'
-import { useDispatch } from 'react-redux'
-import { pickImage } from '../../utils/helper'
 
 const data = [
     {
@@ -35,33 +42,41 @@ const data = [
 ]
 
 export default function AddStoreScreen({ navigation }) {
-    const [isOwner, setIsOwner] = React.useState(false)
     const dispatch = useDispatch()
+    const submitted = useSelector(state => state.store.submitted)
+    const [isOwner, setIsOwner] = React.useState(false)
+    const [logo, setLogo] = React.useState({})
 
     const onSelectChange = e => setIsOwner(e.label === data[1].label)
 
     const onSubmit = React.useCallback(
         (values, { resetForm }) => {
-            dispatch(submitNewStoreAsync({ ...values, isOwner }))
+            dispatch(submitNewStoreAsync({ ...values, isOwner, logo }))
             resetForm()
+            setLogo({})
         },
-        [dispatch, isOwner],
+        [dispatch, isOwner, logo],
     )
 
     const onImagePicker = React.useCallback(handleChange => {
-        const uri = pickImage()
-
-        if (uri) {
-            const logoStateHandler = handleChange('logo')
-            console.log(logoStateHandler)
-            logoStateHandler(uri)
-        }
+        pickImage(result => {
+            handleChange('logo')(result.uri)
+            setLogo(result)
+        })
     }, [])
+
+    const onModalClose = React.useCallback(() => {
+        dispatch(toggleModal())
+        navigation.goBack()
+    }, [navigation, dispatch])
 
     return (
         <Wrapper>
             <Header onBack={navigation.goBack} />
+
             <Formik
+                validateOnBlur={false}
+                validateOnChange={false}
                 initialValues={INITIAL_FORM_VALUE}
                 validationSchema={
                     isOwner ? AddStoreOwnerSchema : AddStoreSchema
@@ -102,12 +117,22 @@ export default function AddStoreScreen({ navigation }) {
                                             onPress={() =>
                                                 onImagePicker(handleChange)
                                             }>
-                                            <ImageIcon
-                                                size={40}
-                                                name="image-plus"
-                                            />
-                                            <LogoText>Logo</LogoText>
+                                            {values.logo ? (
+                                                <LogoImage
+                                                    source={{
+                                                        uri: values.logo,
+                                                    }}
+                                                />
+                                            ) : (
+                                                <ImageIcon
+                                                    size={40}
+                                                    name="image-plus"
+                                                />
+                                            )}
                                         </AvatarInput>
+                                        <LogoText error={errors.logo}>
+                                            {logo.fileName || 'Logo'}
+                                        </LogoText>
                                     </Column>
                                     <Column>
                                         <TextField
@@ -127,6 +152,7 @@ export default function AddStoreScreen({ navigation }) {
                                             onBlur={handleBlur('whatsApp')}
                                             value={values.whatsApp}
                                             error={errors.whatsApp}
+                                            keyboardType="phone-pad"
                                         />
                                     </Column>
                                 </Row>
@@ -136,6 +162,7 @@ export default function AddStoreScreen({ navigation }) {
                                     onBlur={handleBlur('store_number')}
                                     value={values.store_number}
                                     error={errors.store_number}
+                                    keyboardType="phone-pad"
                                 />
                                 <TextField
                                     placeholder="Owner Phone Number"
@@ -143,6 +170,7 @@ export default function AddStoreScreen({ navigation }) {
                                     onBlur={handleBlur('owner_number')}
                                     value={values.owner_number}
                                     error={errors.owner_number}
+                                    keyboardType="phone-pad"
                                 />
                                 <TextField
                                     placeholder="Contact Email"
@@ -150,6 +178,7 @@ export default function AddStoreScreen({ navigation }) {
                                     onBlur={handleBlur('email')}
                                     value={values.email}
                                     error={errors.email}
+                                    keyboardType="email-address"
                                 />
                             </Wrapper>
                         )}
@@ -160,6 +189,13 @@ export default function AddStoreScreen({ navigation }) {
                     </Container>
                 )}
             </Formik>
+
+            <MessageModal
+                onDismiss={onModalClose}
+                visible={submitted}
+                title="Thanks"
+                message="We will add the new store asap"
+            />
         </Wrapper>
     )
 }

@@ -4,6 +4,7 @@ export const StoreActionsType = {
     FETCH_STORES_FAILURE: 'FETCH_STORES_FAILURE',
 
     SET_FAVORITE_STORES: 'SET_FAVORITE_STORES',
+    TOGGLE_MODAL: 'TOGGLE_MODAL',
 
     SUBMIT_STORE_START: 'SUBMIT_STORE_START',
     SUBMIT_STORE_SUCCESS: 'SUBMIT_STORE_SUCCESS',
@@ -33,11 +34,6 @@ export const submitStoreStart = () => ({
     type: StoreActionsType.SUBMIT_STORE_START,
 })
 
-export const submitStoreSuccess = () => ({
-    type: StoreActionsType.SUBMIT_STORE_SUCCESS,
-})
-
-export const submitStoreFailure = error => ({
-    type: StoreActionsType.SUBMIT_STORE_FAILURE,
-    payload: error,
+export const toggleModal = () => ({
+    type: StoreActionsType.TOGGLE_MODAL,
 })

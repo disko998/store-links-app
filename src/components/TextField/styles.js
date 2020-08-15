@@ -2,7 +2,7 @@ import styled from 'styled-components/native'
 
 import { Colors } from '../../styles/colors'
 
-export const Wrapper = styled.ScrollView`
+export const InputWrapper = styled.ScrollView`
     width: 100%
     background: ${Colors.white}
     border: 1.5px solid ${Colors.lightGray}
@@ -21,4 +21,13 @@ export const StyledTextInput = styled.TextInput`
     font-family: SFProDisplay-Regular
     background: ${Colors.white}
     padding: 10px
+`
+
+export const ErrorMessage = styled.Text`
+    color: ${Colors.error}
+    font-size: 16px
+    font-family: SFProDisplay-Regular
+    margin-top: 10px
+    margin-bottom: -5px
+    text-align: left
 `

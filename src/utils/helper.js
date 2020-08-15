@@ -1,4 +1,5 @@
 import { Linking } from 'react-native'
+import ImagePicker from 'react-native-image-picker'
 
 export const redirectToWebsite = async order_link => {
     try {
@@ -26,4 +27,25 @@ export const openWhatsApp = async number => {
         __DEV__ && console.log(error)
         alert(`Error ocurred while trying to open WhatsApp`)
     }
+}
+
+export const pickImage = () => {
+    const options = {
+        title: 'Select Image',
+        storageOptions: {
+            skipBackup: true,
+            path: 'images',
+        },
+    }
+    ImagePicker.showImagePicker(options, response => {
+        __DEV__ && console.log('ImagePicker = ', response)
+
+        if (response.error) {
+            alert(response.error)
+            __DEV__ && console.log('ImagePicker Error: ', response.error)
+            return undefined
+        } else {
+            return response.uri
+        }
+    })
 }

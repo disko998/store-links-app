@@ -5,6 +5,7 @@ export const Colors = {
     orange: '#FF8900',
     yellow: '#F0B400',
     purple: '#7550FF',
+    error: '#FF9494',
 
     //monochrome
     black: '#000',

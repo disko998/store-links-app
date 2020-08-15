@@ -1,12 +1,18 @@
 import React from 'react'
 
-import { Wrapper, StyledTextInput } from './styles'
+import { StyledTextInput, ErrorMessage, InputWrapper } from './styles'
 import { Colors } from '../../styles/colors'
 
-export default function TextField({ ...props }) {
+export default function TextField({ error, ...props }) {
     return (
-        <Wrapper>
-            <StyledTextInput placeholderTextColor={Colors.gray} {...props} />
-        </Wrapper>
+        <>
+            {error && <ErrorMessage>{error}</ErrorMessage>}
+            <InputWrapper>
+                <StyledTextInput
+                    placeholderTextColor={Colors.gray}
+                    {...props}
+                />
+            </InputWrapper>
+        </>
     )
 }

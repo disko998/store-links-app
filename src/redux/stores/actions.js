@@ -4,6 +4,10 @@ export const StoreActionsType = {
     FETCH_STORES_FAILURE: 'FETCH_STORES_FAILURE',
 
     SET_FAVORITE_STORES: 'SET_FAVORITE_STORES',
+
+    SUBMIT_STORE_START: 'SUBMIT_STORE_START',
+    SUBMIT_STORE_SUCCESS: 'SUBMIT_STORE_SUCCESS',
+    SUBMIT_STORE_FAILURE: 'SUBMIT_STORE_FAILURE',
 }
 
 export const fetchStoresStart = () => ({
@@ -23,4 +27,17 @@ export const fetchStoresFailure = errorMessage => ({
 export const setFavoriteStores = favorites => ({
     type: StoreActionsType.SET_FAVORITE_STORES,
     payload: favorites,
+})
+
+export const submitStoreStart = () => ({
+    type: StoreActionsType.SUBMIT_STORE_START,
+})
+
+export const submitStoreSuccess = () => ({
+    type: StoreActionsType.SUBMIT_STORE_SUCCESS,
+})
+
+export const submitStoreFailure = error => ({
+    type: StoreActionsType.SUBMIT_STORE_FAILURE,
+    payload: error,
 })

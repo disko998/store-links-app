@@ -4,8 +4,11 @@ import {
     fetchStoresStart,
     fetchStoresSuccess,
     setFavoriteStores,
+    submitStoreStart,
+    submitStoreSuccess,
+    submitStoreFailure,
 } from './actions'
-import { getCollectionDocs } from '../../firebase/utils'
+import { getCollectionDocs, addDoc } from '../../firebase/utils'
 
 export const fetchStoresAsync = () => {
     return async (dispatch, getState) => {
@@ -58,6 +61,23 @@ export const getFavoriteStoresAsync = () => {
             dispatch(setFavoriteStores(favorites || []))
         } catch (error) {
             console.log(error)
+        }
+    }
+}
+
+export const submitNewStoreAsync = newStore => {
+    return async (dispatch, getState) => {
+        try {
+            dispatch(submitStoreStart())
+
+            // add new store request to firebase
+            await addDoc('requests', newStore)
+
+            dispatch(submitStoreSuccess())
+        } catch (error) {
+            dispatch(submitStoreFailure(error.message))
+            __DEV__ && console.log(error)
+            alert('Submit store failed')
         }
     }
 }

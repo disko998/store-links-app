@@ -1,4 +1,5 @@
 import React from 'react'
+import { useNavigation } from '@react-navigation/native'
 
 import { startStoryAsync, selectStoryIndex } from '../../redux/story'
 import {
@@ -10,6 +11,8 @@ import {
     HeaderWrapper,
     PageIndicatorsWrapper,
     PageIndicator,
+    CloseButton,
+    CloseIcon,
 } from './styles'
 import { PrimaryButton } from '../PrimaryButton'
 import { useDispatch, useSelector } from 'react-redux'
@@ -25,6 +28,7 @@ export default function StoryView({
 }) {
     const dispatch = useDispatch()
     const index = useSelector(selectStoryIndex)
+    const navigation = useNavigation()
 
     React.useEffect(() => {
         if (page === currentPage) {
@@ -48,6 +52,9 @@ export default function StoryView({
                     <InfoWrapper>
                         <Avatar source={{ uri: logo }} />
                         <StoryName>{name}</StoryName>
+                        <CloseButton onPress={navigation.goBack}>
+                            <CloseIcon name="close" size={30} />
+                        </CloseButton>
                     </InfoWrapper>
                 </HeaderWrapper>
 

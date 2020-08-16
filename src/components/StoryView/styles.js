@@ -1,11 +1,13 @@
 import styled from 'styled-components/native'
+import Icon from 'react-native-vector-icons/AntDesign'
 
 import { Colors, font } from '../../styles'
 import { windowWidth, windowHeight } from '../../styles/dimensions'
 
 export const StoryWrapper = styled.ImageBackground`
-    height: ${windowHeight}px;
+    height: 100%;
     width: ${windowWidth}px;
+    overflow: hidden;
 `
 
 export const ContentWrapper = styled.TouchableOpacity`
@@ -26,6 +28,8 @@ export const StoryName = styled.Text`
 export const InfoWrapper = styled.View`
     flex-direction: row;
     align-items: center;
+    justify-content: flex-start
+    width: 100%;
 `
 
 export const Avatar = styled.Image`
@@ -48,6 +52,16 @@ export const PageIndicator = styled.View`
     flex: 1
     border-radius: 5px
     height: 5px
-    margin: 10px
+    margin: 5px 3px 20px 3px
     background: ${props => (props.active ? Colors.white : Colors.darkGray)}
+`
+
+export const CloseButton = styled.TouchableOpacity`
+    align-self: flex-end;
+    margin-left: auto;
+    margin-bottom: 5px;
+`
+
+export const CloseIcon = styled(Icon)`
+    color: ${Colors.white};
 `

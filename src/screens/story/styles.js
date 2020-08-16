@@ -5,4 +5,5 @@ import { Colors, windowHeight } from '../../styles'
 
 export const HorizontalScroll = styled(ViewPager)`
     flex: 1;
+    overflow: hidden;
 `

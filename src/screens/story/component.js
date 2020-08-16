@@ -27,6 +27,7 @@ export default function StoryScreen({ navigation, route }) {
     return (
         <HorizontalScroll
             initialPage={storyIndex}
+            showPageIndicator={true}
             onPageSelected={onPageSelected}>
             {stories.slice(1, 5).map((story, index) => (
                 <StoryView

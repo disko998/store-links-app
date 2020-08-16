@@ -1,5 +1,8 @@
 import React from 'react'
-import { createStackNavigator } from '@react-navigation/stack'
+import {
+    createStackNavigator,
+    TransitionPresets,
+} from '@react-navigation/stack'
 
 import {
     MainScreen,
@@ -48,10 +51,12 @@ export default function MainNav({ navigation }) {
             />
             <Stack.Navigator
                 screenOptions={{
+                    // gestureDirection: 'vertical',
                     cardOverlayEnabled: false,
                     cardStyle: {
                         borderRadius: barStyle === 'light-content' ? 10 : 0,
                     },
+                    ...TransitionPresets.ModalSlideFromBottomIOS,
                 }}
                 initialRouteName={routes.MAIN}
                 headerMode="none">

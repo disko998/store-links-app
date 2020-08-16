@@ -8,6 +8,7 @@ const INITIAL_STATE = {
     error: null,
     favorites: [],
     submitted: false,
+    category: 'my list',
 }
 
 export function storeReducer(state = INITIAL_STATE, action) {
@@ -31,6 +32,9 @@ export function storeReducer(state = INITIAL_STATE, action) {
 
         case StoreActionsType.TOGGLE_MODAL:
             return { ...state, submitted: !state.submitted }
+
+        case StoreActionsType.SET_CATEGORY:
+            return { ...state, category: action.payload }
 
         default:
             return state

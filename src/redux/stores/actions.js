@@ -5,6 +5,7 @@ export const StoreActionsType = {
 
     SET_FAVORITE_STORES: 'SET_FAVORITE_STORES',
     TOGGLE_MODAL: 'TOGGLE_MODAL',
+    SET_CATEGORY: 'SET_CATEGORY',
 
     SUBMIT_STORE_START: 'SUBMIT_STORE_START',
     SUBMIT_STORE_SUCCESS: 'SUBMIT_STORE_SUCCESS',
@@ -36,4 +37,9 @@ export const submitStoreStart = () => ({
 
 export const toggleModal = () => ({
     type: StoreActionsType.TOGGLE_MODAL,
+})
+
+export const setCategory = categoryName => ({
+    type: StoreActionsType.SET_CATEGORY,
+    payload: categoryName,
 })

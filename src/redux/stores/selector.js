@@ -11,3 +11,8 @@ export const selectFavorites = createSelector(
     selectStoreFeatures,
     store => store.favorites,
 )
+
+export const selectCategory = createSelector(
+    selectStoreFeatures,
+    store => store.category,
+)

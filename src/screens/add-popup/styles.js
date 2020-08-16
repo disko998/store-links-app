@@ -56,6 +56,7 @@ export const SkipButton = styled.Text`
     text-decoration: underline
     font-weight: bold
     font-family: SFProDisplay-Regular
+    textDecorationColor: ${Colors.white}
 
     position: absolute
     bottom: 50px

@@ -7,7 +7,7 @@ const INITIAL_STATE = {
     loading: false,
     error: null,
     favorites: [],
-    submitted: true,
+    submitted: false,
 }
 
 export function storeReducer(state = INITIAL_STATE, action) {

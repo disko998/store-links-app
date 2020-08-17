@@ -11,7 +11,7 @@ export const HeaderWrapper = styled.View`
     flex-direction: row
     justify-content: space-between
     align-items: center
-    padding-top: 30px
+    padding-top: 20px
     padding-left: 15px 
     padding-right: 15px
     padding-bottom: 5px 

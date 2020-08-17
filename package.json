@@ -31,6 +31,7 @@
     "react-native-screens": "^2.9.0",
     "react-native-svg": "^12.1.0",
     "react-native-vector-icons": "^7.0.0",
+    "react-native-webview": "^10.7.0",
     "react-redux": "^7.2.1",
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",

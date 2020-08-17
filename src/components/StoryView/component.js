@@ -17,6 +17,7 @@ import {
 import { PrimaryButton } from '../PrimaryButton'
 import { useDispatch, useSelector } from 'react-redux'
 import { redirectToWebsite } from '../../utils/helper'
+import routes from '../../navigation/routes'
 
 export default function StoryView({
     logo,
@@ -37,8 +38,8 @@ export default function StoryView({
     }, [dispatch, images, page, currentPage])
 
     const onOrderPress = React.useCallback(async () => {
-        redirectToWebsite(order_link)
-    }, [order_link])
+        navigation.navigate(routes.STORE_VIEW, { uri: order_link })
+    }, [order_link, navigation])
 
     return (
         <StoryWrapper source={{ uri: images[index] }}>

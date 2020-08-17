@@ -14,6 +14,7 @@ import {
 import { ActionButton, PrimaryButton, Header } from '../../components'
 import { redirectToWebsite, openWhatsApp } from '../../utils/helper'
 import { toggleFavoriteStoreAsync, selectFavorites } from '../../redux/stores'
+import routes from '../../navigation/routes'
 
 export default function StoreScreen({ navigation, route }) {
     const {
@@ -33,8 +34,8 @@ export default function StoreScreen({ navigation, route }) {
 
     // handlers
     const onOrder = React.useCallback(async () => {
-        redirectToWebsite(order_link)
-    }, [order_link])
+        navigation.navigate(routes.STORE_VIEW, { uri: order_link })
+    }, [order_link, navigation])
 
     const onCall = React.useCallback(async () => {
         await Linking.openURL(`tel:+${call_number}`)

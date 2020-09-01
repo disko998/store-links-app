@@ -3,6 +3,7 @@ import thunk from 'redux-thunk'
 
 import { storeReducer } from './stores'
 import { storyReducer } from './story'
+import { settingsReducer } from './settings'
 
 const composeEnhancers = __DEV__
     ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
@@ -11,6 +12,7 @@ const composeEnhancers = __DEV__
 const rootReducer = combineReducers({
     store: storeReducer,
     story: storyReducer,
+    settings: settingsReducer,
 })
 
 export default createStore(

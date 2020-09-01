@@ -6,7 +6,6 @@ import {
     setFavoriteStores,
     submitStoreStart,
     toggleModal,
-    submitStoreFailure,
     fetchCategoriesStart,
     fetchCategoriesSuccess,
     fetchCategoriesFailure,
@@ -16,6 +15,7 @@ import {
     getCollectionDocs,
     addDoc,
     getDataFromSnapshot,
+    fetchMyList,
 } from '../../firebase/utils'
 import { db, fileStorage } from '../../firebase'
 
@@ -24,22 +24,23 @@ export const fetchStoresAsync = category => {
         try {
             dispatch(fetchStoresStart(category))
 
-            let ref
+            let stores = []
 
             if (category) {
-                ref = db
+                const ref = db
                     .collection('stores')
                     .where('categories', 'array-contains', category)
                     .limit(20)
+
+                const snapshot = await ref.get()
+
+                stores = getDataFromSnapshot(snapshot)
             } else {
-                ref = db.collection('stores').orderBy('name', 'asc').limit(20)
+                // ref = db.collection('stores').orderBy('name', 'asc').limit(20)
+                stores = await fetchMyList()
             }
 
-            const snapshot = await ref.get()
-
-            const stores = getDataFromSnapshot(snapshot)
-
-            dispatch(fetchStoresSuccess(stores))
+            dispatch(fetchStoresSuccess(stores || []))
         } catch (error) {
             dispatch(fetchStoresFailure(error.message))
         }

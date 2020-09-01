@@ -9,7 +9,7 @@ export const BorderButton = styled.TouchableOpacity`
     border-radius: 50px
     height: 58px
     width: 58px
-    padding: 5px
+    padding: 3px
     background: ${Colors.white}
     justify-content: center
     align-items: center

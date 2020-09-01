@@ -7,6 +7,7 @@ import {
     getFavoriteStoresAsync,
 } from '../redux/stores/thunk'
 import { fetchStoriesAsync } from '../redux/story'
+import { fetchCountriesAsync, getCountryAsync } from '../redux/settings'
 
 export const useMount = () => {
     const [loading, setLoading] = useState(false)
@@ -18,6 +19,8 @@ export const useMount = () => {
         dispatch(fetchStoriesAsync())
         dispatch(fetchCategoriesAsync())
         dispatch(getFavoriteStoresAsync())
+        dispatch(fetchCountriesAsync())
+        dispatch(getCountryAsync())
     }, [dispatch])
 
     return loading

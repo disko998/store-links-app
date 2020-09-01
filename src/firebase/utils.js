@@ -1,4 +1,6 @@
 import { db } from './index'
+import AsyncStorage from '@react-native-community/async-storage'
+import _ from 'lodash'
 
 export const addDoc = (collection, doc) => {
     return db.collection(collection).add(doc)
@@ -31,4 +33,33 @@ export const getDataFromSnapshot = querySnapshot => {
     })
 
     return data
+}
+
+export const fetchMyList = async () => {
+    const favorite_stores = JSON.parse(
+        await AsyncStorage.getItem('favorite_stores'),
+    )
+
+    const storesRef = db.collection('stores')
+    let userStores = []
+
+    if (favorite_stores && favorite_stores.length) {
+        const docs = await Promise.all(
+            favorite_stores.map(id => storesRef.doc(id).get()),
+        )
+
+        userStores = docs.map(doc => {
+            if (doc.exists) {
+                return { ...doc.data(), id: doc.id }
+            }
+        })
+    }
+
+    // fetch pinned stores
+    const pinnedSnapshot = await storesRef.where('pinned', '==', true).get()
+    const pinned = getDataFromSnapshot(pinnedSnapshot)
+
+    const myStores = _.uniqBy([...userStores, ...pinned], 'id')
+
+    return myStores
 }

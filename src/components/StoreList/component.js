@@ -12,6 +12,7 @@ import {
     selectStoresLoading,
     selectFilter,
 } from '../../redux/stores'
+import { Colors } from '../../styles'
 
 export default function StoreList() {
     // hooks
@@ -38,7 +39,7 @@ export default function StoreList() {
     if (loading) {
         return (
             <LoadingWrapper>
-                <ActivityIndicator color="#000" size="large" />
+                <ActivityIndicator color={Colors.black} size="large" />
             </LoadingWrapper>
         )
     }

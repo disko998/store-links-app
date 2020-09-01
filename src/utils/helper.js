@@ -44,6 +44,8 @@ export const pickImage = callback => {
             alert(response.error)
             __DEV__ && console.log('ImagePicker Error: ', response.error)
             return undefined
+        } else if (response.didCancel) {
+            // didCancel
         } else {
             callback({
                 fileName: response.fileName,

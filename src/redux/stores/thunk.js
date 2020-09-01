@@ -17,7 +17,7 @@ import {
     addDoc,
     getDataFromSnapshot,
 } from '../../firebase/utils'
-import { db } from '../../firebase'
+import { db, fileStorage } from '../../firebase'
 
 export const fetchStoresAsync = category => {
     return async (dispatch, getState) => {
@@ -89,14 +89,26 @@ export const submitNewStoreAsync = newStore => {
             dispatch(submitStoreStart())
             __DEV__ && console.log(newStore)
 
-            //TODO: get logo url form firebase
+            // get logo url form firebase
+            let logo = ''
+            if (newStore.isOwner) {
+                const ref = fileStorage.ref(`uploads/${newStore.logo.fileName}`)
+                const snapshot = await ref.putFile(newStore.logo.path)
+
+                logo = await fileStorage
+                    .ref(snapshot.metadata.fullPath)
+                    .getDownloadURL()
+            }
 
             // add new store request to firebase
-            await addDoc('requests', newStore)
+            await addDoc('requests', {
+                ...newStore,
+                logo,
+                createdAt: new Date().toISOString(),
+            })
 
             dispatch(toggleModal())
         } catch (error) {
-            dispatch(submitStoreFailure(error.message))
             __DEV__ && console.log(error)
             alert('Submit store failed')
         }

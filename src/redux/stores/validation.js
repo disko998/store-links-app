@@ -1,12 +1,12 @@
 import * as Yup from 'yup'
 
 export const INITIAL_FORM_VALUE = {
-    store_link: '',
-    instagram: '',
-    whatsApp: '',
-    store_number: '',
-    owner_number: '',
-    email: '',
+    store_link: '', //http://website.com
+    instagram: '', //instagram.com/john123
+    whatsApp: '', //1234567
+    store_number: '', //12345567
+    owner_number: '', //12345678
+    email: '', //johdoe123@gmail.com
     logo: '',
 }
 

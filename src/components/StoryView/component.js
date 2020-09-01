@@ -1,5 +1,6 @@
 import React from 'react'
 import { useNavigation } from '@react-navigation/native'
+import { useDispatch, useSelector } from 'react-redux'
 
 import { startStoryAsync, selectStoryIndex } from '../../redux/story'
 import {
@@ -15,8 +16,6 @@ import {
     CloseIcon,
 } from './styles'
 import { PrimaryButton } from '../PrimaryButton'
-import { useDispatch, useSelector } from 'react-redux'
-import { redirectToWebsite } from '../../utils/helper'
 import routes from '../../navigation/routes'
 
 export default function StoryView({
@@ -60,8 +59,8 @@ export default function StoryView({
                 </HeaderWrapper>
 
                 <PrimaryButton
-                    disabled={!Boolean(order_link)}
-                    title={order_link ? 'Ordern Now' : 'No link for this store'}
+                    disabled={!order_link}
+                    title={order_link ? 'Order Now' : 'No link for this store'}
                     onPress={onOrderPress}
                 />
             </ContentWrapper>

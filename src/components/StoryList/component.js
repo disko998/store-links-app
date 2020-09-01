@@ -5,11 +5,11 @@ import { useSelector, useDispatch } from 'react-redux'
 import { Story } from '../Story'
 import { HorizontalScroll, StoryWrapper } from './styles'
 import routes from '../../navigation/routes'
-import { selectStores } from '../../redux/stores'
+import { selectStories } from '../../redux/story'
 
 export default function StoryList() {
     // hooks
-    const stories = useSelector(selectStores)
+    const stories = useSelector(selectStories)
     const navigation = useNavigation()
 
     // handlers
@@ -19,14 +19,14 @@ export default function StoryList() {
         [navigation],
     )
 
-    const onStoryAdd = React.useCallback(
+    const onAddStore = React.useCallback(
         () => navigation.navigate(routes.ADD_POPUP),
         [navigation],
     )
 
     return (
         <HorizontalScroll>
-            {stories.slice(1, 5).map((story, index) => (
+            {stories.slice(0, 4).map((story, index) => (
                 <StoryWrapper key={story.id}>
                     <Story
                         image={{ uri: story.logo }}
@@ -35,7 +35,7 @@ export default function StoryList() {
                 </StoryWrapper>
             ))}
             <StoryWrapper>
-                <Story onPress={onStoryAdd} />
+                <Story onPress={onAddStore} />
             </StoryWrapper>
         </HorizontalScroll>
     )

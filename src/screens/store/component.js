@@ -76,8 +76,8 @@ export default function StoreScreen({ navigation, route }) {
                     <ActionButton logo="phone" title="Call" onPress={onCall} />
                 </ActionBar>
                 <PrimaryButton
-                    title={order_link ? 'Ordern Now' : 'No link for this store'}
-                    disabled={!Boolean(order_link)}
+                    title={order_link ? 'Order Now' : 'No link for this store'}
+                    disabled={!order_link}
                     onPress={onOrder}
                 />
             </InfoWrapper>

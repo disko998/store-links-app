@@ -6,6 +6,7 @@ import {
     fetchStoresAsync,
     getFavoriteStoresAsync,
 } from '../redux/stores/thunk'
+import { fetchStoriesAsync } from '../redux/story'
 
 export const useMount = () => {
     const [loading, setLoading] = useState(false)
@@ -14,6 +15,7 @@ export const useMount = () => {
     useEffect(() => {
         // initial actions
         dispatch(fetchStoresAsync())
+        dispatch(fetchStoriesAsync())
         dispatch(fetchCategoriesAsync())
         dispatch(getFavoriteStoresAsync())
     }, [dispatch])

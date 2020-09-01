@@ -6,3 +6,8 @@ export const selectStoryIndex = createSelector(
     selectStoryFeatures,
     story => story.storyIndex,
 )
+
+export const selectStories = createSelector(
+    selectStoryFeatures,
+    story => story.stories,
+)

@@ -8,13 +8,18 @@ const INITIAL_STATE = {
     error: null,
     favorites: [],
     submitted: false,
-    category: 'my list',
+    currentCategory: 'my list',
+    categories: [],
 }
 
 export function storeReducer(state = INITIAL_STATE, action) {
     switch (action.type) {
         case StoreActionsType.FETCH_STORES_START:
-            return { ...state, loading: true }
+            return {
+                ...state,
+                loading: true,
+                currentCategory: action.payload || 'my list',
+            }
 
         case StoreActionsType.FETCH_STORES_SUCCESS:
             return {
@@ -24,6 +29,14 @@ export function storeReducer(state = INITIAL_STATE, action) {
                 stores: action.payload,
             }
 
+        case StoreActionsType.FETCH_CATEGORIES_SUCCESS:
+            return {
+                ...state,
+                error: null,
+                categories: action.payload,
+            }
+
+        case StoreActionsType.FETCH_CATEGORIES_FAILURE:
         case StoreActionsType.FETCH_STORES_FAILURE:
             return { ...state, loading: false, error: action.payload }
 
@@ -33,8 +46,8 @@ export function storeReducer(state = INITIAL_STATE, action) {
         case StoreActionsType.TOGGLE_MODAL:
             return { ...state, submitted: !state.submitted }
 
-        case StoreActionsType.SET_CATEGORY:
-            return { ...state, category: action.payload }
+        // case StoreActionsType.SET_CATEGORY:
+        //     return { ...state, category: action.payload }
 
         default:
             return state

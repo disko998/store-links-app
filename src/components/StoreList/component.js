@@ -1,26 +1,18 @@
 import React, { useEffect } from 'react'
 import { useNavigation } from '@react-navigation/native'
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
 
 import { ListWrapper } from './styles'
 import { StoreButton } from '../StoreButton'
 import routes from '../../navigation/routes'
-import {
-    fetchStoresAsync,
-    selectStores,
-    selectFavorites,
-} from '../../redux/stores'
+import { selectStores, selectFavorites } from '../../redux/stores'
 
 export default function StoreList() {
     // hooks
     const stores = useSelector(selectStores)
     const favorites = useSelector(selectFavorites)
-    const dispatch = useDispatch()
-    const navigation = useNavigation()
 
-    useEffect(() => {
-        dispatch(fetchStoresAsync())
-    }, [dispatch])
+    const navigation = useNavigation()
 
     // handlers
     const onStorePress = React.useCallback(

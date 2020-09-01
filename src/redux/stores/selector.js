@@ -12,7 +12,12 @@ export const selectFavorites = createSelector(
     store => store.favorites,
 )
 
-export const selectCategory = createSelector(
+export const selectCurrentCategory = createSelector(
     selectStoreFeatures,
-    store => store.category,
+    store => store.currentCategory,
+)
+
+export const selectCategories = createSelector(
+    selectStoreFeatures,
+    store => store.categories,
 )

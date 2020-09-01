@@ -5,15 +5,20 @@ export const StoreActionsType = {
 
     SET_FAVORITE_STORES: 'SET_FAVORITE_STORES',
     TOGGLE_MODAL: 'TOGGLE_MODAL',
-    SET_CATEGORY: 'SET_CATEGORY',
 
     SUBMIT_STORE_START: 'SUBMIT_STORE_START',
     SUBMIT_STORE_SUCCESS: 'SUBMIT_STORE_SUCCESS',
     SUBMIT_STORE_FAILURE: 'SUBMIT_STORE_FAILURE',
+
+    SET_CATEGORY: 'SET_CATEGORY',
+    FETCH_CATEGORIES_START: 'FETCH_CATEGORIES_START',
+    FETCH_CATEGORIES_SUCCESS: 'FETCH_CATEGORIES_SUCCESS',
+    FETCH_CATEGORIES_FAILURE: 'FETCH_CATEGORIES_FAILURE',
 }
 
-export const fetchStoresStart = () => ({
+export const fetchStoresStart = category => ({
     type: StoreActionsType.FETCH_STORES_START,
+    payload: category,
 })
 
 export const fetchStoresSuccess = stores => ({
@@ -42,4 +47,18 @@ export const toggleModal = () => ({
 export const setCategory = categoryName => ({
     type: StoreActionsType.SET_CATEGORY,
     payload: categoryName,
+})
+
+export const fetchCategoriesStart = () => ({
+    type: StoreActionsType.FETCH_CATEGORIES_START,
+})
+
+export const fetchCategoriesSuccess = categories => ({
+    type: StoreActionsType.FETCH_CATEGORIES_SUCCESS,
+    payload: categories,
+})
+
+export const fetchCategoriesFailure = errorMessage => ({
+    type: StoreActionsType.FETCH_CATEGORIES_FAILURE,
+    payload: errorMessage,
 })

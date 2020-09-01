@@ -1,21 +1,16 @@
 import React from 'react'
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
-import { useDispatch } from 'react-redux'
 
 import DrawerNav from './DrawerNav'
 import { AddPopupScreen } from '../screens'
 import routes from './routes'
-import { getFavoriteStoresAsync } from '../redux/stores'
+import { useMount } from '../hooks/useMount'
 
 const RootStack = createStackNavigator()
 
 export default function RootNavigation(props) {
-    const dispatch = useDispatch()
-
-    React.useEffect(() => {
-        dispatch(getFavoriteStoresAsync())
-    }, [dispatch])
+    const isLoading = useMount()
 
     return (
         <NavigationContainer>

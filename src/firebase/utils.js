@@ -23,3 +23,12 @@ export const getCollectionDocs = async collection => {
 
     return data
 }
+
+export const getDataFromSnapshot = querySnapshot => {
+    let data = []
+    querySnapshot.forEach(function (doc) {
+        data = [...data, { id: doc.id, ...doc.data() }]
+    })
+
+    return data
+}

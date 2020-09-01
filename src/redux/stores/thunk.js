@@ -7,19 +7,41 @@ import {
     submitStoreStart,
     toggleModal,
     submitStoreFailure,
+    fetchCategoriesStart,
+    fetchCategoriesSuccess,
+    fetchCategoriesFailure,
+    fetchStoresFailure,
 } from './actions'
-import { getCollectionDocs, addDoc } from '../../firebase/utils'
+import {
+    getCollectionDocs,
+    addDoc,
+    getDataFromSnapshot,
+} from '../../firebase/utils'
+import { db } from '../../firebase'
 
-export const fetchStoresAsync = () => {
+export const fetchStoresAsync = category => {
     return async (dispatch, getState) => {
         try {
-            dispatch(fetchStoresStart())
+            dispatch(fetchStoresStart(category))
 
-            const stores = await getCollectionDocs('stores')
+            let ref
+
+            if (category) {
+                ref = db
+                    .collection('stores')
+                    .where('categories', 'array-contains', category)
+                    .limit(20)
+            } else {
+                ref = db.collection('stores').orderBy('name', 'asc').limit(20)
+            }
+
+            const snapshot = await ref.get()
+
+            const stores = getDataFromSnapshot(snapshot)
 
             dispatch(fetchStoresSuccess(stores))
         } catch (error) {
-            dispatch(fetchStoresSuccess(error.message))
+            dispatch(fetchStoresFailure(error.message))
         }
     }
 }
@@ -77,6 +99,37 @@ export const submitNewStoreAsync = newStore => {
             dispatch(submitStoreFailure(error.message))
             __DEV__ && console.log(error)
             alert('Submit store failed')
+        }
+    }
+}
+
+export const fetchCategoriesAsync = () => {
+    return async (dispatch, getState) => {
+        try {
+            dispatch(fetchCategoriesStart())
+
+            const categories = await getCollectionDocs('categories')
+
+            dispatch(fetchCategoriesSuccess(categories))
+        } catch (error) {
+            dispatch(fetchCategoriesFailure(error.message))
+        }
+    }
+}
+
+export const filterStores = name => {
+    return async (dispatch, getState) => {
+        try {
+            const snapshot = await db
+                .collection('stores')
+                .where('name', '==', name)
+                .get()
+
+            const stores = getDataFromSnapshot(snapshot)
+
+            dispatch(fetchStoresSuccess(stores))
+        } catch (error) {
+            dispatch(fetchStoresFailure(error.message))
         }
     }
 }

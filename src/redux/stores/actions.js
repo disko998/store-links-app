@@ -5,6 +5,7 @@ export const StoreActionsType = {
 
     SET_FAVORITE_STORES: 'SET_FAVORITE_STORES',
     TOGGLE_MODAL: 'TOGGLE_MODAL',
+    SEARCH_CHANGE: 'SEARCH_CHANGE',
 
     SUBMIT_STORE_START: 'SUBMIT_STORE_START',
     SUBMIT_STORE_SUCCESS: 'SUBMIT_STORE_SUCCESS',
@@ -61,4 +62,9 @@ export const fetchCategoriesSuccess = categories => ({
 export const fetchCategoriesFailure = errorMessage => ({
     type: StoreActionsType.FETCH_CATEGORIES_FAILURE,
     payload: errorMessage,
+})
+
+export const searchChange = text => ({
+    type: StoreActionsType.SEARCH_CHANGE,
+    payload: text,
 })

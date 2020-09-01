@@ -1,5 +1,3 @@
-import produce from 'immer'
-
 import { StoreActionsType } from './actions'
 
 const INITIAL_STATE = {
@@ -10,6 +8,7 @@ const INITIAL_STATE = {
     submitted: false,
     currentCategory: 'my list',
     categories: [],
+    filter: '',
 }
 
 export function storeReducer(state = INITIAL_STATE, action) {
@@ -45,6 +44,9 @@ export function storeReducer(state = INITIAL_STATE, action) {
 
         case StoreActionsType.TOGGLE_MODAL:
             return { ...state, submitted: !state.submitted }
+
+        case StoreActionsType.SEARCH_CHANGE:
+            return { ...state, filter: action.payload }
 
         default:
             return state

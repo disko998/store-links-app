@@ -21,3 +21,13 @@ export const selectCategories = createSelector(
     selectStoreFeatures,
     store => store.categories,
 )
+
+export const selectStoresLoading = createSelector(
+    selectStoreFeatures,
+    store => store.loading,
+)
+
+export const selectFilter = createSelector(
+    selectStoreFeatures,
+    store => store.filter,
+)

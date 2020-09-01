@@ -7,25 +7,28 @@ import {
     SearchIcon,
     SettingsButton,
 } from './styles'
-import { useDispatch } from 'react-redux'
-import { filterStores } from '../../redux/stores/thunk'
+import { useDispatch, useSelector } from 'react-redux'
+import { searchChange, selectFilter } from '../../redux/stores'
 
 export default function SearchBar({ onSettings, ...props }) {
-    const [value, setValue] = React.useState('')
     const dispatch = useDispatch()
+    const filter = useSelector(selectFilter)
 
-    const onSubmit = React.useCallback(() => {
-        dispatch(filterStores(value))
-    }, [dispatch, value])
+    const onSearch = React.useCallback(
+        value => {
+            dispatch(searchChange(value))
+        },
+        [dispatch],
+    )
 
     return (
         <BarWrapper {...props}>
             <SearchIcon name="search" size={24} />
             <SearchInput
                 placeholder="Search"
-                value={value}
-                onChangeText={setValue}
-                onSubmitEditing={onSubmit}
+                value={filter}
+                onChangeText={onSearch}
+                onSubmitEditing={onSearch}
             />
             <SettingsButton onPress={onSettings}>
                 <SettingsIcon name="settings" size={35} />

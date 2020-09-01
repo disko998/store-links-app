@@ -1,16 +1,24 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { useNavigation } from '@react-navigation/native'
 import { useSelector } from 'react-redux'
+import { ActivityIndicator } from 'react-native'
 
-import { ListWrapper } from './styles'
+import { ListWrapper, LoadingWrapper, EmptyText } from './styles'
 import { StoreButton } from '../StoreButton'
 import routes from '../../navigation/routes'
-import { selectStores, selectFavorites } from '../../redux/stores'
+import {
+    selectStores,
+    selectFavorites,
+    selectStoresLoading,
+    selectFilter,
+} from '../../redux/stores'
 
 export default function StoreList() {
     // hooks
+    const loading = useSelector(selectStoresLoading)
     const stores = useSelector(selectStores)
     const favorites = useSelector(selectFavorites)
+    const filter = useSelector(selectFilter)
 
     const navigation = useNavigation()
 
@@ -20,9 +28,32 @@ export default function StoreList() {
         [navigation],
     )
 
+    const match = React.useCallback(
+        store => {
+            return store.name.toLowerCase().indexOf(filter.toLowerCase()) !== -1
+        },
+        [filter],
+    )
+
+    if (loading) {
+        return (
+            <LoadingWrapper>
+                <ActivityIndicator color="#000" size="large" />
+            </LoadingWrapper>
+        )
+    }
+
+    if (!stores.length) {
+        return (
+            <LoadingWrapper>
+                <EmptyText>No stores!</EmptyText>
+            </LoadingWrapper>
+        )
+    }
+
     return (
         <ListWrapper>
-            {stores.map(store => (
+            {stores.filter(match).map(store => (
                 <StoreButton
                     key={store.id}
                     image={{ uri: store.logo }}

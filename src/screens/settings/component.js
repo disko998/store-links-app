@@ -2,6 +2,8 @@ import React from 'react'
 import { DrawerContentScrollView, DrawerItem } from '@react-navigation/drawer'
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 import { ModalSelectList } from 'react-native-modal-select-list'
+import { useDispatch, useSelector } from 'react-redux'
+import { useTranslation } from 'react-i18next'
 
 import {
     selectCountries,
@@ -10,28 +12,35 @@ import {
 } from '../../redux/settings'
 import { Colors, CONTACT_NUMBER } from '../../styles'
 import { openWhatsApp } from '../../utils/helper'
-import { useDispatch, useSelector } from 'react-redux'
 
 import { StyledItem, styles, DrawerHeader, AppName, Dot } from './styles'
 import { HeaderButton, BackIcon } from '../../components/Header/styles'
-import { useNavigation } from '@react-navigation/native'
 
 export default function SettingsScreen(props) {
     const dispatch = useDispatch()
     const countries = useSelector(selectCountries)
     const country = useSelector(selectCurrentCountry)
+    const { t, i18n } = useTranslation()
 
-    const onContact = React.useCallback(() => openWhatsApp(CONTACT_NUMBER), [])
-
+    // country modal ref
     let modalRef
     const openModal = () => modalRef.show()
     const hideModal = () => modalRef.dismiss()
     const saveModalRef = ref => (modalRef = ref)
     const onSelectedOption = value => {
-        console.log(`You selected: ${value}`)
         dispatch(setCountryAsync(value))
     }
 
+    // lang modal ref
+    let langModalRef
+    const openLangModal = () => langModalRef.show()
+    const hideLangModal = () => langModalRef.dismiss()
+    const saveLangModalRef = ref => (langModalRef = ref)
+    const onSelectedLanguage = lang => {
+        i18n.changeLanguage(lang)
+    }
+
+    const onContact = React.useCallback(() => openWhatsApp(CONTACT_NUMBER), [])
     const options = React.useMemo(
         () =>
             countries && countries.map(c => ({ value: c.name, label: c.name })),
@@ -43,7 +52,7 @@ export default function SettingsScreen(props) {
             <DrawerContentScrollView {...props}>
                 <DrawerHeader>
                     <AppName>
-                        Linkat <Dot>.</Dot>
+                        {t('settings:appName')} <Dot>.</Dot>
                     </AppName>
                 </DrawerHeader>
                 <StyledItem
@@ -56,6 +65,7 @@ export default function SettingsScreen(props) {
                     )}
                     label="Languages"
                     labelStyle={styles.labelStyle}
+                    onPress={openLangModal}
                 />
                 <DrawerItem
                     icon={({ focused, color, size }) => (
@@ -86,11 +96,22 @@ export default function SettingsScreen(props) {
                         <BackIcon size={20} name="arrowdown" />
                     </HeaderButton>
                 }
-                closeButtonText={'Close'}
                 options={options}
                 onSelectedOption={onSelectedOption}
-                disableTextSearch={false}
-                numberOfLines={3}
+            />
+            <ModalSelectList
+                ref={saveLangModalRef}
+                placeholder={'Search language...'}
+                closeButtonComponent={
+                    <HeaderButton onPress={hideLangModal}>
+                        <BackIcon size={20} name="arrowdown" />
+                    </HeaderButton>
+                }
+                options={[
+                    { label: 'English', value: 'en' },
+                    { label: 'Arabic', value: 'ar' },
+                ]}
+                onSelectedOption={onSelectedLanguage}
             />
         </>
     )

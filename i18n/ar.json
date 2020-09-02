@@ -1,29 +1,29 @@
 {
     "common": {
-        "appName": "لينكات",
+        "appName": "Linkat",
         "languages": "اللغات",
-        "country": "بلد",
+        "country": "الدولة",
         "contact_us": "اتصل بنا",
         "search": "بحث",
         "add": "أضف",
         "order_now": "اطلب الان",
-        "no_store_link": "لا يوجد ارتباط لهذا المتجر",
+        "no_store_link": "لا يوجد رابط لهذا المتجر",
         "skip": "تخطى",
         "new_store": "متجر جديد",
         "store_link": "رابط المتجر",
-        "instagram": "إنستغرام",
-        "whatsapp": "ال WhatsApp",
-        "logo": "شعار",
+        "instagram": "إنستقرام",
+        "whatsapp": "الوتسب",
+        "logo": "الشعار",
         "location": "موقعك",
-        "call": "مكالمة",
-        "thanks": "شكر"
+        "call": "اتصال",
+        "thanks": "شكراً"
     },
     "add_store": {
-        "contact_us_for_ads": "اتصل بنا للإعلانات هنا!",
-        "lets_chat": "دعنا نتحدث",
+        "contact_us_for_ads": "اتصل بنا للإعلان هنا!",
+        "lets_chat": "لنتواصل",
         "missing_store": "هل تفتقد أي متجر ؟!",
         "add_new_store": "إضافة متجر جديد",
-        "like_this_store": "أنا أحب هذا المتجر",
+        "like_this_store": "أنا من عملاء هذاالمتجر",
         "store_owner": "أنا صاحب متجر",
         "store_phone": "رقم هاتف المتجر",
         "owner_phone": "رقم هاتف المالك",
@@ -32,6 +32,6 @@
         "confirm_message": "سنقوم بإضافة المتجر الجديد في أقرب وقت ممكن"
     },
     "locations": {
-        "no_locations": "ليس لديها أي مواقع متاحة!"
+        "no_locations": "ليس لديه أي مواقع متاحة!"
     }
 }

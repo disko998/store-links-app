@@ -1,5 +1,6 @@
 import AsyncStorage from '@react-native-community/async-storage'
 
+import { db, fileStorage } from '../../firebase'
 import {
     fetchStoresStart,
     fetchStoresSuccess,
@@ -17,7 +18,6 @@ import {
     getDataFromSnapshot,
     fetchMyList,
 } from '../../firebase/utils'
-import { db, fileStorage } from '../../firebase'
 
 export const fetchStoresAsync = category => {
     return async (dispatch, getState) => {
@@ -64,6 +64,16 @@ export const toggleFavoriteStoreAsync = store => {
             )
 
             dispatch(setFavoriteStores(favorites))
+
+            const {
+                store: { currentCategory },
+            } = getState()
+
+            dispatch(
+                fetchStoresAsync(
+                    currentCategory === 'my list' ? '' : currentCategory,
+                ),
+            )
         } catch (error) {
             console.log(error)
         }

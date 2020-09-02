@@ -5,7 +5,9 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 import { Colors, font } from '../../styles'
 
 export const styles = StyleSheet.create({
-    radioBox: { marginVertical: 10 },
+    radioBox: {
+        marginVertical: 10,
+    },
     radioLabel: {
         fontSize: 20,
         color: Colors.black,
@@ -25,8 +27,9 @@ export const Container = styled.ScrollView`
 export const GrayText = styled.Text`
     color: ${Colors.gray}
     font-size: 20px
-    text-align: left
+    text-align: ${props => (props.dir === 'rtl' ? 'right' : 'left')}
     font-family: ${font.bold}
+    
 `
 
 export const LogoText = styled.Text`
@@ -39,6 +42,7 @@ export const LogoText = styled.Text`
 export const DarkText = styled(GrayText)`
     color: ${Colors.black}
     font-size: 24px
+    text-align: ${props => (props.dir === 'rtl' ? 'right' : 'left')}
 `
 
 export const StoreAvatar = styled.Image`

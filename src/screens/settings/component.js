@@ -65,7 +65,7 @@ export default function SettingsScreen(props) {
                             name="translate"
                         />
                     )}
-                    label="Languages"
+                    label={t('languages')}
                     labelStyle={styles.labelStyle}
                     onPress={openLangModal}
                 />
@@ -73,7 +73,7 @@ export default function SettingsScreen(props) {
                     icon={({ focused, color, size }) => (
                         <Icon color={Colors.white} size={size} name="flag" />
                     )}
-                    label={country || 'Country'}
+                    label={country || t('country')}
                     labelStyle={styles.labelStyle}
                     onPress={openModal}
                 />
@@ -85,14 +85,14 @@ export default function SettingsScreen(props) {
                             name="whatsapp"
                         />
                     )}
-                    label="Contact us"
+                    label={t('contact_us')}
                     labelStyle={styles.labelStyle}
                     onPress={onContact}
                 />
             </DrawerContentScrollView>
             <ModalSelectList
                 ref={saveModalRef}
-                placeholder={'Search country...'}
+                placeholder={`${t('search')} ${t('country')}...`}
                 closeButtonComponent={
                     <HeaderButton onPress={hideModal}>
                         <BackIcon size={20} name="arrowdown" />
@@ -103,7 +103,7 @@ export default function SettingsScreen(props) {
             />
             <ModalSelectList
                 ref={saveLangModalRef}
-                placeholder={'Search language...'}
+                placeholder={`${t('search')} ${t('languages')}...`}
                 closeButtonComponent={
                     <HeaderButton onPress={hideLangModal}>
                         <BackIcon size={20} name="arrowdown" />

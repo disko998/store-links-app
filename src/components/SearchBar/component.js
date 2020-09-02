@@ -1,4 +1,5 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 
 import {
     BarWrapper,
@@ -13,6 +14,7 @@ import { searchChange, selectFilter } from '../../redux/stores'
 export default function SearchBar({ onSettings, ...props }) {
     const dispatch = useDispatch()
     const filter = useSelector(selectFilter)
+    const { t } = useTranslation()
 
     const onSearch = React.useCallback(
         value => {
@@ -25,7 +27,7 @@ export default function SearchBar({ onSettings, ...props }) {
         <BarWrapper {...props}>
             <SearchIcon name="search" size={24} />
             <SearchInput
-                placeholder="Search"
+                placeholder={t('search')}
                 value={filter}
                 onChangeText={onSearch}
                 onSubmitEditing={onSearch}

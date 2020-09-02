@@ -1,6 +1,7 @@
 import React from 'react'
-import { Linking, SafeAreaView } from 'react-native'
+import { Linking } from 'react-native'
 import { useDispatch, useSelector } from 'react-redux'
+import { useTranslation } from 'react-i18next'
 
 import {
     StoreWrapper,
@@ -12,7 +13,7 @@ import {
     InfoWrapper,
 } from './styles'
 import { ActionButton, PrimaryButton, Header } from '../../components'
-import { redirectToWebsite, openWhatsApp } from '../../utils/helper'
+import { openWhatsApp } from '../../utils/helper'
 import { toggleFavoriteStoreAsync, selectFavorites } from '../../redux/stores'
 import routes from '../../navigation/routes'
 
@@ -32,6 +33,7 @@ export default function StoreScreen({ navigation, route }) {
     // hooks
     const dispatch = useDispatch()
     const favorites = useSelector(selectFavorites)
+    const { t } = useTranslation()
 
     // handlers
     const onOrder = React.useCallback(() => {
@@ -70,18 +72,22 @@ export default function StoreScreen({ navigation, route }) {
                 <ActionBar>
                     <ActionButton
                         logo="whatsapp"
-                        title="Whatsapp"
+                        title={t('whatsapp')}
                         onPress={onWhatsApp}
                     />
                     <ActionButton
                         logo="compass-outline"
-                        title="Location"
+                        title={t('location')}
                         onPress={onLocation}
                     />
-                    <ActionButton logo="phone" title="Call" onPress={onCall} />
+                    <ActionButton
+                        logo="phone"
+                        title={t('call')}
+                        onPress={onCall}
+                    />
                 </ActionBar>
                 <PrimaryButton
-                    title={order_link ? 'Order Now' : 'No link for this store'}
+                    title={order_link ? t('order_now') : t('no_store_link')}
                     disabled={!order_link}
                     onPress={onOrder}
                 />

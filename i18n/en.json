@@ -1,5 +1,37 @@
 {
     "common": {
-        "appName": "Linkat"
+        "appName": "Linkat",
+        "languages": "Languages",
+        "country": "Country",
+        "contact_us": "Contact us",
+        "search": "Search",
+        "add": "Add",
+        "order_now": "Order Now",
+        "no_store_link": "No link for this store",
+        "skip": "Skip",
+        "new_store": "New Store",
+        "store_link": "Store Link",
+        "instagram": "Instagram",
+        "whatsapp": "Whatsapp",
+        "logo": "Logo",
+        "location": "Location",
+        "call": "Call",
+        "thanks": "Thanks"
+    },
+    "add_store": {
+        "contact_us_for_ads": "Contact Us for Ads Here!",
+        "lets_chat": "Let's Chat",
+        "missing_store": "Missing any Store?!",
+        "add_new_store": "Add New Store",
+        "like_this_store": "I like this Store",
+        "store_owner": "I'm Store owner",
+        "store_phone": "Store Phone Number",
+        "owner_phone": "Owner Phone Number",
+        "contact_email": "Contact Email",
+        "send_request": "Send Request",
+        "confirm_message": "We will add the new store asap"
+    },
+    "locations": {
+        "no_locations": "does not have any available locations!"
     }
 }

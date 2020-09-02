@@ -2,6 +2,7 @@ import React from 'react'
 import RadioButtonRN from 'radio-buttons-react-native'
 import { Formik } from 'formik'
 import { useDispatch, useSelector } from 'react-redux'
+import { useTranslation } from 'react-i18next'
 
 import { pickImage } from '../../utils/helper'
 import { Colors } from '../../styles'
@@ -32,16 +33,8 @@ import {
     styles,
 } from './styles'
 
-const data = [
-    {
-        label: 'I Like this Store',
-    },
-    {
-        label: "I'm Store owner",
-    },
-]
-
 export default function AddStoreScreen({ navigation }) {
+    const { t, i18n } = useTranslation()
     const dispatch = useDispatch()
     const submitted = useSelector(state => state.store.submitted)
     const [isOwner, setIsOwner] = React.useState(false)
@@ -70,6 +63,18 @@ export default function AddStoreScreen({ navigation }) {
         navigation.goBack()
     }, [navigation, dispatch])
 
+    const data = React.useMemo(
+        () => [
+            {
+                label: t('add_store:like_this_store'),
+            },
+            {
+                label: t('add_store:store_owner'),
+            },
+        ],
+        [t],
+    )
+    console.log(i18n.dir())
     return (
         <Wrapper>
             <Header onBack={navigation.goBack} />
@@ -90,10 +95,10 @@ export default function AddStoreScreen({ navigation }) {
                     errors,
                 }) => (
                     <Container>
-                        <GrayText>Add</GrayText>
-                        <DarkText>New Store</DarkText>
+                        <GrayText dir={i18n.dir()}>{t('add')}</GrayText>
+                        <DarkText dir={i18n.dir()}>{t('new_store')}</DarkText>
                         <TextField
-                            placeholder="Store Link"
+                            placeholder={t('store_link')}
                             onChangeText={handleChange('store_link')}
                             onBlur={handleBlur('store_link')}
                             error={errors.store_link}
@@ -131,12 +136,12 @@ export default function AddStoreScreen({ navigation }) {
                                             )}
                                         </AvatarInput>
                                         <LogoText error={errors.logo}>
-                                            {logo.fileName || 'Logo'}
+                                            {logo.fileName || t('logo')}
                                         </LogoText>
                                     </Column>
                                     <Column>
                                         <TextField
-                                            placeholder="Instagram"
+                                            placeholder={t('instagram')}
                                             onChangeText={handleChange(
                                                 'instagram',
                                             )}
@@ -145,7 +150,7 @@ export default function AddStoreScreen({ navigation }) {
                                             error={errors.instagram}
                                         />
                                         <TextField
-                                            placeholder="Whatsapp"
+                                            placeholder={t('whatsapp')}
                                             onChangeText={handleChange(
                                                 'whatsApp',
                                             )}
@@ -157,7 +162,7 @@ export default function AddStoreScreen({ navigation }) {
                                     </Column>
                                 </Row>
                                 <TextField
-                                    placeholder="Store Phone Number"
+                                    placeholder={t('add_store:store_phone')}
                                     onChangeText={handleChange('store_number')}
                                     onBlur={handleBlur('store_number')}
                                     value={values.store_number}
@@ -165,7 +170,7 @@ export default function AddStoreScreen({ navigation }) {
                                     keyboardType="phone-pad"
                                 />
                                 <TextField
-                                    placeholder="Owner Phone Number"
+                                    placeholder={t('add_store:owner_phone')}
                                     onChangeText={handleChange('owner_number')}
                                     onBlur={handleBlur('owner_number')}
                                     value={values.owner_number}
@@ -173,7 +178,7 @@ export default function AddStoreScreen({ navigation }) {
                                     keyboardType="phone-pad"
                                 />
                                 <TextField
-                                    placeholder="Contact Email"
+                                    placeholder={t('add_store:contact_email')}
                                     onChangeText={handleChange('email')}
                                     onBlur={handleBlur('email')}
                                     value={values.email}
@@ -183,7 +188,7 @@ export default function AddStoreScreen({ navigation }) {
                             </Wrapper>
                         )}
                         <PrimaryButton
-                            title="Send Request"
+                            title={t('add_store:send_request')}
                             onPress={handleSubmit}
                         />
                     </Container>
@@ -193,8 +198,8 @@ export default function AddStoreScreen({ navigation }) {
             <MessageModal
                 onDismiss={onModalClose}
                 visible={submitted}
-                title="Thanks"
-                message="We will add the new store asap"
+                title={t('thanks')}
+                message={t('add_store:confirm_message')}
             />
         </Wrapper>
     )

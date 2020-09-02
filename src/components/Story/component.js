@@ -1,4 +1,5 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 
 import {
     BorderButton,
@@ -9,6 +10,8 @@ import {
 } from './styles'
 
 export default function Story({ image, onPress }) {
+    const { t } = useTranslation()
+
     return (
         <StoryWrapper>
             <BorderButton onPress={onPress} image={image}>
@@ -18,7 +21,7 @@ export default function Story({ image, onPress }) {
                     <PlusIcon name="plus" size={30} />
                 )}
             </BorderButton>
-            {!image && <AddText>Add</AddText>}
+            {!image && <AddText>{t('add')}</AddText>}
         </StoryWrapper>
     )
 }

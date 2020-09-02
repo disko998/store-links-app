@@ -1,5 +1,37 @@
 {
     "common": {
-        "appName": "لينكات"
+        "appName": "لينكات",
+        "languages": "اللغات",
+        "country": "بلد",
+        "contact_us": "اتصل بنا",
+        "search": "بحث",
+        "add": "أضف",
+        "order_now": "اطلب الان",
+        "no_store_link": "لا يوجد ارتباط لهذا المتجر",
+        "skip": "تخطى",
+        "new_store": "متجر جديد",
+        "store_link": "رابط المتجر",
+        "instagram": "إنستغرام",
+        "whatsapp": "ال WhatsApp",
+        "logo": "شعار",
+        "location": "موقعك",
+        "call": "مكالمة",
+        "thanks": "شكر"
+    },
+    "add_store": {
+        "contact_us_for_ads": "اتصل بنا للإعلانات هنا!",
+        "lets_chat": "دعنا نتحدث",
+        "missing_store": "هل تفتقد أي متجر ؟!",
+        "add_new_store": "إضافة متجر جديد",
+        "like_this_store": "أنا أحب هذا المتجر",
+        "store_owner": "أنا صاحب متجر",
+        "store_phone": "رقم هاتف المتجر",
+        "owner_phone": "رقم هاتف المالك",
+        "contact_email": "تواصل بالبريد الاكتروني",
+        "send_request": "ارسل طلب",
+        "confirm_message": "سنقوم بإضافة المتجر الجديد في أقرب وقت ممكن"
+    },
+    "locations": {
+        "no_locations": "ليس لديها أي مواقع متاحة!"
     }
 }

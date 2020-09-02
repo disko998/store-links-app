@@ -1,6 +1,7 @@
 import React from 'react'
 import { useNavigation } from '@react-navigation/native'
 import { useDispatch, useSelector } from 'react-redux'
+import { useTranslation } from 'react-i18next'
 
 import { startStoryAsync, selectStoryIndex } from '../../redux/story'
 import {
@@ -29,6 +30,7 @@ export default function StoryView({
     const dispatch = useDispatch()
     const index = useSelector(selectStoryIndex)
     const navigation = useNavigation()
+    const { t } = useTranslation()
 
     React.useEffect(() => {
         if (page === currentPage) {
@@ -60,7 +62,7 @@ export default function StoryView({
 
                 <PrimaryButton
                     disabled={!order_link}
-                    title={order_link ? 'Order Now' : 'No link for this store'}
+                    title={order_link ? t('order_now') : t('no_store_link')}
                     onPress={onOrderPress}
                 />
             </ContentWrapper>

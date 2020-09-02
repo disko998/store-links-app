@@ -1,14 +1,19 @@
 import MapView, { PROVIDER_GOOGLE, Marker } from 'react-native-maps' // remove PROVIDER_GOOGLE import if not using Google Maps
 import React from 'react'
 import { StyleSheet } from 'react-native'
+import { useTranslation } from 'react-i18next'
 
 import { MapWrapper, InfoText, CustomMarkerView } from './styles'
 
 export default ({ locations, store }) => {
+    const { t } = useTranslation()
+
     if (!locations.length) {
         return (
             <MapWrapper>
-                <InfoText>{`${store.name} does not have any available locations!`}</InfoText>
+                <InfoText>{`${store.name} ${t(
+                    'locations:no_locations',
+                )}`}</InfoText>
             </MapWrapper>
         )
     }

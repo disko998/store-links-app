@@ -1,5 +1,5 @@
 import React from 'react'
-import { SafeAreaView, StatusBar, StyleSheet } from 'react-native'
+import { View, StatusBar, StyleSheet } from 'react-native'
 import { Provider } from 'react-redux'
 
 import RootNavigation from './navigation'
@@ -12,9 +12,7 @@ const App = () => {
             <StatusBar barStyle="dark-content" backgroundColor={Colors.white} />
 
             <Provider store={store}>
-                <SafeAreaView style={styles.app}>
-                    <RootNavigation />
-                </SafeAreaView>
+                <RootNavigation />
             </Provider>
         </>
     )

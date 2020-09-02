@@ -1,5 +1,5 @@
 import React from 'react'
-import { Linking } from 'react-native'
+import { Linking, SafeAreaView } from 'react-native'
 import { useDispatch, useSelector } from 'react-redux'
 
 import {

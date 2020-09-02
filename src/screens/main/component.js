@@ -1,4 +1,5 @@
 import React from 'react'
+import { SafeAreaView } from 'react-native'
 
 import { categories } from './_data'
 import {
@@ -16,12 +17,14 @@ const adsImage = {
 
 export default function MainScreen({ navigation }) {
     return (
-        <MainWrapper>
-            <SearchBar onSettings={navigation.openDrawer} />
-            {false && <AdsBanner src={adsImage} onPress={() => {}} />}
-            <StoryList />
-            <CategoryList categories={categories} />
-            <StoreList />
-        </MainWrapper>
+        <SafeAreaView style={{ flex: 1, backgroundColor: '#fff' }}>
+            <MainWrapper>
+                <SearchBar onSettings={navigation.openDrawer} />
+                {false && <AdsBanner src={adsImage} onPress={() => {}} />}
+                <StoryList />
+                <CategoryList categories={categories} />
+                <StoreList />
+            </MainWrapper>
+        </SafeAreaView>
     )
 }

@@ -9,13 +9,11 @@ export const styles = StyleSheet.create({
     labelStyle: {
         color: Colors.white,
         fontSize: 18,
-        fontWeight: 'bold',
         fontFamily: font.regular,
         marginLeft: -20,
     },
     drawerStyle: {
         backgroundColor: Colors.mainBlue,
-        // width: windowWidth,
         padding: 20,
     },
     sceneStyle: {
@@ -33,8 +31,7 @@ export const DrawerHeader = styled.View`
 `
 export const AppName = styled.Text`
     fontSize: 43px
-    font-weight: bold
-    font-family: SFProDisplay-Regular
+    font-family: ${font.regular}
     color: ${Colors.white}
     text-align: center
 `

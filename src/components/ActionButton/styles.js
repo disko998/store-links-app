@@ -1,7 +1,7 @@
 import styled from 'styled-components/native'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 
-import { Colors } from '../../styles/colors'
+import { Colors, font } from '../../styles'
 
 export const Wrapper = styled.TouchableOpacity`
     flex-direction: column
@@ -28,7 +28,6 @@ export const Title = styled.Text`
     color: ${Colors.black};
     font-size: 15px;
     text-align: center;
-    font-weight: bold;
-    font-family: SFProDisplay-Regular
+    font-family: ${font.bold}
     margin-top: 5px;
 `

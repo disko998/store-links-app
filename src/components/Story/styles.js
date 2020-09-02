@@ -1,7 +1,7 @@
 import styled from 'styled-components/native'
 import Icon from 'react-native-vector-icons/AntDesign'
 
-import { Colors } from '../../styles/colors'
+import { Colors, font } from '../../styles'
 
 export const BorderButton = styled.TouchableOpacity`
     border: 2px ${props =>
@@ -28,8 +28,7 @@ export const PlusIcon = styled(Icon)`
 export const AddText = styled.Text`
     color: ${Colors.orange};
     font-size: 15px;
-    font-weight: bold;
-    font-family: SFProDisplay-Regular;
+    font-family: ${font.regular};
 `
 
 export const StoryWrapper = styled.View`

@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native'
 import LinearGradient from 'react-native-linear-gradient'
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 
-import { Colors } from '../../styles/colors'
+import { Colors, font } from '../../styles'
 
 export const styles = StyleSheet.create({})
 
@@ -14,7 +14,7 @@ export const Gradient = styled(LinearGradient)`
     align-items: center
 `
 
-export const Card = styled.TouchableOpacity`
+export const Card = styled.View`
     min-height: 60%
     width: 90%
     border-radius: 47px
@@ -30,11 +30,10 @@ export const Illustration = styled.Image`
 `
 
 export const Title = styled.Text`
-    font-size: 23px
+    font-size: 20px
     color: ${Colors.mainBlue}
-    font-weight: bold
     text-align: center
-    font-family: SFProDisplay-Regular
+    font-family: ${font.bold}
     
     margin-top: 15px
 `
@@ -54,8 +53,7 @@ export const SkipButton = styled.Text`
     font-size: 15px
     color: ${Colors.white}
     text-decoration: underline
-    font-weight: bold
-    font-family: SFProDisplay-Regular
+    font-family: ${font.bold}
     textDecorationColor: ${Colors.white}
 
     position: absolute

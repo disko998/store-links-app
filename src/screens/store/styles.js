@@ -1,6 +1,6 @@
 import styled from 'styled-components/native'
 
-import { Colors } from '../../styles/colors'
+import { Colors, font } from '../../styles'
 import { windowHeight } from '../../styles/dimensions'
 
 export const StoreWrapper = styled.ScrollView`
@@ -43,8 +43,7 @@ export const StoreTitle = styled.Text`
     color: ${Colors.black}
     font-size: 24px
     text-align: center
-    font-weight: bold
-    font-family: SFProDisplay-Regular
+    font-family: ${font.bold}
 `
 
 export const StoreDetails = styled.Text`
@@ -52,8 +51,7 @@ export const StoreDetails = styled.Text`
     color: ${Colors.darkGray}
     font-size: 20px
     text-align: center
-    font-weight: bold
-    font-family: SFProDisplay-Regular
+    font-family: ${font.regular}
 `
 export const ActionBar = styled.View`
     width: 100%

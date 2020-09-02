@@ -26,8 +26,7 @@ export const GrayText = styled.Text`
     color: ${Colors.gray}
     font-size: 20px
     text-align: left
-    font-weight: bold
-    font-family: ${font.regular}
+    font-family: ${font.bold}
 `
 
 export const LogoText = styled.Text`

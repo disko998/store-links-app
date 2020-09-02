@@ -2,7 +2,7 @@ import styled from 'styled-components/native'
 import Icon from 'react-native-vector-icons/Feather'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 
-import { Colors } from '../../styles/colors'
+import { Colors, font } from '../../styles'
 
 export const BarWrapper = styled.View`
    flex-direction: row
@@ -15,7 +15,7 @@ export const SearchInput = styled.TextInput`
     height: 50px
     padding: 10px
     font-size: 24px
-    font-family: SFProDisplay-Regular
+    font-family: ${font.regular}
 `
 
 export const SettingsButton = styled.TouchableOpacity`

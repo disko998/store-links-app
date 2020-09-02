@@ -2,7 +2,7 @@ import styled from 'styled-components/native'
 import Foundation from 'react-native-vector-icons/Foundation'
 import AntDesign from 'react-native-vector-icons/AntDesign'
 
-import { Colors } from '../../styles/colors'
+import { Colors, font } from '../../styles'
 import { windowWidth } from '../../styles/dimensions'
 
 export const HeaderWrapper = styled.View`
@@ -40,7 +40,7 @@ export const Title = styled.Text`
     align-self: center;
     color: ${Colors.white}
     font-size: 18px
-    font-family: SFProDisplay-Regular
+    font-family: ${font.regular}
 `
 
 export const BookmarkIcon = styled(Foundation)``

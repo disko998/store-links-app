@@ -23,7 +23,7 @@ export const AddStoreOwnerSchema = Yup.object().shape({
         .required('Required'),
     whatsApp: Yup.string()
         .trim()
-        .min(7, 'min 7 digs')
+        .min(5, 'min 5 digs')
         .max(30, 'max 30 digs')
         .required('Required'),
     store_number: Yup.string()

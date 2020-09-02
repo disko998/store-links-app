@@ -1,7 +1,7 @@
 import styled from 'styled-components/native'
 import Icon from 'react-native-vector-icons/MaterialIcons'
 
-import { Colors } from '../../styles/colors'
+import { Colors, font } from '../../styles'
 
 export const CategoryButton = styled.TouchableOpacity`
     border-radius: 50px
@@ -22,9 +22,8 @@ export const CategoryIcon = styled(Icon)`
 
 export const Title = styled.Text`
     color: ${props => (props.isActive ? Colors.white : Colors.darkBlue)};
-    font-size: 16px;
-    font-weight: bold;
-    font-family: SFProDisplay-Regular
+    font-size: 15px;
+    font-family: ${font.bold}
     text-align: center;
     text-transform: capitalize;
 `

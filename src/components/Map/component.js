@@ -2,7 +2,7 @@ import MapView, { PROVIDER_GOOGLE, Marker } from 'react-native-maps' // remove P
 import React from 'react'
 import { StyleSheet } from 'react-native'
 
-import { MapWrapper, InfoText, CustomMarkerView, Logo } from './styles'
+import { MapWrapper, InfoText, CustomMarkerView } from './styles'
 
 export default ({ locations, store }) => {
     if (!locations.length) {

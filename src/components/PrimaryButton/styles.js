@@ -1,6 +1,6 @@
 import styled from 'styled-components/native'
 
-import { Colors } from '../../styles/colors'
+import { Colors, font } from '../../styles'
 
 export const StyledTouchable = styled.TouchableOpacity`
     border-radius: 50px
@@ -19,6 +19,5 @@ export const Title = styled.Text`
     color: ${props => (props.disabled ? Colors.gray : Colors.white)}
     font-size: 24px;
     text-align: center;
-    font-weight: bold;
-    font-family: SFProDisplay-Regular
+    font-family: ${font.bold}
 `

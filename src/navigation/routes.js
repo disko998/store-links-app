@@ -5,5 +5,6 @@ export default {
     ADD_STORE: 'Add Store',
     ADD_POPUP: 'Add Popup',
     STORY: 'Story',
-    STORE_VIEW: 'STORE_VIEW',
+    STORE_VIEW: 'Store Webview',
+    STORE_LOCATION: 'Store Location',
 }

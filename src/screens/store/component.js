@@ -17,6 +17,7 @@ import { toggleFavoriteStoreAsync, selectFavorites } from '../../redux/stores'
 import routes from '../../navigation/routes'
 
 export default function StoreScreen({ navigation, route }) {
+    const store = JSON.parse(route.params)
     const {
         name,
         title,
@@ -26,22 +27,26 @@ export default function StoreScreen({ navigation, route }) {
         call_number,
         whatsApp_number,
         id,
-    } = JSON.parse(route.params)
+    } = store
 
     // hooks
     const dispatch = useDispatch()
     const favorites = useSelector(selectFavorites)
 
     // handlers
-    const onOrder = React.useCallback(async () => {
+    const onOrder = React.useCallback(() => {
         navigation.navigate(routes.STORE_VIEW, { uri: order_link })
     }, [order_link, navigation])
+
+    const onLocation = React.useCallback(() => {
+        navigation.navigate(routes.STORE_LOCATION, { store })
+    }, [store, navigation])
 
     const onCall = React.useCallback(async () => {
         await Linking.openURL(`tel:+${call_number}`)
     }, [call_number])
 
-    const onWhatsApp = React.useCallback(async () => {
+    const onWhatsApp = React.useCallback(() => {
         openWhatsApp(whatsApp_number)
     }, [whatsApp_number])
 
@@ -71,7 +76,7 @@ export default function StoreScreen({ navigation, route }) {
                     <ActionButton
                         logo="compass-outline"
                         title="Location"
-                        onPress={() => {}}
+                        onPress={onLocation}
                     />
                     <ActionButton logo="phone" title="Call" onPress={onCall} />
                 </ActionBar>

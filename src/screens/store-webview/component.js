@@ -6,7 +6,7 @@ import { Header } from '../../components'
 import { Colors } from '../../styles'
 import { styles, LoadingView } from './styles'
 
-export default function StoreView({ navigation, route }) {
+export default function StoreWebView({ navigation, route }) {
     const { uri } = route.params
 
     return (

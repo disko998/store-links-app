@@ -16,6 +16,12 @@ export const HeaderWrapper = styled.View`
     padding-right: 15px
     padding-bottom: 5px 
     background: ${props => (props.bg ? props.bg : 'transparent')}
+
+    ${props =>
+        props.absolute &&
+        `position: absolute;
+        top: 0`}
+   
 `
 
 export const HeaderButton = styled.TouchableOpacity`

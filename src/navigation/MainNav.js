@@ -9,7 +9,8 @@ import {
     StoreScreen,
     AddStoreScreen,
     StoryScreen,
-    StoreView,
+    StoreWebView,
+    StoreLocation,
 } from '../screens'
 import routes from './routes'
 import { DrawerContext } from './DrawerNav'
@@ -68,7 +69,14 @@ export default function MainNav({ navigation }) {
                     component={AddStoreScreen}
                 />
                 <Stack.Screen name={routes.STORY} component={StoryScreen} />
-                <Stack.Screen name={routes.STORE_VIEW} component={StoreView} />
+                <Stack.Screen
+                    name={routes.STORE_VIEW}
+                    component={StoreWebView}
+                />
+                <Stack.Screen
+                    name={routes.STORE_LOCATION}
+                    component={StoreLocation}
+                />
             </Stack.Navigator>
         </>
     )

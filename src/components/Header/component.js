@@ -15,10 +15,11 @@ export default function Header({
     onFavorite,
     bg,
     isFavorite,
+    absolute,
     ...props
 }) {
     return (
-        <HeaderWrapper bg={bg} {...props}>
+        <HeaderWrapper bg={bg} {...props} absolute={absolute}>
             {onBack && (
                 <HeaderButton onPress={onBack}>
                     <BackIcon size={20} name="arrowdown" />

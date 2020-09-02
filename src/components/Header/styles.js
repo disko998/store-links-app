@@ -1,4 +1,5 @@
 import styled from 'styled-components/native'
+import { getStatusBarHeight } from 'react-native-status-bar-height'
 import Foundation from 'react-native-vector-icons/Foundation'
 import AntDesign from 'react-native-vector-icons/AntDesign'
 
@@ -11,7 +12,7 @@ export const HeaderWrapper = styled.View`
     flex-direction: row
     justify-content: space-between
     align-items: center
-    padding-top: 20px
+    padding-top: ${getStatusBarHeight()}px
     padding-left: 15px 
     padding-right: 15px
     padding-bottom: 5px 

@@ -8,6 +8,7 @@ export const HorizontalScroll = styled.ScrollView`
     flex-wrap: nowrap;
 
     margin-vertical: 10px;
+    max-height: 45px;
 `
 
 export const CategoryWrapper = styled.View`

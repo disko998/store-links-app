@@ -1,3 +1,5 @@
+import AsyncStorage from '@react-native-community/async-storage'
+
 import {
     fetchCountriesFailure,
     fetchCountriesStart,
@@ -5,7 +7,7 @@ import {
     setCountry,
 } from './actions'
 import { getCollectionDocs } from '../../firebase/utils'
-import AsyncStorage from '@react-native-community/async-storage'
+import { STORAGE_KEY } from '../../../i18n'
 
 export const fetchCountriesAsync = () => {
     return async (dispatch, getState) => {
@@ -41,6 +43,17 @@ export const setCountryAsync = country => {
             dispatch(setCountry(country))
         } catch (error) {
             dispatch(fetchCountriesFailure(error.message))
+        }
+    }
+}
+
+export const storeLanguageAsync = lang => {
+    return async (dispatch, getState) => {
+        try {
+            console.log(STORAGE_KEY, lang)
+            await AsyncStorage.setItem(STORAGE_KEY, lang)
+        } catch (error) {
+            __DEV__ && console.log(error)
         }
     }
 }

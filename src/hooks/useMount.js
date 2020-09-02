@@ -1,5 +1,6 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
+import { useTranslation } from 'react-i18next'
 
 import {
     fetchCategoriesAsync,
@@ -10,8 +11,8 @@ import { fetchStoriesAsync } from '../redux/story'
 import { fetchCountriesAsync, getCountryAsync } from '../redux/settings'
 
 export const useMount = () => {
-    const [loading, setLoading] = useState(false)
     const dispatch = useDispatch()
+    const { i18n } = useTranslation()
 
     useEffect(() => {
         // initial actions
@@ -23,5 +24,5 @@ export const useMount = () => {
         dispatch(getCountryAsync())
     }, [dispatch])
 
-    return loading
+    return i18n.isInitialized
 }

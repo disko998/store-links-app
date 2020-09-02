@@ -9,6 +9,7 @@ import {
     selectCountries,
     selectCurrentCountry,
     setCountryAsync,
+    storeLanguageAsync,
 } from '../../redux/settings'
 import { Colors, CONTACT_NUMBER } from '../../styles'
 import { openWhatsApp } from '../../utils/helper'
@@ -38,6 +39,7 @@ export default function SettingsScreen(props) {
     const saveLangModalRef = ref => (langModalRef = ref)
     const onSelectedLanguage = lang => {
         i18n.changeLanguage(lang)
+        dispatch(storeLanguageAsync(lang))
     }
 
     const onContact = React.useCallback(() => openWhatsApp(CONTACT_NUMBER), [])
@@ -52,7 +54,7 @@ export default function SettingsScreen(props) {
             <DrawerContentScrollView {...props}>
                 <DrawerHeader>
                     <AppName>
-                        {t('settings:appName')} <Dot>.</Dot>
+                        {t('appName')} <Dot>.</Dot>
                     </AppName>
                 </DrawerHeader>
                 <StyledItem

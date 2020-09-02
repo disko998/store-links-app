@@ -12,6 +12,10 @@ const RootStack = createStackNavigator()
 export default function RootNavigation(props) {
     const isLoading = useMount()
 
+    if (!isLoading) {
+        return null
+    }
+
     return (
         <NavigationContainer>
             <RootStack.Navigator

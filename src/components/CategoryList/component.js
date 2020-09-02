@@ -16,12 +16,15 @@ export default function CategoryList() {
 
     return (
         <HorizontalScroll horizontal showsHorizontalScrollIndicator={false}>
-            <Category
-                icon="bookmark"
-                title="My list"
-                active={currentCategory === 'my list'}
-                onPress={() => dispatch(fetchStoresAsync())}
-            />
+            <CategoryWrapper>
+                <Category
+                    icon="bookmark"
+                    title="My list"
+                    active={currentCategory === 'my list'}
+                    onPress={() => dispatch(fetchStoresAsync())}
+                />
+            </CategoryWrapper>
+
             {categories.map(({ title, icon }) => (
                 <CategoryWrapper key={title}>
                     <Category

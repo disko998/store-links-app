@@ -20,4 +20,5 @@ export const Colors = {
         'rgba(51, 102, 255,0.8)',
         'rgba(80, 188, 255,0.8)',
     ],
+    uniquePopupBackground: ['rgba(255, 137, 0,0.8)', 'rgba(240, 180, 0,0.6)'],
 }

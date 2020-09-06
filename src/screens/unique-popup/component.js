@@ -11,31 +11,25 @@ import {
     BlackTitle,
     SkipButton,
 } from './styles'
-import routes from '../../navigation/routes'
-import { CookSvg } from '../../assets/images'
+import { Rank } from '../../assets/images'
 import { openWhatsApp } from '../../utils/helper'
 
-export default function AddPopupScreen({ navigation }) {
+export default function UniquePopup({ navigation }) {
     const { t } = useTranslation()
 
     const onChat = React.useCallback(() => openWhatsApp(CONTACT_NUMBER), [])
 
     return (
-        <Gradient colors={Colors.addStorePopupBackground}>
+        <Gradient colors={Colors.uniquePopupBackground}>
             <Card>
-                <CookSvg />
-                <Title>{t('add_store:contact_us_for_ads')}</Title>
-                <GradientButton
-                    colors={[Colors.purple, Colors.mainBlue]}
-                    title={t('lets_chat')}
-                    onPress={onChat}
-                />
+                <Rank />
+                <Title>{t('unique:about')}</Title>
                 <Divider />
-                <BlackTitle>{t('add_store:missing_store')}</BlackTitle>
+                <BlackTitle>{t('unique:title')}</BlackTitle>
                 <GradientButton
                     colors={[Colors.yellow, Colors.orange]}
-                    title={t('add_store:add_new_store')}
-                    onPress={() => navigation.navigate(routes.ADD_STORE)}
+                    title={t('lets_chat')}
+                    onPress={onChat}
                 />
             </Card>
             <SkipButton onPress={navigation.goBack}>{t('skip')}</SkipButton>

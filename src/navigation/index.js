@@ -3,7 +3,7 @@ import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 
 import DrawerNav from './DrawerNav'
-import { AddPopupScreen } from '../screens'
+import { AddPopupScreen, UniquePopup } from '../screens'
 import routes from './routes'
 import { useMount } from '../hooks/useMount'
 
@@ -35,6 +35,10 @@ export default function RootNavigation(props) {
                 <RootStack.Screen
                     name={routes.ADD_POPUP}
                     component={AddPopupScreen}
+                />
+                <RootStack.Screen
+                    name={routes.UNIQUE}
+                    component={UniquePopup}
                 />
             </RootStack.Navigator>
         </NavigationContainer>

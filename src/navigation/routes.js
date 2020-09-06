@@ -7,4 +7,5 @@ export default {
     STORY: 'Story',
     STORE_VIEW: 'Store Webview',
     STORE_LOCATION: 'Store Location',
+    UNIQUE: 'Unique',
 }

@@ -7,7 +7,7 @@ export default function StoreButton({ onPress, favorite, unique, image }) {
     return (
         <StyledTouchable onPress={onPress}>
             <FavoriteMark show={favorite}>
-                <UniqueMark show={unique}>
+                <UniqueMark show={unique} onPress={() => {}}>
                     <StoreLogo source={image} />
                 </UniqueMark>
             </FavoriteMark>

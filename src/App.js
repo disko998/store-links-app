@@ -1,5 +1,5 @@
 import React from 'react'
-import { StatusBar, StyleSheet } from 'react-native'
+import { StatusBar } from 'react-native'
 import { Provider } from 'react-redux'
 
 import RootNavigation from './navigation'
@@ -17,9 +17,5 @@ const App = () => {
         </>
     )
 }
-
-const styles = StyleSheet.create({
-    app: { flex: 1, backgroundColor: Colors.white },
-})
 
 export default App

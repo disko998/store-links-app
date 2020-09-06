@@ -30,7 +30,6 @@ export default function SearchBar({ onSettings, ...props }) {
                 placeholder={t('search')}
                 value={filter}
                 onChangeText={onSearch}
-                onSubmitEditing={onSearch}
             />
             <SettingsButton onPress={onSettings}>
                 <SettingsIcon name="settings" size={35} />

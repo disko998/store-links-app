@@ -1,4 +1,5 @@
 import styled from 'styled-components/native'
+import { getStatusBarHeight } from 'react-native-status-bar-height'
 import Icon from 'react-native-vector-icons/AntDesign'
 
 import { Colors, font } from '../../styles'
@@ -17,6 +18,7 @@ export const ContentWrapper = styled.TouchableOpacity`
     justify-content: space-between
     padding: 20px
     height: ${windowHeight}px
+    padding-top: ${getStatusBarHeight()}px;
 `
 
 export const StoryName = styled.Text`

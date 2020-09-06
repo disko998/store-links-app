@@ -9,7 +9,7 @@ export const BookmarkIcon = styled(Foundation)`
     left: 10px
     color: ${Colors.mainBlue};
 `
-export const UniqueWrapper = styled.View`
+export const UniqueWrapper = styled.TouchableOpacity`
     position: absolute
     top: -10px
     right: -10px

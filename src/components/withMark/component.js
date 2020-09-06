@@ -12,12 +12,12 @@ export const FavoriteMark = ({ show, size = 30, children }) => {
     )
 }
 
-export const UniqueMark = ({ show, size = 30, children }) => {
+export const UniqueMark = ({ show, size = 30, children, onPress }) => {
     return (
         <>
             {children}
             {show && (
-                <UniqueWrapper>
+                <UniqueWrapper onPress={onPress}>
                     <UniqueIcon />
                 </UniqueWrapper>
             )}

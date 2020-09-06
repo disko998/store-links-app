@@ -30,13 +30,13 @@ export const fetchStoresAsync = category => {
                 const ref = db
                     .collection('stores')
                     .where('categories', 'array-contains', category)
+                    .where('hidden', '==', false)
                     .limit(20)
 
                 const snapshot = await ref.get()
 
                 stores = getDataFromSnapshot(snapshot)
             } else {
-                // ref = db.collection('stores').orderBy('name', 'asc').limit(20)
                 stores = await fetchMyList()
             }
 

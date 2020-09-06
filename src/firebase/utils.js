@@ -48,15 +48,20 @@ export const fetchMyList = async () => {
             favorite_stores.map(id => storesRef.doc(id).get()),
         )
 
-        userStores = docs.map(doc => {
-            if (doc.exists) {
-                return { ...doc.data(), id: doc.id }
-            }
-        })
+        userStores = docs
+            .map(doc => {
+                if (doc.exists) {
+                    return { ...doc.data(), id: doc.id }
+                }
+            })
+            .filter(s => !s.hidden)
     }
 
     // fetch pinned stores
-    const pinnedSnapshot = await storesRef.where('pinned', '==', true).get()
+    const pinnedSnapshot = await storesRef
+        .where('pinned', '==', true)
+        .where('hidden', '==', false)
+        .get()
     const pinned = getDataFromSnapshot(pinnedSnapshot)
 
     const myStores = _.uniqBy([...userStores, ...pinned], 'id')

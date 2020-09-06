@@ -2,6 +2,7 @@ import React from 'react'
 import { useNavigation } from '@react-navigation/native'
 import { useDispatch, useSelector } from 'react-redux'
 import { useTranslation } from 'react-i18next'
+import * as Progress from 'react-native-progress'
 
 import { startStoryAsync, selectStoryIndex } from '../../redux/story'
 import {
@@ -12,13 +13,14 @@ import {
     InfoWrapper,
     HeaderWrapper,
     PageIndicatorsWrapper,
-    PageIndicator,
     CloseButton,
     CloseIcon,
 } from './styles'
 import { PrimaryButton } from '../PrimaryButton'
+import { StoryProgressBar } from '../StoryProgressBar'
 import routes from '../../navigation/routes'
 import { fbAnalytics } from '../../firebase'
+import { Colors } from '../../styles'
 
 export default function StoryView({
     logo,
@@ -52,7 +54,7 @@ export default function StoryView({
                 <HeaderWrapper>
                     <PageIndicatorsWrapper>
                         {images.map((image, i) => (
-                            <PageIndicator key={image} active={index >= i} />
+                            <StoryProgressBar key={image} />
                         ))}
                     </PageIndicatorsWrapper>
                     <InfoWrapper>

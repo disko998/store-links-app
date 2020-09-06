@@ -1,16 +1,16 @@
 import styled from 'styled-components/native'
 
-import { Colors } from '../../styles/colors'
+import { Colors, windowWidth } from '../../styles'
 
 export const StyledTouchable = styled.TouchableOpacity`
     border-radius: 16px
     border: 1px solid ${Colors.lightGray}
     overflow: visible
-    width: 90px
-    height: 90px
+    width: ${windowWidth * 0.25}px
+    height: ${windowWidth * 0.25}px
     background: ${Colors.white}
 
-    margin: 10px 5px
+    margin: 10px 10px
 `
 
 export const StoreLogo = styled.Image`

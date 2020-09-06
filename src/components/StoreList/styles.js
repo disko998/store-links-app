@@ -7,7 +7,7 @@ export const ListWrapper = styled.View`
     flex: 1;
     flex-direction: row
     flex-wrap: wrap
-    justify-content: space-around
+    justify-content: flex-start
 `
 
 export const LoadingWrapper = styled.View`

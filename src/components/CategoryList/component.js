@@ -8,11 +8,25 @@ import {
     selectCurrentCategory,
     selectCategories,
 } from '../../redux/stores'
+import { fbAnalytics } from '../../firebase'
 
 export default function CategoryList() {
     const currentCategory = useSelector(selectCurrentCategory)
     const categories = useSelector(selectCategories)
     const dispatch = useDispatch()
+
+    const onCategoryPress = React.useCallback(
+        async category => {
+            dispatch(fetchStoresAsync(category.title))
+            const res = await fbAnalytics.logSelectContent({
+                content_type: 'category',
+                item_id: 'P12453',
+            })
+
+            console.log(res)
+        },
+        [dispatch],
+    )
 
     return (
         <HorizontalScroll horizontal showsHorizontalScrollIndicator={false}>
@@ -21,17 +35,17 @@ export default function CategoryList() {
                     icon="bookmark"
                     title="My list"
                     active={currentCategory === 'my list'}
-                    onPress={() => dispatch(fetchStoresAsync())}
+                    onPress={() => onCategoryPress({})}
                 />
             </CategoryWrapper>
 
-            {categories.map(({ title, icon }) => (
-                <CategoryWrapper key={title}>
+            {categories.map(category => (
+                <CategoryWrapper key={category.id}>
                     <Category
-                        icon={icon}
-                        title={title}
-                        active={currentCategory === title ? true : false}
-                        onPress={() => dispatch(fetchStoresAsync(title))}
+                        icon={category.icon}
+                        title={category.title}
+                        active={currentCategory === category.title}
+                        onPress={() => onCategoryPress(category)}
                     />
                 </CategoryWrapper>
             ))}

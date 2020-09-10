@@ -11,20 +11,20 @@ import {
 } from '../../components'
 import { MainWrapper } from './styles'
 
-const adsImage = {
-    uri: 'https://cdn.mos.cms.futurecdn.net/2nUGsD2QnvC9BzM8geN48M-1200-80.jpg',
-}
-
 export default function MainScreen({ navigation }) {
     return (
-        <SafeAreaView style={{ flex: 1, backgroundColor: '#fff' }}>
+        <SafeAreaView style={styles.container}>
             <MainWrapper>
                 <SearchBar onSettings={navigation.openDrawer} />
-                {false && <AdsBanner src={adsImage} onPress={() => {}} />}
+                <AdsBanner />
                 <StoryList />
                 <CategoryList categories={categories} />
                 <StoreList />
             </MainWrapper>
         </SafeAreaView>
     )
+}
+
+const styles = {
+    container: { flex: 1, backgroundColor: '#fff' },
 }

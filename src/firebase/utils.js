@@ -6,6 +6,20 @@ export const addDoc = (collection, doc) => {
     return db.collection(collection).add(doc)
 }
 
+export const getDoc = async (collection, docName) => {
+    const doc = await db.collection(collection).doc(docName).get()
+
+    return { id: doc.id, ...doc.data() }
+}
+
+export const streamAd = async (collection, docName, onSnapshot) => {
+    db.collection(collection)
+        .doc(docName)
+        .onSnapshot(doc => {
+            onSnapshot({ id: doc.id, ...doc.data() })
+        })
+}
+
 export const seedCollection = (collection, data) => {
     data.map(doc => {
         addDoc(collection, doc).then(() => {

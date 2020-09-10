@@ -11,7 +11,7 @@ export default function StoreWebView({ navigation, route }) {
 
     return (
         <View>
-            <Header onBack={navigation.goBack} bg={Colors.white} />
+            <Header onBack={navigation.goBack} bg={Colors.mainBlue} />
             <WebView
                 source={{ uri }}
                 containerStyle={styles.webView}

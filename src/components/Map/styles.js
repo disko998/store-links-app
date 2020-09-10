@@ -13,6 +13,7 @@ export const InfoText = styled.Text`
     font-family: ${font.bold}
     font-size: 30px
     text-align: center
+    margin: 10px
 `
 
 export const CustomMarkerView = styled.ImageBackground`

@@ -1,6 +1,6 @@
 import AsyncStorage from '@react-native-community/async-storage'
 
-import { db, fileStorage } from '../../firebase'
+import { db, fbAnalytics, fileStorage } from '../../firebase'
 import {
     fetchStoresStart,
     fetchStoresSuccess,
@@ -62,6 +62,13 @@ export const toggleFavoriteStoreAsync = store => {
                 'favorite_stores',
                 JSON.stringify(favorites),
             )
+
+            if (index !== -1) {
+                fbAnalytics.logEvent('add_favorite', {
+                    store_id: store.id,
+                    store_name: store.name,
+                })
+            }
 
             dispatch(setFavoriteStores(favorites))
 

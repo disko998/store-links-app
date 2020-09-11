@@ -32,4 +32,5 @@ export const signInAnonymouslyAsync = () => {
 
 export const unsubscribeUser = () => {
     subscriber()
+    auth().signOut()
 }

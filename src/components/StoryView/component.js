@@ -18,6 +18,7 @@ import {
 } from './styles'
 import { PrimaryButton } from '../PrimaryButton'
 import routes from '../../navigation/routes'
+import { fbAnalytics } from '../../firebase'
 
 export default function StoryView({
     logo,
@@ -39,6 +40,9 @@ export default function StoryView({
     }, [dispatch, images, page, currentPage])
 
     const onOrderPress = React.useCallback(async () => {
+        fbAnalytics.logEvent('story_order_link', {
+            order_link: order_link,
+        })
         navigation.navigate(routes.STORE_VIEW, { uri: order_link })
     }, [order_link, navigation])
 

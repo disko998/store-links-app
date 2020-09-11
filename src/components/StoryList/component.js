@@ -6,6 +6,7 @@ import { Story } from '../Story'
 import { HorizontalScroll, StoryWrapper } from './styles'
 import routes from '../../navigation/routes'
 import { selectStories } from '../../redux/story'
+import { fbAnalytics } from '../../firebase/index'
 
 export default function StoryList() {
     // hooks
@@ -14,8 +15,12 @@ export default function StoryList() {
 
     // handlers
     const onStoryPress = React.useCallback(
-        storyIndex =>
-            navigation.navigate(routes.STORY, JSON.stringify(storyIndex)),
+        storyIndex => {
+            fbAnalytics.logEvent('view_story', {
+                story_index: storyIndex,
+            })
+            navigation.navigate(routes.STORY, JSON.stringify(storyIndex))
+        },
         [navigation],
     )
 

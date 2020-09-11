@@ -1,6 +1,5 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import analytics from '@react-native-firebase/analytics'
 
 import { Category } from '../Category'
 import { HorizontalScroll, CategoryWrapper } from './styles'
@@ -19,7 +18,10 @@ export default function CategoryList() {
     const onCategoryPress = React.useCallback(
         async category => {
             dispatch(fetchStoresAsync(category.title))
-            // fbAnalytics.logEvent('category', category)
+            fbAnalytics.logSelectContent({
+                content_type: category.title ? category.title : 'my list',
+                item_id: category.id ? category.id : 'my_list',
+            })
         },
         [dispatch],
     )

@@ -10,6 +10,7 @@ import {
 } from './styles'
 import { useDispatch, useSelector } from 'react-redux'
 import { searchChange, selectFilter } from '../../redux/stores'
+import { fbAnalytics } from '../../firebase'
 
 export default function SearchBar({ onSettings, ...props }) {
     const dispatch = useDispatch()
@@ -23,6 +24,12 @@ export default function SearchBar({ onSettings, ...props }) {
         [dispatch],
     )
 
+    const logEvent = React.useCallback(() => {
+        if (filter) {
+            fbAnalytics.logSearch({ search_term: filter })
+        }
+    }, [filter])
+
     return (
         <BarWrapper {...props}>
             <SearchIcon name="search" size={24} />
@@ -30,6 +37,7 @@ export default function SearchBar({ onSettings, ...props }) {
                 placeholder={t('search')}
                 value={filter}
                 onChangeText={onSearch}
+                onSubmitEditing={logEvent}
             />
             <SettingsButton onPress={onSettings}>
                 <SettingsIcon name="settings" size={35} />

@@ -5,6 +5,7 @@ import { TouchableBanner, BannerImage } from './styles'
 import { streamAd, getDoc } from '../../firebase/utils'
 import { useNavigation } from '@react-navigation/native'
 import routes from '../../navigation/routes'
+import { fbAnalytics } from '../../firebase'
 
 export default function AdsBanner() {
     const navigation = useNavigation()
@@ -15,6 +16,7 @@ export default function AdsBanner() {
     }, [])
 
     const onAdPress = React.useCallback(async () => {
+        fbAnalytics.logEvent('ad_click')
         const store = await getDoc('stores', ad.storeId)
         navigation.navigate(routes.STORE, JSON.stringify(store))
     }, [ad, navigation])

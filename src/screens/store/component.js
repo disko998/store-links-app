@@ -16,19 +16,18 @@ import { ActionButton, PrimaryButton, Header } from '../../components'
 import { openWhatsApp } from '../../utils/helper'
 import { toggleFavoriteStoreAsync, selectFavorites } from '../../redux/stores'
 import routes from '../../navigation/routes'
+import { fbAnalytics } from '../../firebase'
 
 export default function StoreScreen({ navigation, route }) {
     const store = JSON.parse(route.params)
-    const {
-        name,
-        title,
-        logo,
-        image,
-        order_link,
-        call_number,
-        whatsApp_number,
-        id,
-    } = store
+    const { name, title, logo, image, order_link, id } = store
+
+    React.useEffect(() => {
+        fbAnalytics.logEvent('view_store', {
+            store_id: store.id,
+            store_name: store.name,
+        })
+    }, [])
 
     // hooks
     const dispatch = useDispatch()
@@ -37,24 +36,44 @@ export default function StoreScreen({ navigation, route }) {
 
     // handlers
     const onOrder = React.useCallback(() => {
-        navigation.navigate(routes.STORE_VIEW, { uri: order_link })
-    }, [order_link, navigation])
+        navigation.navigate(routes.STORE_VIEW, { uri: store.order_link })
+        fbAnalytics.logEvent('order_link', {
+            store_id: store.id,
+            store_name: store.name,
+            order_link: store.order_link,
+        })
+    }, [navigation, store])
 
     const onLocation = React.useCallback(() => {
+        fbAnalytics.logEvent('open_location', {
+            store_id: store.id,
+            store_name: store.name,
+            store_locations: store.locations,
+        })
         navigation.navigate(routes.STORE_LOCATION, { store })
     }, [store, navigation])
 
     const onCall = React.useCallback(async () => {
-        await Linking.openURL(`tel:+${call_number}`)
-    }, [call_number])
+        fbAnalytics.logEvent('call_number', {
+            store_id: store.id,
+            store_name: store.name,
+            call_number: store.call_number,
+        })
+        await Linking.openURL(`tel:${store.call_number}`)
+    }, [store])
 
     const onWhatsApp = React.useCallback(() => {
-        openWhatsApp(whatsApp_number)
-    }, [whatsApp_number])
+        fbAnalytics.logEvent('open_whatsApp', {
+            store_id: store.id,
+            store_name: store.name,
+            whatsApp_number: store.whatsApp_number,
+        })
+        openWhatsApp(store.whatsApp_number)
+    }, [store])
 
     const toggleFavorite = React.useCallback(() => {
-        dispatch(toggleFavoriteStoreAsync(JSON.parse(route.params)))
-    }, [dispatch, route])
+        dispatch(toggleFavoriteStoreAsync(store))
+    }, [dispatch, store])
 
     return (
         <StoreWrapper>

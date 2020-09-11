@@ -26,11 +26,9 @@ export default ({ locations, store }) => {
         longitudeDelta: 1,
     }
 
-    const onMarker = React.useCallback(() => {
-        Linking.openURL(
-            `http://www.google.com/maps/place/${locations[0]._latitude},${locations[0]._longitude}`,
-        )
-    }, [locations])
+    const onMarker = React.useCallback((lan, lng) => {
+        Linking.openURL(`http://www.google.com/maps/place/${lan},${lng}`)
+    }, [])
 
     return (
         <MapWrapper>
@@ -40,7 +38,7 @@ export default ({ locations, store }) => {
                 region={initialRegion}>
                 {locations.map(({ _latitude, _longitude }) => (
                     <Marker
-                        onPress={onMarker}
+                        onPress={() => onMarker(_latitude, _longitude)}
                         key={_latitude}
                         coordinate={{
                             latitude: _latitude,

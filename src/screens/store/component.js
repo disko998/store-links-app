@@ -36,12 +36,12 @@ export default function StoreScreen({ navigation, route }) {
 
     // handlers
     const onOrder = React.useCallback(() => {
-        navigation.navigate(routes.STORE_VIEW, { uri: store.order_link })
         fbAnalytics.logEvent('order_link', {
             store_id: store.id,
             store_name: store.name,
             order_link: store.order_link,
         })
+        navigation.navigate(routes.STORE_VIEW, { uri: store.order_link })
     }, [navigation, store])
 
     const onLocation = React.useCallback(() => {

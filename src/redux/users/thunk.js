@@ -18,8 +18,6 @@ export const signInAnonymouslyAsync = () => {
                     return dispatch(signInAnonymouslySuccess(user))
                 }
 
-                console.log('sign in new user')
-
                 const newUser = await auth().signInAnonymously()
 
                 dispatch(signInAnonymouslySuccess(newUser))

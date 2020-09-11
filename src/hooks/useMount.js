@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { useTranslation } from 'react-i18next'
+import inAppMessaging from '@react-native-firebase/in-app-messaging'
 
 import {
     fetchCategoriesAsync,
@@ -27,6 +28,12 @@ export const useMount = () => {
 
         return unsubscribeUser
     }, [dispatch])
+
+    useEffect(() => {
+        i18n.isInitialized
+            ? inAppMessaging().setMessagesDisplaySuppressed(false)
+            : inAppMessaging().setMessagesDisplaySuppressed(true)
+    }, [i18n.isInitialized])
 
     return i18n.isInitialized
 }

@@ -6,8 +6,8 @@ export const StyledTouchable = styled.TouchableOpacity`
     border-radius: 16px
     border: 1px solid ${Colors.lightGray}
     overflow: visible
-    width: ${windowWidth * 0.25}px
-    height: ${windowWidth * 0.25}px
+    width: ${windowWidth * 0.259}px
+    height: ${windowWidth * 0.259}px
     background: ${Colors.white}
 
     margin: 10px 10px

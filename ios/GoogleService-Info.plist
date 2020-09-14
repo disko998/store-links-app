@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>619535807289-2ohc7sudqu1td35jtoa442d58cljmj8l.apps.googleusercontent.com</string>
+	<string>619535807289-6m3qmogj53sn6iqvremq5in4bqfvd4v7.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.619535807289-2ohc7sudqu1td35jtoa442d58cljmj8l</string>
+	<string>com.googleusercontent.apps.619535807289-6m3qmogj53sn6iqvremq5in4bqfvd4v7</string>
 	<key>API_KEY</key>
 	<string>AIzaSyBuIkwvhnFQWMhSFc_SUNhEOXXVkqY9sUg</string>
 	<key>GCM_SENDER_ID</key>
@@ -13,7 +13,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>org.reactjs.native.example.LinksApp</string>
+	<string>org.reactjs.native.linkat.app</string>
 	<key>PROJECT_ID</key>
 	<string>linksapp-c48d4</string>
 	<key>STORAGE_BUCKET</key>
@@ -29,7 +29,7 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true/>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:619535807289:ios:05fa815f0bb2a69740eee8</string>
+	<string>1:619535807289:ios:eb0553b3c6955efc40eee8</string>
 	<key>DATABASE_URL</key>
 	<string>https://linksapp-c48d4.firebaseio.com</string>
 </dict>

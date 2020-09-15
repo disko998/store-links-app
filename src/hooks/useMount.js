@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { useTranslation } from 'react-i18next'
 import inAppMessaging from '@react-native-firebase/in-app-messaging'
+import SplashScreen from 'react-native-splash-screen'
 
 import {
     fetchCategoriesAsync,
@@ -30,9 +31,12 @@ export const useMount = () => {
     }, [dispatch])
 
     useEffect(() => {
-        i18n.isInitialized
-            ? inAppMessaging().setMessagesDisplaySuppressed(false)
-            : inAppMessaging().setMessagesDisplaySuppressed(true)
+        if (i18n.isInitialized) {
+            SplashScreen.hide()
+            inAppMessaging().setMessagesDisplaySuppressed(false)
+        } else {
+            inAppMessaging().setMessagesDisplaySuppressed(true)
+        }
     }, [i18n.isInitialized])
 
     return i18n.isInitialized

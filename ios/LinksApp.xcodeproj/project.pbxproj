@@ -49,7 +49,7 @@
 		00E356F21AD99517003FC87E /* LinksAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LinksAppTests.m; sourceTree = "<group>"; };
 		0D4420752399E9316412BCB1 /* libPods-LinksApp-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LinksApp-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E380D1A235693F590E7878C /* Pods-LinksApp-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LinksApp-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-LinksApp-tvOSTests/Pods-LinksApp-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
-		13B07F961A680F5B00A75B9A /* LinksApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LinksApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07F961A680F5B00A75B9A /* Linkat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Linkat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = LinksApp/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = LinksApp/AppDelegate.m; sourceTree = "<group>"; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = LinksApp/Images.xcassets; sourceTree = "<group>"; };
@@ -182,7 +182,7 @@
 		83CBBA001A601CBA00E9B192 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13B07F961A680F5B00A75B9A /* LinksApp.app */,
+				13B07F961A680F5B00A75B9A /* Linkat.app */,
 				00E356EE1AD99517003FC87E /* LinksAppTests.xctest */,
 				2D02E47B1E0B4A5D006451C7 /* LinksApp-tvOS.app */,
 				2D02E4901E0B4A5D006451C7 /* LinksApp-tvOSTests.xctest */,
@@ -256,7 +256,7 @@
 			);
 			name = LinksApp;
 			productName = LinksApp;
-			productReference = 13B07F961A680F5B00A75B9A /* LinksApp.app */;
+			productReference = 13B07F961A680F5B00A75B9A /* Linkat.app */;
 			productType = "com.apple.product-type.application";
 		};
 		2D02E47A1E0B4A5D006451C7 /* LinksApp-tvOS */ = {
@@ -773,7 +773,7 @@
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.linkat.app;
-				PRODUCT_NAME = LinksApp;
+				PRODUCT_NAME = Linkat;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -798,7 +798,7 @@
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.linkat.app;
-				PRODUCT_NAME = LinksApp;
+				PRODUCT_NAME = Linkat;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";

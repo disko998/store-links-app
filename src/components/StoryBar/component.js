@@ -1,6 +1,7 @@
 import React from 'react'
+import { View } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
 
 import { Story } from '../Story'
 import { HorizontalScroll, StoryWrapper } from './styles'
@@ -8,7 +9,7 @@ import routes from '../../navigation/routes'
 import { selectStories } from '../../redux/story'
 import { fbAnalytics } from '../../firebase/index'
 
-export default function StoryList() {
+export default function StoryBar() {
     // hooks
     const stories = useSelector(selectStories)
     const navigation = useNavigation()
@@ -28,6 +29,10 @@ export default function StoryList() {
         () => navigation.navigate(routes.ADD_POPUP),
         [navigation],
     )
+
+    if (!stories.length) {
+        return <View />
+    }
 
     return (
         <HorizontalScroll>

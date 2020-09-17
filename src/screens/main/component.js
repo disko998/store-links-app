@@ -3,7 +3,7 @@ import { SafeAreaView } from 'react-native'
 
 import { categories } from './_data'
 import {
-    StoryList,
+    StoryBar,
     CategoryList,
     AdsBanner,
     SearchBar,
@@ -14,10 +14,10 @@ import { MainWrapper } from './styles'
 export default function MainScreen({ navigation }) {
     return (
         <SafeAreaView style={styles.container}>
-            <MainWrapper>
+            <MainWrapper keyboardShouldPersistTaps="handled">
                 <SearchBar onSettings={navigation.openDrawer} />
                 <AdsBanner />
-                <StoryList />
+                <StoryBar />
                 <CategoryList categories={categories} />
                 <StoreList />
             </MainWrapper>

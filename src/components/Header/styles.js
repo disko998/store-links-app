@@ -30,7 +30,6 @@ export const HeaderButton = styled.TouchableOpacity`
     width: 40px
     height: 40px
     padding: 5px
-    border: 1px solid ${Colors.white}
     justify-content: center
     align-items: center
     background: ${Colors.mainBlue}

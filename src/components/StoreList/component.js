@@ -1,6 +1,6 @@
 import React from 'react'
 import { useNavigation } from '@react-navigation/native'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { ActivityIndicator } from 'react-native'
 
 import { ListWrapper, LoadingWrapper, EmptyText } from './styles'
@@ -11,6 +11,7 @@ import {
     selectFavorites,
     selectStoresLoading,
     selectFilter,
+    toggleFavoriteStoreAsync,
 } from '../../redux/stores'
 import { Colors } from '../../styles'
 
@@ -21,12 +22,20 @@ export default function StoreList() {
     const favorites = useSelector(selectFavorites)
     const filter = useSelector(selectFilter)
 
+    const dispatch = useDispatch()
     const navigation = useNavigation()
 
     // handlers
-    const onStorePress = React.useCallback(
+    const goToStore = React.useCallback(
         store => navigation.navigate(routes.STORE, JSON.stringify(store)),
         [navigation],
+    )
+
+    const toggleFavorite = React.useCallback(
+        store => {
+            dispatch(toggleFavoriteStoreAsync(store))
+        },
+        [dispatch],
     )
 
     const match = React.useCallback(
@@ -60,7 +69,8 @@ export default function StoreList() {
                     image={{ uri: store.logo }}
                     unique={store.unique}
                     favorite={favorites.includes(store.id)}
-                    onPress={() => onStorePress(store)}
+                    onPress={() => goToStore(store)}
+                    onLongPress={() => toggleFavorite(store)}
                 />
             ))}
         </ListWrapper>

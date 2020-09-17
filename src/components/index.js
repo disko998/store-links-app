@@ -1,5 +1,5 @@
 export * from './Story'
-export * from './StoryList'
+export * from './StoryBar'
 export * from './Category'
 export * from './CategoryList'
 export * from './AdsBanner'

@@ -32,8 +32,16 @@ export default function SearchBar({ onSettings, ...props }) {
 
     return (
         <BarWrapper {...props}>
-            <SearchIcon name="search" size={24} />
+            <SettingsButton onPress={() => onSearch('')}>
+                {filter.length ? (
+                    <SearchIcon name="close" size={30} />
+                ) : (
+                    <SearchIcon name="search" size={30} />
+                )}
+            </SettingsButton>
+
             <SearchInput
+                clearButtonMode="always"
                 placeholder={t('search')}
                 value={filter}
                 onChangeText={onSearch}

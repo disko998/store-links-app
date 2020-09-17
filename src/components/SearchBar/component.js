@@ -1,12 +1,13 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
+import { useNavigation } from '@react-navigation/native'
 
 import {
     BarWrapper,
     SearchInput,
     SettingsIcon,
     SearchIcon,
-    SettingsButton,
+    Button,
 } from './styles'
 import { useDispatch, useSelector } from 'react-redux'
 import { searchChange, selectFilter } from '../../redux/stores'
@@ -14,6 +15,7 @@ import { fbAnalytics } from '../../firebase'
 
 export default function SearchBar({ onSettings, ...props }) {
     const dispatch = useDispatch()
+    const navigation = useNavigation()
     const filter = useSelector(selectFilter)
     const { t } = useTranslation()
 
@@ -32,13 +34,13 @@ export default function SearchBar({ onSettings, ...props }) {
 
     return (
         <BarWrapper {...props}>
-            <SettingsButton onPress={() => onSearch('')}>
+            <Button onPress={() => onSearch('')}>
                 {filter.length ? (
                     <SearchIcon name="close" size={30} />
                 ) : (
                     <SearchIcon name="search" size={30} />
                 )}
-            </SettingsButton>
+            </Button>
 
             <SearchInput
                 clearButtonMode="always"
@@ -47,9 +49,9 @@ export default function SearchBar({ onSettings, ...props }) {
                 onChangeText={onSearch}
                 onSubmitEditing={logEvent}
             />
-            <SettingsButton onPress={onSettings}>
+            <Button onPress={navigation.openDrawer}>
                 <SettingsIcon name="settings" size={35} />
-            </SettingsButton>
+            </Button>
         </BarWrapper>
     )
 }

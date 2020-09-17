@@ -8,6 +8,7 @@ export const BarWrapper = styled.View`
    flex-direction: row
    justify-content: center
    align-items: center
+   margin-bottom: 10px
 `
 
 export const SearchInput = styled.TextInput`
@@ -18,7 +19,7 @@ export const SearchInput = styled.TextInput`
     font-family: ${font.regular}
 `
 
-export const SettingsButton = styled.TouchableOpacity`
+export const Button = styled.TouchableOpacity`
     margin-left: 5px;
 `
 

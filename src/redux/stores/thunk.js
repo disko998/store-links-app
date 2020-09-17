@@ -18,6 +18,7 @@ import {
     getDataFromSnapshot,
     fetchMyList,
 } from '../../firebase/utils'
+import { STORY_LIMIT } from './const'
 
 export const fetchStoresAsync = category => {
     return async (dispatch, getState) => {
@@ -31,7 +32,7 @@ export const fetchStoresAsync = category => {
                     .collection('stores')
                     .where('categories', 'array-contains', category)
                     .where('hidden', '==', false)
-                    .limit(20)
+                    .limit(STORY_LIMIT)
 
                 const snapshot = await ref.get()
 

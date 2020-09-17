@@ -1,7 +1,6 @@
 import React from 'react'
-import { SafeAreaView } from 'react-native'
 
-import { categories } from './_data'
+import { MainWrapper } from './styles'
 import {
     StoryBar,
     CategoryList,
@@ -9,22 +8,15 @@ import {
     SearchBar,
     StoreList,
 } from '../../components'
-import { MainWrapper } from './styles'
 
-export default function MainScreen({ navigation }) {
+export default function MainScreen() {
     return (
-        <SafeAreaView style={styles.container}>
-            <MainWrapper keyboardShouldPersistTaps="handled">
-                <SearchBar onSettings={navigation.openDrawer} />
-                <AdsBanner />
-                <StoryBar />
-                <CategoryList categories={categories} />
-                <StoreList />
-            </MainWrapper>
-        </SafeAreaView>
+        <MainWrapper>
+            <SearchBar />
+            <AdsBanner />
+            <StoryBar />
+            {/* <CategoryList /> */}
+            <StoreList />
+        </MainWrapper>
     )
-}
-
-const styles = {
-    container: { flex: 1, backgroundColor: '#fff' },
 }

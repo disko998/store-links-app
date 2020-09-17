@@ -8,6 +8,8 @@ export const ListWrapper = styled.View`
     flex-direction: row
     flex-wrap: wrap
     justify-content: flex-start
+
+    margin-vertical: 5px
 `
 
 export const LoadingWrapper = styled.View`

@@ -3,8 +3,9 @@ import { useNavigation } from '@react-navigation/native'
 import { useDispatch, useSelector } from 'react-redux'
 import { ActivityIndicator } from 'react-native'
 
-import { ListWrapper, EmptyWrapper, EmptyText } from './styles'
+import { StoresList, EmptyWrapper, EmptyText, styles } from './styles'
 import { StoreButton } from '../StoreButton'
+import { CategoryList } from '../CategoryList'
 import routes from '../../navigation/routes'
 import {
     selectStores,
@@ -54,17 +55,22 @@ export default function StoreList() {
     }
 
     return (
-        <ListWrapper>
-            {stores.map(store => (
-                <StoreButton
-                    key={store.id}
-                    image={{ uri: store.logo }}
-                    unique={store.unique}
-                    favorite={favorites.includes(store.id)}
-                    onPress={() => goToStore(store)}
-                    onLongPress={() => toggleFavorite(store)}
-                />
-            ))}
-        </ListWrapper>
+        <>
+            <CategoryList />
+            <StoresList
+                data={stores}
+                numColumns={3}
+                renderItem={({ item }) => (
+                    <StoreButton
+                        key={item.id}
+                        image={{ uri: item.logo }}
+                        unique={item.unique}
+                        favorite={favorites.includes(item.id)}
+                        onPress={() => goToStore(item)}
+                        onLongPress={() => toggleFavorite(item)}
+                    />
+                )}
+            />
+        </>
     )
 }

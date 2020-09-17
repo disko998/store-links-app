@@ -1,15 +1,23 @@
 import styled from 'styled-components/native'
+import { StyleSheet } from 'react-native'
 
 import { Colors, font } from '../../styles'
 
-export const ListWrapper = styled.View`
-    width: 100%;
-    flex: 1;
-    flex-direction: row
-    flex-wrap: wrap
-    justify-content: flex-start
+export const styles = StyleSheet.create({
+    listContainer: {
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        justifyContent: 'flex-start',
+    },
+    listHeader: {
+        position: 'absolute',
+        top: 0,
+    },
+})
 
-    margin-vertical: 5px
+export const StoresList = styled.FlatList`
+    flex: 1;
+    margin-vertical: 5px;
 `
 
 export const EmptyWrapper = styled.View`

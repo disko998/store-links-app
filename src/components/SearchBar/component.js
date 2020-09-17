@@ -13,7 +13,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { searchChange, selectFilter } from '../../redux/stores'
 import { fbAnalytics } from '../../firebase'
 
-export default function SearchBar({ onSettings, ...props }) {
+export default function SearchBar() {
     const dispatch = useDispatch()
     const navigation = useNavigation()
     const filter = useSelector(selectFilter)
@@ -33,7 +33,7 @@ export default function SearchBar({ onSettings, ...props }) {
     }, [filter])
 
     return (
-        <BarWrapper {...props}>
+        <BarWrapper>
             <Button onPress={() => onSearch('')}>
                 {filter.length ? (
                     <SearchIcon name="close" size={30} />

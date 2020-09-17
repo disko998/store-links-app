@@ -53,7 +53,7 @@ export default function MainNav({ navigation }) {
             />
             <Stack.Navigator
                 screenOptions={{
-                    // gestureDirection: 'vertical',
+                    gestureEnabled: true,
                     cardOverlayEnabled: false,
                     cardStyle: {
                         borderRadius: barStyle === 'light-content' ? 10 : 0,
@@ -64,6 +64,7 @@ export default function MainNav({ navigation }) {
                 headerMode="none">
                 <Stack.Screen name={routes.MAIN} component={MainScreen} />
                 <Stack.Screen name={routes.STORE} component={StoreScreen} />
+
                 <Stack.Screen
                     name={routes.ADD_STORE}
                     component={AddStoreScreen}

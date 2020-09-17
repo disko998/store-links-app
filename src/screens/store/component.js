@@ -11,6 +11,7 @@ import {
     StoreDetails,
     ActionBar,
     InfoWrapper,
+    ScrollWrapper,
 } from './styles'
 import { ActionButton, PrimaryButton, Header } from '../../components'
 import { openWhatsApp } from '../../utils/helper'
@@ -77,40 +78,42 @@ export default function StoreScreen({ navigation, route }) {
 
     return (
         <StoreWrapper>
-            <StoreBanner source={{ uri: image }}>
-                <Header
-                    onBack={navigation.goBack}
-                    onFavorite={toggleFavorite}
-                    isFavorite={favorites.includes(id)}
-                />
-            </StoreBanner>
-            <InfoWrapper>
-                <StoreAvatar source={{ uri: logo }} />
-                <StoreTitle>{name}</StoreTitle>
-                <StoreDetails>{title}</StoreDetails>
-                <ActionBar>
-                    <ActionButton
-                        logo="whatsapp"
-                        title={t('whatsapp')}
-                        onPress={onWhatsApp}
+            <ScrollWrapper>
+                <StoreBanner source={{ uri: image }}>
+                    <Header
+                        onBack={navigation.goBack}
+                        onFavorite={toggleFavorite}
+                        isFavorite={favorites.includes(id)}
                     />
-                    <ActionButton
-                        logo="compass-outline"
-                        title={t('location')}
-                        onPress={onLocation}
+                </StoreBanner>
+                <InfoWrapper>
+                    <StoreAvatar source={{ uri: logo }} />
+                    <StoreTitle>{name}</StoreTitle>
+                    <StoreDetails>{title}</StoreDetails>
+                    <ActionBar>
+                        <ActionButton
+                            logo="whatsapp"
+                            title={t('whatsapp')}
+                            onPress={onWhatsApp}
+                        />
+                        <ActionButton
+                            logo="compass-outline"
+                            title={t('location')}
+                            onPress={onLocation}
+                        />
+                        <ActionButton
+                            logo="phone"
+                            title={t('call')}
+                            onPress={onCall}
+                        />
+                    </ActionBar>
+                    <PrimaryButton
+                        title={order_link ? t('order_now') : t('no_store_link')}
+                        disabled={!order_link}
+                        onPress={onOrder}
                     />
-                    <ActionButton
-                        logo="phone"
-                        title={t('call')}
-                        onPress={onCall}
-                    />
-                </ActionBar>
-                <PrimaryButton
-                    title={order_link ? t('order_now') : t('no_store_link')}
-                    disabled={!order_link}
-                    onPress={onOrder}
-                />
-            </InfoWrapper>
+                </InfoWrapper>
+            </ScrollWrapper>
         </StoreWrapper>
     )
 }

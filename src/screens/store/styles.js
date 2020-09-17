@@ -3,9 +3,13 @@ import styled from 'styled-components/native'
 import { Colors, font } from '../../styles'
 import { windowHeight } from '../../styles/dimensions'
 
-export const StoreWrapper = styled.ScrollView`
+export const StoreWrapper = styled.View`
     flex: 1
     background: ${Colors.white}
+`
+
+export const ScrollWrapper = styled.View`
+    flex: 1;
 `
 
 export const StoreBanner = styled.ImageBackground`

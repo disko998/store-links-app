@@ -22,6 +22,7 @@ export default function RootNavigation(props) {
                 mode="modal"
                 headerMode="none"
                 screenOptions={{
+                    gestureEnabled: true,
                     cardOverlayEnabled: false,
                     cardStyle: {
                         backgroundColor: 'transparent',

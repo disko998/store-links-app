@@ -2,9 +2,11 @@ import { createSelector } from 'reselect'
 
 export const selectStoreFeatures = state => state.store
 
-export const selectStores = createSelector(
-    selectStoreFeatures,
-    store => store.stores,
+export const selectStores = createSelector(selectStoreFeatures, state =>
+    state.stores.filter(
+        store =>
+            store.name.toLowerCase().indexOf(state.filter.toLowerCase()) !== -1,
+    ),
 )
 
 export const selectFavorites = createSelector(

@@ -3,14 +3,13 @@ import { useNavigation } from '@react-navigation/native'
 import { useDispatch, useSelector } from 'react-redux'
 import { ActivityIndicator } from 'react-native'
 
-import { ListWrapper, LoadingWrapper, EmptyText } from './styles'
+import { ListWrapper, EmptyWrapper, EmptyText } from './styles'
 import { StoreButton } from '../StoreButton'
 import routes from '../../navigation/routes'
 import {
     selectStores,
     selectFavorites,
     selectStoresLoading,
-    selectFilter,
     toggleFavoriteStoreAsync,
 } from '../../redux/stores'
 import { Colors } from '../../styles'
@@ -20,7 +19,6 @@ export default function StoreList() {
     const loading = useSelector(selectStoresLoading)
     const stores = useSelector(selectStores)
     const favorites = useSelector(selectFavorites)
-    const filter = useSelector(selectFilter)
 
     const dispatch = useDispatch()
     const navigation = useNavigation()
@@ -38,32 +36,26 @@ export default function StoreList() {
         [dispatch],
     )
 
-    const match = React.useCallback(
-        store => {
-            return store.name.toLowerCase().indexOf(filter.toLowerCase()) !== -1
-        },
-        [filter],
-    )
-
+    // render
     if (loading) {
         return (
-            <LoadingWrapper>
+            <EmptyWrapper>
                 <ActivityIndicator color={Colors.black} size="large" />
-            </LoadingWrapper>
+            </EmptyWrapper>
         )
     }
 
     if (!stores.length) {
         return (
-            <LoadingWrapper>
-                <EmptyText>No stores!</EmptyText>
-            </LoadingWrapper>
+            <EmptyWrapper>
+                <EmptyText>No stores found!</EmptyText>
+            </EmptyWrapper>
         )
     }
 
     return (
         <ListWrapper>
-            {stores.filter(match).map(store => (
+            {stores.map(store => (
                 <StoreButton
                     key={store.id}
                     image={{ uri: store.logo }}

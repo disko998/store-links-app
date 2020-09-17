@@ -12,16 +12,15 @@ export const ListWrapper = styled.View`
     margin-vertical: 5px
 `
 
-export const LoadingWrapper = styled.View`
+export const EmptyWrapper = styled.View`
     width: 100%;
-    flex: 1;
-    padding: 100px 50px
+    padding: 50px 0
     align-items: center
     justify-content: center
 `
 
 export const EmptyText = styled.Text`
-    font-family: ${font.regular}
+    font-family: ${font.bold}
     color: ${Colors.black}
     font-size: 20px
 `

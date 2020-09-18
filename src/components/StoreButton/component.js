@@ -1,6 +1,13 @@
 import React from 'react'
 
-import { StyledTouchable, StoreLogo } from './styles'
+import {
+    StyledTouchable,
+    StoreImage,
+    InfoWrapper,
+    StoreName,
+    StoreLogo,
+    Overlay,
+} from './styles'
 import { FavoriteMark, UniqueMark } from '../withMark'
 import { useNavigation } from '@react-navigation/native'
 import routes from '../../navigation/routes'
@@ -10,6 +17,8 @@ export default function StoreButton({
     favorite,
     unique,
     image,
+    logo,
+    storeName,
     onLongPress,
 }) {
     const navigation = useNavigation()
@@ -22,7 +31,14 @@ export default function StoreButton({
         <StyledTouchable onPress={onPress} onLongPress={onLongPress}>
             <FavoriteMark show={favorite}>
                 <UniqueMark show={unique} onPress={openUniquePopup}>
-                    <StoreLogo source={image} />
+                    <StoreImage source={image}>
+                        <Overlay>
+                            <InfoWrapper>
+                                <StoreLogo source={logo} />
+                                <StoreName>{storeName}</StoreName>
+                            </InfoWrapper>
+                        </Overlay>
+                    </StoreImage>
                 </UniqueMark>
             </FavoriteMark>
         </StyledTouchable>

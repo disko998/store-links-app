@@ -58,12 +58,15 @@ export default function StoreList() {
         <>
             <CategoryList />
             <StoresList
+                showsVerticalScrollIndicator={false}
                 data={stores}
-                numColumns={3}
+                numColumns={2}
                 renderItem={({ item }) => (
                     <StoreButton
                         key={item.id}
-                        image={{ uri: item.logo }}
+                        image={{ uri: item.image }}
+                        logo={{ uri: item.logo }}
+                        storeName={item.name}
                         unique={item.unique}
                         favorite={favorites.includes(item.id)}
                         onPress={() => goToStore(item)}

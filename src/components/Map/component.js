@@ -1,6 +1,6 @@
 import MapView, { PROVIDER_GOOGLE, Marker } from 'react-native-maps' // remove PROVIDER_GOOGLE import if not using Google Maps
 import React from 'react'
-import { Linking } from 'react-native'
+import { Linking, Alert } from 'react-native'
 import { StyleSheet } from 'react-native'
 import { useTranslation } from 'react-i18next'
 
@@ -27,7 +27,24 @@ export default ({ locations, store }) => {
     }
 
     const onMarker = React.useCallback((lan, lng) => {
-        Linking.openURL(`http://www.google.com/maps/place/${lan},${lng}`)
+        Alert.alert(
+            'Get Direction?',
+            'Get store direction on google maps.',
+            [
+                {
+                    text: 'Cancel',
+                    style: 'cancel',
+                },
+                {
+                    text: 'OK',
+                    onPress: () =>
+                        Linking.openURL(
+                            `http://www.google.com/maps/place/${lan},${lng}`,
+                        ),
+                },
+            ],
+            { cancelable: true },
+        )
     }, [])
 
     return (

@@ -1,13 +1,7 @@
 import React from 'react'
 
 import { MainWrapper } from './styles'
-import {
-    StoryBar,
-    CategoryList,
-    AdsBanner,
-    SearchBar,
-    StoreList,
-} from '../../components'
+import { StoryBar, AdsBanner, SearchBar, StoreList } from '../../components'
 
 export default function MainScreen() {
     return (
@@ -15,7 +9,6 @@ export default function MainScreen() {
             <SearchBar />
             <AdsBanner />
             <StoryBar />
-            {/* <CategoryList /> */}
             <StoreList />
         </MainWrapper>
     )

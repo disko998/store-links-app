@@ -3,7 +3,7 @@ import { useNavigation } from '@react-navigation/native'
 import { useDispatch, useSelector } from 'react-redux'
 import { ActivityIndicator } from 'react-native'
 
-import { StoresList, EmptyWrapper, EmptyText, styles } from './styles'
+import { StoresList, EmptyWrapper, EmptyText } from './styles'
 import { StoreButton } from '../StoreButton'
 import { CategoryList } from '../CategoryList'
 import routes from '../../navigation/routes'
@@ -15,7 +15,7 @@ import {
 } from '../../redux/stores'
 import { Colors } from '../../styles'
 
-export default function StoreList() {
+export default function StoreList({ ...scrollProps }) {
     // hooks
     const loading = useSelector(selectStoresLoading)
     const stores = useSelector(selectStores)
@@ -55,25 +55,23 @@ export default function StoreList() {
     }
 
     return (
-        <>
-            <CategoryList />
-            <StoresList
-                showsVerticalScrollIndicator={false}
-                data={stores}
-                numColumns={2}
-                renderItem={({ item }) => (
-                    <StoreButton
-                        key={item.id}
-                        image={{ uri: item.image }}
-                        logo={{ uri: item.logo }}
-                        storeName={item.name}
-                        unique={item.unique}
-                        favorite={favorites.includes(item.id)}
-                        onPress={() => goToStore(item)}
-                        onLongPress={() => toggleFavorite(item)}
-                    />
-                )}
-            />
-        </>
+        <StoresList
+            {...scrollProps}
+            showsVerticalScrollIndicator={false}
+            data={stores}
+            numColumns={2}
+            renderItem={({ item }) => (
+                <StoreButton
+                    key={item.id}
+                    image={{ uri: item.image }}
+                    logo={{ uri: item.logo }}
+                    storeName={item.name}
+                    unique={item.unique}
+                    favorite={favorites.includes(item.id)}
+                    onPress={() => goToStore(item)}
+                    onLongPress={() => toggleFavorite(item)}
+                />
+            )}
+        />
     )
 }

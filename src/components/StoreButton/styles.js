@@ -44,7 +44,8 @@ export const StoreLogo = styled.Image`
     width: 50px
     height: 50px
     border-radius: 50
-    border: 1px solid ${Colors.white}
+    border-width: 1px
+    border-color: ${Colors.white}
     margin-right: 10px
 `
 

@@ -1,13 +1,13 @@
 import styled from 'styled-components/native'
 
-import { Colors, windowWidth, font } from '../../styles'
+import { Colors, windowWidth, font, STORE_BUTTON_HEIGHT } from '../../styles'
 
 export const StyledTouchable = styled.TouchableOpacity`
     border-radius: 16px
     border: 1px solid ${Colors.lightGray}
     overflow: visible
     width: ${windowWidth * 0.4}px
-    height: ${223}px
+    height: ${STORE_BUTTON_HEIGHT}px
     background: ${Colors.white}
 
     margin: 10px
@@ -41,8 +41,8 @@ export const Overlay = styled.View`
 `
 
 export const StoreLogo = styled.Image`
-    width: 50px
-    height: 50px
+    width: 45px
+    height: 45px
     border-radius: 50
     border-width: 1px
     border-color: ${Colors.white}
@@ -51,6 +51,6 @@ export const StoreLogo = styled.Image`
 
 export const StoreName = styled.Text`
     font-family: ${font.regular}
-    font-size: 20px
+    font-size: 16px
     color: ${Colors.white}
 `

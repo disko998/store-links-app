@@ -4,15 +4,13 @@ import { Animated } from 'react-native'
 
 import { Colors } from '../../styles/colors'
 
-export const MainWrapper = styled.View`
+export const MainWrapper = styled.SafeAreaView`
     flex: 1
     background: ${Colors.white}
-    padding: 10px 15px
-    padding-top: ${getStatusBarHeight()}px
+    padding: 0 15px
 `
 
 export const AnimatedHeader = styled(Animated.View)`
-    margin-top: ${getStatusBarHeight()}px;
     right: 0
     left: 0
     position: absolute

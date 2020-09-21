@@ -13,8 +13,7 @@ import {
     selectStoresLoading,
     toggleFavoriteStoreAsync,
 } from '../../redux/stores'
-import { Colors } from '../../styles'
-import { FlatList } from 'react-native-gesture-handler'
+import { Colors, STORE_BUTTON_HEIGHT } from '../../styles'
 
 const AnimatedFlatList = Animated.createAnimatedComponent(StoresList)
 
@@ -40,32 +39,16 @@ export default function StoreList({ ...scrollProps }) {
         [dispatch],
     )
 
-    // render
-    if (loading) {
-        return (
-            <EmptyWrapper>
-                <ActivityIndicator color={Colors.black} size="large" />
-            </EmptyWrapper>
-        )
-    }
-
-    if (!stores.length) {
-        return (
-            <EmptyWrapper>
-                <EmptyText>No stores found!</EmptyText>
-            </EmptyWrapper>
-        )
-    }
-
     return (
         <AnimatedFlatList
             {...scrollProps}
+            refreshing={loading}
             showsVerticalScrollIndicator={false}
-            ListHeaderComponent={<CategoryList />}
             stickyHeaderIndices={[0]}
             data={stores}
             numColumns={2}
             keyExtractor={item => item.id}
+            ListHeaderComponent={<CategoryList />}
             renderItem={({ item }) => (
                 <StoreButton
                     key={item.id}
@@ -78,6 +61,21 @@ export default function StoreList({ ...scrollProps }) {
                     onLongPress={() => toggleFavorite(item)}
                 />
             )}
+            ListEmptyComponent={
+                <EmptyWrapper>
+                    {!loading && <EmptyText>No stores found!</EmptyText>}
+                </EmptyWrapper>
+            }
+            ListFooterComponent={
+                loading && (
+                    <ActivityIndicator color={Colors.black} size="large" />
+                )
+            }
+            getItemLayout={(data, index) => ({
+                length: STORE_BUTTON_HEIGHT + 10,
+                offset: STORE_BUTTON_HEIGHT + 10 * index,
+                index,
+            })}
         />
     )
 }

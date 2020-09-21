@@ -22,9 +22,10 @@ export const StoresList = styled.FlatList`
 
 export const EmptyWrapper = styled.View`
     width: 100%;
-    padding: 50px 0
     align-items: center
     justify-content: center
+    text-align: center
+    padding: 50px 0
 `
 
 export const EmptyText = styled.Text`

@@ -16,10 +16,10 @@ import {
     StoreList,
     CategoryList,
 } from '../../components'
-import { Extrapolate } from 'react-native-reanimated'
+
 import { windowHeight, windowWidth } from '../../styles'
 
-const HEADER_MAX_HEIGHT = 320
+const HEADER_MAX_HEIGHT = 330
 
 export default function MainScreen() {
     const scrollY = new Animated.Value(0)
@@ -38,7 +38,9 @@ export default function MainScreen() {
     return (
         <MainWrapper>
             <StoreList
-                contentContainerStyle={{ paddingTop: HEADER_MAX_HEIGHT }}
+                contentContainerStyle={{
+                    paddingTop: HEADER_MAX_HEIGHT,
+                }}
                 onScroll={Animated.event(
                     [{ nativeEvent: { contentOffset: { y: scrollY } } }],
                     { useNativeDriver: true },

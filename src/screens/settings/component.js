@@ -16,6 +16,7 @@ import { openWhatsApp } from '../../utils/helper'
 
 import { StyledItem, styles, DrawerHeader, AppName, Dot } from './styles'
 import { HeaderButton, BackIcon } from '../../components/Header/styles'
+import routes from '../../navigation/routes'
 
 export default function SettingsScreen(props) {
     const dispatch = useDispatch()
@@ -42,6 +43,10 @@ export default function SettingsScreen(props) {
         dispatch(storeLanguageAsync(lang))
     }
 
+    const goToAddStore = React.useCallback(
+        () => props.navigation.navigate(routes.ADD_POPUP),
+        [props.navigation],
+    )
     const onContact = React.useCallback(() => openWhatsApp(CONTACT_NUMBER), [])
     const options = React.useMemo(
         () =>
@@ -76,6 +81,18 @@ export default function SettingsScreen(props) {
                     label={country || t('country')}
                     labelStyle={styles.labelStyle}
                     onPress={openModal}
+                />
+                <DrawerItem
+                    icon={({ focused, color, size }) => (
+                        <Icon
+                            color={Colors.white}
+                            size={size}
+                            name="storefront-outline"
+                        />
+                    )}
+                    label={t('add_store')}
+                    labelStyle={styles.labelStyle}
+                    onPress={goToAddStore}
                 />
                 <DrawerItem
                     icon={({ focused, color, size }) => (

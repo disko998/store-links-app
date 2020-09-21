@@ -17,7 +17,8 @@
         "location": "Location",
         "call": "Call",
         "thanks": "Thanks",
-        "lets_chat": "Let's Chat"
+        "lets_chat": "Let's Chat",
+        "add_store": "Add Store"
     },
     "add_store": {
         "contact_us_for_ads": "Contact Us for Ads Here!",

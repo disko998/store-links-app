@@ -8,6 +8,7 @@ import {
 } from './actions'
 import { getCollectionDocs } from '../../firebase/utils'
 import { STORAGE_KEY } from '../../../i18n'
+import { fetchStoresAsync } from '../stores'
 
 export const fetchCountriesAsync = () => {
     return async (dispatch, getState) => {
@@ -40,6 +41,7 @@ export const setCountryAsync = country => {
         try {
             await AsyncStorage.setItem('@country', country)
 
+            dispatch(fetchStoresAsync())
             dispatch(setCountry(country))
         } catch (error) {
             dispatch(fetchCountriesFailure(error.message))

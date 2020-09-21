@@ -2,8 +2,13 @@ import React from 'react'
 import { useNavigation } from '@react-navigation/native'
 import { useDispatch, useSelector } from 'react-redux'
 import { useTranslation } from 'react-i18next'
+import * as Progress from 'react-native-progress'
 
-import { startStoryAsync, selectStoryIndex } from '../../redux/story'
+import {
+    startStoryAsync,
+    selectStoryIndex,
+    selectTimer,
+} from '../../redux/story'
 import {
     StoryWrapper,
     ContentWrapper,
@@ -12,13 +17,15 @@ import {
     InfoWrapper,
     HeaderWrapper,
     PageIndicatorsWrapper,
-    PageIndicator,
     CloseButton,
     CloseIcon,
 } from './styles'
 import { PrimaryButton } from '../PrimaryButton'
+import { StoryProgressBar } from '../StoryProgressBar'
 import routes from '../../navigation/routes'
 import { fbAnalytics } from '../../firebase'
+import { Colors } from '../../styles'
+import { STORY_INTERVAL_TIME } from '../../redux/story/const'
 
 export default function StoryView({
     logo,
@@ -30,6 +37,7 @@ export default function StoryView({
 }) {
     const dispatch = useDispatch()
     const index = useSelector(selectStoryIndex)
+    const timer = useSelector(selectTimer)
     const navigation = useNavigation()
     const { t } = useTranslation()
 
@@ -52,7 +60,18 @@ export default function StoryView({
                 <HeaderWrapper>
                     <PageIndicatorsWrapper>
                         {images.map((image, i) => (
-                            <PageIndicator key={image} active={index >= i} />
+                            <StoryProgressBar
+                                key={image}
+                                currentIndex={index}
+                                imageIndex={i}
+                                timer={
+                                    index === i
+                                        ? timer
+                                        : index > i
+                                        ? STORY_INTERVAL_TIME
+                                        : 0
+                                }
+                            />
                         ))}
                     </PageIndicatorsWrapper>
                     <InfoWrapper>

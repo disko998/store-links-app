@@ -1,6 +1,7 @@
 export const StoryActionType = {
     START_STORY_TIME: 'START_STORY_TIME',
     NEXT_STORY: 'NEXT_STORY',
+    UPDATE_TIME: 'UPDATE_TIME',
     RESET_STORY_TIME: 'RESET_STORY_TIME',
     FETCH_STORIES_START: 'FETCH_STORIES_START',
     FETCH_STORIES_SUCCESS: 'FETCH_STORIES_SUCCESS',
@@ -9,6 +10,11 @@ export const StoryActionType = {
 
 export const startStoryTime = () => ({
     type: StoryActionType.START_STORY_TIME,
+})
+
+export const updateTimer = time => ({
+    type: StoryActionType.UPDATE_TIME,
+    payload: time,
 })
 
 export const nextStory = () => ({

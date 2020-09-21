@@ -1,6 +1,7 @@
 import styled from 'styled-components/native'
 import { getStatusBarHeight } from 'react-native-status-bar-height'
 import Icon from 'react-native-vector-icons/AntDesign'
+import * as Progress from 'react-native-progress'
 
 import { Colors, font } from '../../styles'
 import { windowWidth, windowHeight } from '../../styles/dimensions'
@@ -50,11 +51,11 @@ export const PageIndicatorsWrapper = styled.View`
     width: 100%;
 `
 
-export const PageIndicator = styled.View`
+export const PageIndicator = styled(Progress.Bar)`
     flex: 1
     border-radius: 5px
     height: 5px
-    margin: 5px 3px 20px 3px
+    margin: 5px 3px 20px 3px   
     background: ${props => (props.active ? Colors.white : Colors.darkGray)}
 `
 

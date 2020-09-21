@@ -8,7 +8,7 @@ export default function MainScreen() {
     const [headerHeight, setHeaderHeight] = React.useState(0)
     const scrollY = new Animated.Value(0)
 
-    const animatedHeight = scrollY.interpolate({
+    const translateY = scrollY.interpolate({
         inputRange: [0, headerHeight],
         outputRange: [0, -headerHeight],
         extrapolate: 'clamp',
@@ -37,7 +37,7 @@ export default function MainScreen() {
                 }
                 style={{
                     opacity: animatedOpacity,
-                    transform: [{ translateY: animatedHeight }],
+                    transform: [{ translateY }],
                 }}>
                 <SearchBar />
                 <AdsBanner />

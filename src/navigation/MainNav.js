@@ -1,4 +1,5 @@
 import React from 'react'
+import { getStatusBarHeight } from 'react-native-status-bar-height'
 import {
     createStackNavigator,
     TransitionPresets,
@@ -54,6 +55,9 @@ export default function MainNav({ navigation }) {
             <Stack.Navigator
                 screenOptions={{
                     gestureEnabled: true,
+                    gestureResponseDistance: {
+                        vertical: getStatusBarHeight() + 10,
+                    },
                     cardOverlayEnabled: false,
                     cardStyle: {
                         borderRadius: barStyle === 'light-content' ? 10 : 0,

@@ -8,7 +8,7 @@ export const BarWrapper = styled.View`
    flex-direction: row
    justify-content: center
    align-items: center
-   margin-bottom: 10px
+   margin-top: 10px
 `
 
 export const SearchInput = styled.TextInput`

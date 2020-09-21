@@ -43,7 +43,7 @@ export const Overlay = styled.View`
 export const StoreLogo = styled.Image`
     width: 45px
     height: 45px
-    border-radius: 50
+    border-radius: 50px
     border-width: 1px
     border-color: ${Colors.white}
     margin-right: 10px

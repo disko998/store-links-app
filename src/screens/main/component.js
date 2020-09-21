@@ -1,37 +1,21 @@
 import React from 'react'
-import {
-    View,
-    ScrollView,
-    Text,
-    FlatList,
-    Platform,
-    Animated,
-} from 'react-native'
+import { Animated } from 'react-native'
 
-import { MainWrapper, AnimatedHeader, ListWrapper } from './styles'
-import {
-    StoryBar,
-    AdsBanner,
-    SearchBar,
-    StoreList,
-    CategoryList,
-} from '../../components'
-
-import { windowHeight, windowWidth } from '../../styles'
-
-const HEADER_MAX_HEIGHT = 330
+import { MainWrapper, AnimatedHeader } from './styles'
+import { StoryBar, AdsBanner, SearchBar, StoreList } from '../../components'
 
 export default function MainScreen() {
+    const [headerHeight, setHeaderHeight] = React.useState(0)
     const scrollY = new Animated.Value(0)
 
     const animatedHeight = scrollY.interpolate({
-        inputRange: [0, HEADER_MAX_HEIGHT],
-        outputRange: [0, -HEADER_MAX_HEIGHT],
+        inputRange: [0, headerHeight],
+        outputRange: [0, -headerHeight],
         extrapolate: 'clamp',
     })
 
     const animatedOpacity = scrollY.interpolate({
-        inputRange: [0, HEADER_MAX_HEIGHT],
+        inputRange: [0, headerHeight],
         outputRange: [1, 0],
     })
 
@@ -39,7 +23,7 @@ export default function MainScreen() {
         <MainWrapper>
             <StoreList
                 contentContainerStyle={{
-                    paddingTop: HEADER_MAX_HEIGHT,
+                    paddingTop: headerHeight,
                 }}
                 onScroll={Animated.event(
                     [{ nativeEvent: { contentOffset: { y: scrollY } } }],
@@ -48,8 +32,10 @@ export default function MainScreen() {
             />
 
             <AnimatedHeader
+                onLayout={event =>
+                    setHeaderHeight(event.nativeEvent.layout.height)
+                }
                 style={{
-                    height: HEADER_MAX_HEIGHT,
                     opacity: animatedOpacity,
                     transform: [{ translateY: animatedHeight }],
                 }}>

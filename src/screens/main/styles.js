@@ -15,7 +15,8 @@ export const AnimatedHeader = styled(Animated.View)`
     left: 0
     position: absolute
     overflow: hidden
-    padding: 10px 15px
+    padding: 0 15px
+ 
 `
 
 export const ListWrapper = styled.View`

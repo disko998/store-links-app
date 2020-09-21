@@ -5,18 +5,17 @@ import { ModalSelectList } from 'react-native-modal-select-list'
 import { useDispatch, useSelector } from 'react-redux'
 import { useTranslation } from 'react-i18next'
 
+import { openWhatsApp } from '../../utils/helper'
+import { StyledItem, styles, DrawerHeader, AppName, Dot } from './styles'
+import { HeaderButton, BackIcon } from '../../components/Header/styles'
+import routes from '../../navigation/routes'
+import { Colors, CONTACT_NUMBER } from '../../styles'
 import {
     selectCountries,
     selectCurrentCountry,
     setCountryAsync,
     storeLanguageAsync,
 } from '../../redux/settings'
-import { Colors, CONTACT_NUMBER } from '../../styles'
-import { openWhatsApp } from '../../utils/helper'
-
-import { StyledItem, styles, DrawerHeader, AppName, Dot } from './styles'
-import { HeaderButton, BackIcon } from '../../components/Header/styles'
-import routes from '../../navigation/routes'
 
 export default function SettingsScreen(props) {
     const dispatch = useDispatch()
@@ -33,7 +32,7 @@ export default function SettingsScreen(props) {
         dispatch(setCountryAsync(value))
     }
 
-    // lang modal ref
+    // language modal ref
     let langModalRef
     const openLangModal = () => langModalRef.show()
     const hideLangModal = () => langModalRef.dismiss()
@@ -43,6 +42,7 @@ export default function SettingsScreen(props) {
         dispatch(storeLanguageAsync(lang))
     }
 
+    // callbacks
     const goToAddStore = React.useCallback(
         () => props.navigation.navigate(routes.ADD_POPUP),
         [props.navigation],

@@ -1,1 +1,1 @@
-export const STORY_LIMIT = 20
+export const STORES_LIMIT = 20

@@ -18,27 +18,39 @@ import {
     getDataFromSnapshot,
     fetchMyList,
 } from '../../firebase/utils'
-import { STORY_LIMIT } from './const'
+import { STORES_LIMIT } from './const'
 
 export const fetchStoresAsync = category => {
     return async (dispatch, getState) => {
         try {
             dispatch(fetchStoresStart(category))
+            const country = await AsyncStorage.getItem('@country')
 
             let stores = []
 
             if (category) {
-                const ref = db
-                    .collection('stores')
-                    .where('categories', 'array-contains', category)
-                    .where('hidden', '==', false)
-                    .limit(STORY_LIMIT)
+                let query
 
-                const snapshot = await ref.get()
+                if (country) {
+                    query = db
+                        .collection('stores')
+                        .where('categories', 'array-contains', category)
+                        .where('hidden', '==', false)
+                        .where('country', '==', country)
+                        .limit(STORES_LIMIT)
+                } else {
+                    query = db
+                        .collection('stores')
+                        .where('categories', 'array-contains', category)
+                        .where('hidden', '==', false)
+                        .limit(STORES_LIMIT)
+                }
+
+                const snapshot = await query.get()
 
                 stores = getDataFromSnapshot(snapshot)
             } else {
-                stores = await fetchMyList()
+                stores = await fetchMyList(country)
             }
 
             dispatch(fetchStoresSuccess(stores || []))

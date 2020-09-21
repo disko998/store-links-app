@@ -26,7 +26,7 @@ export const fetchCountriesAsync = () => {
 export const getCountryAsync = () => {
     return async (dispatch, getState) => {
         try {
-            const country = await AsyncStorage.getItem('country')
+            const country = await AsyncStorage.getItem('@country')
 
             dispatch(setCountry(country || ''))
         } catch (error) {
@@ -38,7 +38,7 @@ export const getCountryAsync = () => {
 export const setCountryAsync = country => {
     return async (dispatch, getState) => {
         try {
-            await AsyncStorage.setItem('country', country)
+            await AsyncStorage.setItem('@country', country)
 
             dispatch(setCountry(country))
         } catch (error) {

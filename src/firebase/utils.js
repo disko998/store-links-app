@@ -2,6 +2,8 @@ import { db } from './index'
 import AsyncStorage from '@react-native-community/async-storage'
 import _ from 'lodash'
 
+import { STORES_LIMIT } from '../redux/stores/const'
+
 export const addDoc = (collection, doc) => {
     return db.collection(collection).add(doc)
 }
@@ -49,7 +51,7 @@ export const getDataFromSnapshot = querySnapshot => {
     return data
 }
 
-export const fetchMyList = async () => {
+export const fetchMyList = async country => {
     const favorite_stores = JSON.parse(
         await AsyncStorage.getItem('favorite_stores'),
     )
@@ -76,6 +78,7 @@ export const fetchMyList = async () => {
         .where('pinned', '==', true)
         .where('hidden', '==', false)
         .get()
+
     const pinned = getDataFromSnapshot(pinnedSnapshot)
 
     const myStores = _.uniqBy([...userStores, ...pinned], 'id')

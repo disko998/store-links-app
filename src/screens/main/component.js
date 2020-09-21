@@ -1,7 +1,14 @@
 import React from 'react'
-import { Animated, View, ScrollView, Text, FlatList } from 'react-native'
+import {
+    View,
+    ScrollView,
+    Text,
+    FlatList,
+    Platform,
+    Animated,
+} from 'react-native'
 
-import { MainWrapper } from './styles'
+import { MainWrapper, AnimatedHeader, ListWrapper } from './styles'
 import {
     StoryBar,
     AdsBanner,
@@ -9,65 +16,45 @@ import {
     StoreList,
     CategoryList,
 } from '../../components'
+import { Extrapolate } from 'react-native-reanimated'
+import { windowHeight, windowWidth } from '../../styles'
+
+const HEADER_MAX_HEIGHT = 320
 
 export default function MainScreen() {
     const scrollY = new Animated.Value(0)
 
     const animatedHeight = scrollY.interpolate({
-        inputRange: [0, 400],
-        outputRange: [400, 0],
+        inputRange: [0, HEADER_MAX_HEIGHT],
+        outputRange: [0, -HEADER_MAX_HEIGHT],
         extrapolate: 'clamp',
-        useNativeDivers: true,
     })
 
     const animatedOpacity = scrollY.interpolate({
-        inputRange: [0, 100],
+        inputRange: [0, HEADER_MAX_HEIGHT],
         outputRange: [1, 0],
-        extrapolate: 'clamp',
     })
-
-    React.useEffect(() => {}, [])
 
     return (
         <MainWrapper>
-            <Animated.View
+            <StoreList
+                contentContainerStyle={{ paddingTop: HEADER_MAX_HEIGHT }}
+                onScroll={Animated.event(
+                    [{ nativeEvent: { contentOffset: { y: scrollY } } }],
+                    { useNativeDriver: true },
+                )}
+            />
+
+            <AnimatedHeader
                 style={{
-                    backgroundColor: 'red',
+                    height: HEADER_MAX_HEIGHT,
                     opacity: animatedOpacity,
-                    height: animatedHeight,
-                    overflow: 'hidden',
+                    transform: [{ translateY: animatedHeight }],
                 }}>
                 <SearchBar />
                 <AdsBanner />
                 <StoryBar />
-                <CategoryList />
-            </Animated.View>
-
-            <FlatList
-                overScrollMode="never"
-                data={[1]}
-                scrollEventThrottle={16}
-                onScroll={Animated.event([
-                    { nativeEvent: { contentOffset: { y: scrollY } } },
-                ])}
-                renderItem={() => (
-                    <View
-                        style={{
-                            width: '100%',
-                            height: 200,
-                            backgroundColor: 'yellow',
-                            margin: 10,
-                        }}
-                    />
-                )}
-            />
-
-            {/* <StoreList
-                scrollEventThrottle={16}
-                onScroll={Animated.event([
-                    { nativeEvent: { contentOffset: { y: scrollY } } },
-                ])}
-            /> */}
+            </AnimatedHeader>
         </MainWrapper>
     )
 }

@@ -1,7 +1,7 @@
 import React from 'react'
 import { useNavigation } from '@react-navigation/native'
 import { useDispatch, useSelector } from 'react-redux'
-import { ActivityIndicator } from 'react-native'
+import { ActivityIndicator, Animated } from 'react-native'
 
 import { StoresList, EmptyWrapper, EmptyText } from './styles'
 import { StoreButton } from '../StoreButton'
@@ -14,6 +14,9 @@ import {
     toggleFavoriteStoreAsync,
 } from '../../redux/stores'
 import { Colors } from '../../styles'
+import { FlatList } from 'react-native-gesture-handler'
+
+const AnimatedFlatList = Animated.createAnimatedComponent(StoresList)
 
 export default function StoreList({ ...scrollProps }) {
     // hooks
@@ -55,11 +58,14 @@ export default function StoreList({ ...scrollProps }) {
     }
 
     return (
-        <StoresList
+        <AnimatedFlatList
             {...scrollProps}
             showsVerticalScrollIndicator={false}
+            ListHeaderComponent={<CategoryList />}
+            stickyHeaderIndices={[0]}
             data={stores}
             numColumns={2}
+            keyExtractor={item => item.id}
             renderItem={({ item }) => (
                 <StoreButton
                     key={item.id}

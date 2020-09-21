@@ -30,7 +30,7 @@ export default function StoryBar() {
         [navigation],
     )
 
-    if (![].length) {
+    if (!stories.length) {
         return <View />
     }
 

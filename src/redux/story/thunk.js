@@ -5,25 +5,29 @@ import {
     fetchStoriesStart,
     fetchStoriesSuccess,
     fetchStoriesFailure,
+    updateTimer,
 } from './actions'
-import { STORY_INTERVAL_TIME } from '../../styles'
+import { STORY_INTERVAL_TIME } from './const'
 import { getCollectionDocs } from '../../firebase/utils'
 
+const ms = 1000
 let interval = null
+
 export const startStoryAsync = stories => {
     return async (dispatch, getState) => {
         dispatch(stopStoryAsync())
         dispatch(startStoryTime())
 
         interval = setInterval(() => {
+            dispatch(updateTimer(ms))
             const { story } = getState()
 
-            if (stories.length <= story.storyIndex + 1) {
-                dispatch(resetStoryTime())
-            } else {
-                dispatch(nextStory())
+            if (story.timer >= STORY_INTERVAL_TIME) {
+                stories.length <= story.storyIndex + 1
+                    ? dispatch(resetStoryTime())
+                    : dispatch(nextStory())
             }
-        }, 15000)
+        }, ms)
     }
 }
 

@@ -11,3 +11,8 @@ export const selectStories = createSelector(
     selectStoryFeatures,
     story => story.stories,
 )
+
+export const selectTimer = createSelector(
+    selectStoryFeatures,
+    story => story.timer,
+)

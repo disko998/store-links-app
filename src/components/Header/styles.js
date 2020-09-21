@@ -12,7 +12,7 @@ export const HeaderWrapper = styled.View`
     flex-direction: row
     justify-content: space-between
     align-items: center
-    padding-top: ${getStatusBarHeight()}px
+    padding-top: ${getStatusBarHeight() + 10}px
     padding-left: 15px 
     padding-right: 15px
     padding-bottom: 5px 

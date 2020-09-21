@@ -18,6 +18,7 @@ export default function SearchBar() {
     const navigation = useNavigation()
     const filter = useSelector(selectFilter)
     const { t } = useTranslation()
+    const inputRef = React.useRef()
 
     const onSearch = React.useCallback(
         value => {
@@ -27,14 +28,17 @@ export default function SearchBar() {
     )
 
     const logEvent = React.useCallback(() => {
-        if (filter) {
-            fbAnalytics.logSearch({ search_term: filter })
-        }
+        filter.trim().length && fbAnalytics.logSearch({ search_term: filter })
     }, [filter])
 
     return (
         <BarWrapper>
-            <Button onPress={() => onSearch('')}>
+            <Button
+                onPress={
+                    filter.length
+                        ? () => onSearch('')
+                        : () => inputRef.current && inputRef.current.focus()
+                }>
                 {filter.length ? (
                     <SearchIcon name="close" size={30} />
                 ) : (
@@ -43,6 +47,7 @@ export default function SearchBar() {
             </Button>
 
             <SearchInput
+                ref={inputRef}
                 clearButtonMode="always"
                 placeholder={t('search')}
                 value={filter}

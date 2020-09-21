@@ -1,13 +1,12 @@
 import styled from 'styled-components/native'
 import { getStatusBarHeight } from 'react-native-status-bar-height'
-import { Animated } from 'react-native'
+import { Animated, Platform } from 'react-native'
 
 import { Colors } from '../../styles/colors'
 
 export const MainWrapper = styled.SafeAreaView`
     flex: 1
     background: ${Colors.white}
-    padding: 0 15px
 `
 
 export const AnimatedHeader = styled(Animated.View)`
@@ -15,8 +14,8 @@ export const AnimatedHeader = styled(Animated.View)`
     left: 0
     position: absolute
     overflow: hidden
-    padding: 0 15px
- 
+    padding: ${Platform.OS === 'ios' ? getStatusBarHeight() : 0}px 15px 5px 15px
+
 `
 
 export const ListWrapper = styled.View`

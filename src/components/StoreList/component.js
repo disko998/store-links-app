@@ -42,6 +42,10 @@ export default function StoreList({ ...scrollProps }) {
     return (
         <AnimatedFlatList
             {...scrollProps}
+            columnWrapperStyle={{
+                flex: 1,
+                backgroundColor: 'blue',
+            }}
             refreshing={loading}
             showsVerticalScrollIndicator={false}
             stickyHeaderIndices={[0]}

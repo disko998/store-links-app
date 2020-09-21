@@ -3,6 +3,7 @@ import { Animated } from 'react-native'
 
 import { MainWrapper, AnimatedHeader } from './styles'
 import { StoryBar, AdsBanner, SearchBar, StoreList } from '../../components'
+import { getStatusBarHeight } from 'react-native-status-bar-height'
 
 export default function MainScreen() {
     const [headerHeight, setHeaderHeight] = React.useState(0)
@@ -23,7 +24,8 @@ export default function MainScreen() {
         <MainWrapper>
             <StoreList
                 contentContainerStyle={{
-                    paddingTop: headerHeight,
+                    paddingTop: headerHeight - getStatusBarHeight(),
+                    paddingHorizontal: 15,
                 }}
                 onScroll={Animated.event(
                     [{ nativeEvent: { contentOffset: { y: scrollY } } }],

@@ -5,7 +5,7 @@ export const HorizontalScroll = styled.View`
     flex-direction: row;
     flex-wrap: nowrap;
 
-    margin-top: 5px;
+    margin-top: 10px;
 `
 
 export const StoryWrapper = styled.View`

@@ -8,7 +8,7 @@ import { windowWidth } from '../../styles/dimensions'
 
 export const HeaderWrapper = styled.View`
     width: ${windowWidth}px
-    min-height: ${HEADER_HEIGHT}
+    min-height: ${HEADER_HEIGHT}px
     flex-direction: row
     justify-content: space-between
     align-items: center

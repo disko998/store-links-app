@@ -64,14 +64,18 @@ export default function StoreList({ ...scrollProps }) {
             ListHeaderComponent={<CategoryList />}
             ListEmptyComponent={
                 <EmptyWrapper>
-                    {!loading && <EmptyText>No stores found!</EmptyText>}
+                    {loading ? (
+                        <ActivityIndicator color={Colors.black} size="large" />
+                    ) : (
+                        <EmptyText>No stores found!</EmptyText>
+                    )}
                 </EmptyWrapper>
             }
-            ListFooterComponent={
-                loading && (
-                    <ActivityIndicator color={Colors.black} size="large" />
-                )
-            }
+            // ListFooterComponent={
+            //     loading && (
+            //         <ActivityIndicator color={Colors.black} size="large" />
+            //     )
+            // }
             getItemLayout={(data, index) => ({
                 length: STORE_BUTTON_HEIGHT + 10,
                 offset: STORE_BUTTON_HEIGHT + 10 * index,

@@ -16,7 +16,7 @@ import {
 import routes from './routes'
 import { DrawerContext } from './DrawerNav'
 import { Platform, StatusBar } from 'react-native'
-import { Colors } from '../styles'
+import { Colors, windowHeight } from '../styles'
 
 const Stack = createStackNavigator()
 
@@ -58,8 +58,8 @@ export default function MainNav({ navigation }) {
                     gestureResponseDistance: {
                         vertical:
                             Platform.OS === 'android'
-                                ? getStatusBarHeight() + 20
-                                : getStatusBarHeight() + 135,
+                                ? windowHeight // getStatusBarHeight() + 20
+                                : windowHeight,
                     },
                     cardOverlayEnabled: false,
                     cardStyle: {

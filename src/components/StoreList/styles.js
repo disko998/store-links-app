@@ -13,7 +13,7 @@ export const styles = StyleSheet.create({
 
 export const StoresList = styled.FlatList`
     flex: 1;
-    margin-vertical: 5px;
+    margin-top: 5px;
 `
 
 export const EmptyWrapper = styled.View`

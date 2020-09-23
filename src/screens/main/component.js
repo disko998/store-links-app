@@ -24,7 +24,7 @@ export default function MainScreen() {
         <MainWrapper>
             <StoreList
                 contentContainerStyle={{
-                    paddingTop: headerHeight - getStatusBarHeight(),
+                    paddingTop: headerHeight,
                 }}
                 onScroll={Animated.event(
                     [{ nativeEvent: { contentOffset: { y: scrollY } } }],

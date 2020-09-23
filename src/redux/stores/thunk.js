@@ -55,6 +55,7 @@ export const fetchStoresAsync = category => {
 
             dispatch(fetchStoresSuccess(stores || []))
         } catch (error) {
+            console.error(error)
             dispatch(fetchStoresFailure(error.message))
         }
     }

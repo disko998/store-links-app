@@ -65,12 +65,8 @@ export const fetchMyList = async country => {
         )
 
         userStores = docs
-            .map(doc => {
-                if (doc.exists) {
-                    return { ...doc.data(), id: doc.id }
-                }
-            })
-            .filter(s => !s.hidden)
+            .map(doc => (doc.exists ? { ...doc.data(), id: doc.id } : null))
+            .filter(s => s && !s.hidden)
     }
 
     // fetch pinned stores

@@ -4,14 +4,10 @@ import { StyleSheet } from 'react-native'
 import { Colors, font } from '../../styles'
 
 export const styles = StyleSheet.create({
-    listContainer: {
+    listColumn: {
         flexDirection: 'row',
-        flexWrap: 'wrap',
-        justifyContent: 'flex-start',
-    },
-    listHeader: {
-        position: 'absolute',
-        top: 0,
+        justifyContent: 'space-between',
+        paddingHorizontal: 15,
     },
 })
 

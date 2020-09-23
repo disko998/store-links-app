@@ -13,6 +13,8 @@ export default function StoreWebView({ navigation, route }) {
         <View>
             <Header onBack={navigation.goBack} bg={Colors.mainBlue} />
             <WebView
+                cacheEnabled={true}
+                cacheMode="LOAD_CACHE_ELSE_NETWORK"
                 source={{ uri }}
                 containerStyle={styles.webView}
                 startInLoadingState={true}

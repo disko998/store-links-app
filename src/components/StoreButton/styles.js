@@ -16,8 +16,7 @@ export const StyledTouchable = styled.TouchableOpacity`
     maxWidth: ${STORE_BUTTON_WIDTH}px
     height: ${STORE_BUTTON_HEIGHT}px
     background: ${Colors.white}
-
-    margin: 10px auto
+    margin: 10px
 `
 
 export const StoreImage = styled.ImageBackground`

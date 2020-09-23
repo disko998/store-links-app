@@ -10,7 +10,7 @@ export default function StoryProgressBar({ timer }) {
             animated={true}
             indeterminate={false}
             indeterminateAnimationDuration={15000}
-            progress={normalize(timer, STORY_INTERVAL_TIME, 1000) + 0.1}
+            progress={normalize(timer, STORY_INTERVAL_TIME, 1000)}
             width={null}
             useNativeDriver={true}
             animationType="timing"

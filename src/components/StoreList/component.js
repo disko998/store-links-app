@@ -3,7 +3,7 @@ import { useNavigation } from '@react-navigation/native'
 import { useDispatch, useSelector } from 'react-redux'
 import { ActivityIndicator, Animated } from 'react-native'
 
-import { StoresList, EmptyWrapper, EmptyText } from './styles'
+import { StoresList, EmptyWrapper, EmptyText, styles } from './styles'
 import { StoreButton } from '../StoreButton'
 import { CategoryList } from '../CategoryList'
 import routes from '../../navigation/routes'
@@ -42,18 +42,14 @@ export default function StoreList({ ...scrollProps }) {
     return (
         <AnimatedFlatList
             {...scrollProps}
-            columnWrapperStyle={{
-                flex: 1,
-                backgroundColor: 'blue',
-            }}
+            columnWrapperStyle={styles.listColumn}
             refreshing={loading}
             showsVerticalScrollIndicator={false}
             stickyHeaderIndices={[0]}
             data={stores}
             numColumns={2}
             keyExtractor={item => item.id}
-            ListHeaderComponent={<CategoryList />}
-            renderItem={({ item }) => (
+            renderItem={({ item, index }) => (
                 <StoreButton
                     key={item.id}
                     image={{ uri: item.image }}
@@ -65,6 +61,7 @@ export default function StoreList({ ...scrollProps }) {
                     onLongPress={() => toggleFavorite(item)}
                 />
             )}
+            ListHeaderComponent={<CategoryList />}
             ListEmptyComponent={
                 <EmptyWrapper>
                     {!loading && <EmptyText>No stores found!</EmptyText>}

@@ -44,7 +44,7 @@ export default function SettingsScreen(props) {
 
     // callbacks
     const goToAddStore = React.useCallback(
-        () => props.navigation.navigate(routes.ADD_POPUP),
+        () => props.navigation.navigate(routes.ADD_STORE),
         [props.navigation],
     )
     const onContact = React.useCallback(() => openWhatsApp(CONTACT_NUMBER), [])

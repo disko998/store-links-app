@@ -22,8 +22,8 @@ export default ({ locations, store }) => {
     const initialRegion = {
         latitude: locations[0]._latitude || 37.78825,
         longitude: locations[0]._longitude || -122.4324,
-        latitudeDelta: 1,
-        longitudeDelta: 1,
+        latitudeDelta: 0.05,
+        longitudeDelta: 0.05,
     }
 
     const onMarker = React.useCallback((lan, lng) => {

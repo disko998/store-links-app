@@ -3,12 +3,12 @@ import { getStatusBarHeight } from 'react-native-status-bar-height'
 import Foundation from 'react-native-vector-icons/Foundation'
 import AntDesign from 'react-native-vector-icons/AntDesign'
 
-import { Colors, font } from '../../styles'
+import { Colors, font, HEADER_HEIGHT } from '../../styles'
 import { windowWidth } from '../../styles/dimensions'
 
 export const HeaderWrapper = styled.View`
     width: ${windowWidth}px
-    min-height: 60px
+    min-height: ${HEADER_HEIGHT}
     flex-direction: row
     justify-content: space-between
     align-items: center

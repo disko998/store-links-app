@@ -58,7 +58,7 @@ export default function MainNav({ navigation }) {
                     gestureResponseDistance: {
                         vertical:
                             Platform.OS === 'android'
-                                ? windowHeight // getStatusBarHeight() + 20
+                                ? getStatusBarHeight() + 20
                                 : windowHeight,
                     },
                     cardOverlayEnabled: false,

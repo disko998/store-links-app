@@ -5,7 +5,7 @@ export const HorizontalScroll = styled.ScrollView`
     width: 100%;
     overflow: hidden;
     flex-wrap: nowrap;
-    padding: 10px 0 20px;
+    padding-vertical: 10px;
     background: ${Colors.white};
 `
 

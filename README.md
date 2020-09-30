@@ -7,3 +7,7 @@
 ## Android react-native-maps issue
 
 If you have any issue installing react-native-maps check the compileSdkVersion in your `android/build.gradle`, then go to `node-modules/react-native-maps/lib/android/build.gradle` and change (compileSdkVersion) to match yours.
+
+# Android apk build
+
+`cd android && ./gradlew app:assembleRelease`

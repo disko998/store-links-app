@@ -54,12 +54,9 @@ export default function MainNav({ navigation }) {
             />
             <Stack.Navigator
                 screenOptions={{
-                    gestureEnabled: true,
+                    gestureEnabled: false,
                     gestureResponseDistance: {
-                        vertical:
-                            Platform.OS === 'android'
-                                ? getStatusBarHeight() + 20
-                                : windowHeight,
+                        vertical: windowHeight,
                     },
                     cardOverlayEnabled: false,
                     cardStyle: {

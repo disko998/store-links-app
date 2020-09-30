@@ -23,6 +23,12 @@ export default function StoreScreen({ navigation, route }) {
     const store = JSON.parse(route.params)
     const { name, title, logo, image, order_link, id } = store
 
+    React.useLayoutEffect(() => {
+        navigation.setOptions({
+            gestureEnabled: true,
+        })
+    }, [navigation])
+
     React.useEffect(() => {
         fbAnalytics.logEvent('view_store', {
             store_id: store.id,

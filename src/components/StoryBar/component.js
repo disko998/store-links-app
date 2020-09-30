@@ -16,9 +16,11 @@ export default function StoryBar() {
 
     // handlers
     const onStoryPress = React.useCallback(
-        storyIndex => {
+        (storyIndex, story) => {
             fbAnalytics.logEvent('view_story', {
                 story_index: storyIndex,
+                story_id: story.id,
+                store_name: story.name,
             })
             navigation.navigate(routes.STORY, JSON.stringify(storyIndex))
         },
@@ -40,7 +42,7 @@ export default function StoryBar() {
                 <StoryWrapper key={story.id}>
                     <Story
                         image={{ uri: story.logo }}
-                        onPress={() => onStoryPress(index)}
+                        onPress={() => onStoryPress(index, story)}
                     />
                 </StoryWrapper>
             ))}

@@ -50,9 +50,10 @@ export default function StoryView({
     const onOrderPress = React.useCallback(async () => {
         fbAnalytics.logEvent('story_order_link', {
             order_link: order_link,
+            store_name: name,
         })
         navigation.navigate(routes.STORE_VIEW, { uri: order_link })
-    }, [order_link, navigation])
+    }, [order_link, navigation, name])
 
     return (
         <StoryWrapper source={{ uri: images[index] }}>

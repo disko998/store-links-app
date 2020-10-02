@@ -20,7 +20,7 @@ import routes from '../../navigation/routes'
 import { fbAnalytics } from '../../firebase'
 
 export default function StoreScreen({ navigation, route }) {
-    const store = JSON.parse(route.params)
+    const store = route.params
     const { name, title, logo, image, order_link, id } = store
 
     React.useLayoutEffect(() => {

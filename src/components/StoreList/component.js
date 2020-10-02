@@ -28,7 +28,7 @@ export default function StoreList({ ...scrollProps }) {
 
     // handlers
     const goToStore = React.useCallback(
-        store => navigation.navigate(routes.STORE, JSON.stringify(store)),
+        store => navigation.navigate(routes.STORE, store),
         [navigation],
     )
 

@@ -18,7 +18,6 @@ export default function StoryBar() {
     const onStoryPress = React.useCallback(
         (storyIndex, story) => {
             fbAnalytics.logEvent('view_story', {
-                story_index: storyIndex,
                 story_id: story.id,
                 store_name: story.name,
             })

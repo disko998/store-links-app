@@ -16,9 +16,9 @@ export default function AdsBanner() {
     }, [])
 
     const onAdPress = React.useCallback(async () => {
-        fbAnalytics.logEvent('ad_click')
         const store = await getDoc('stores', ad.storeId)
-        navigation.navigate(routes.STORE, JSON.stringify(store))
+        fbAnalytics.logEvent('ad_click', { store_name: store.name })
+        navigation.navigate(routes.STORE, store)
     }, [ad, navigation])
 
     if (!ad) {

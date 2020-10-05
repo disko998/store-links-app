@@ -8,7 +8,7 @@ import {
     STORE_BUTTON_WIDTH,
 } from '../../styles'
 
-export const StyledTouchable = styled.TouchableOpacity`
+export const StyledTouchable = styled.View`
     border-radius: 16px
     border: 1px solid ${Colors.lightGray}
     overflow: visible

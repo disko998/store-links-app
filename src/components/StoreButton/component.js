@@ -1,5 +1,9 @@
 import React from 'react'
+import { useNavigation } from '@react-navigation/native'
+import DoubleClick from 'react-native-double-tap'
 
+import { FavoriteMark, UniqueMark } from '../withMark'
+import routes from '../../navigation/routes'
 import {
     StyledTouchable,
     StoreImage,
@@ -8,9 +12,6 @@ import {
     StoreLogo,
     Overlay,
 } from './styles'
-import { FavoriteMark, UniqueMark } from '../withMark'
-import { useNavigation } from '@react-navigation/native'
-import routes from '../../navigation/routes'
 
 export default function StoreButton({
     onPress,
@@ -28,19 +29,24 @@ export default function StoreButton({
     }, [navigation])
 
     return (
-        <StyledTouchable onPress={onPress} onLongPress={onLongPress}>
-            <FavoriteMark show={favorite}>
-                <UniqueMark show={unique} onPress={openUniquePopup}>
-                    <StoreImage source={image}>
-                        <Overlay>
-                            <InfoWrapper>
-                                <StoreLogo source={logo} />
-                                <StoreName>{storeName}</StoreName>
-                            </InfoWrapper>
-                        </Overlay>
-                    </StoreImage>
-                </UniqueMark>
-            </FavoriteMark>
+        <StyledTouchable>
+            <DoubleClick
+                singleTap={onPress}
+                doubleTap={onLongPress}
+                delay={200}>
+                <FavoriteMark show={favorite}>
+                    <UniqueMark show={unique} onPress={openUniquePopup}>
+                        <StoreImage source={image}>
+                            <Overlay>
+                                <InfoWrapper>
+                                    <StoreLogo source={logo} />
+                                    <StoreName>{storeName}</StoreName>
+                                </InfoWrapper>
+                            </Overlay>
+                        </StoreImage>
+                    </UniqueMark>
+                </FavoriteMark>
+            </DoubleClick>
         </StyledTouchable>
     )
 }
